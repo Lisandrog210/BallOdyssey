@@ -21,15 +21,16 @@ public class BallMove : MonoBehaviour{
     void Update()
     {
 
-        rb.velocity = new Vector2(Input.acceleration.x*moveSpeed, fallingSpeed);
-        this.transform.rotation = Quaternion.identity;
+        
 
 
     }
 
     private void FixedUpdate()
     {
-        
-    }
+		//rb.velocity = new Vector2(Input.acceleration.x * moveSpeed, fallingSpeed);
+		rb.AddForce(Vector2.right * Input.acceleration.x * moveSpeed,ForceMode2D.Impulse);
+		this.transform.rotation = Quaternion.identity;
+	}
 }
 
