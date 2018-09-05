@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
             input = new InputPC();
         }*/
 
-#if UNITY_MOBILE
+#if UNITY_ANDROID || UNITY_IOS
         input = new InputMobile();
 #else
         input = new InputPC();
