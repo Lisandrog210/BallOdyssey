@@ -11,7 +11,7 @@ public class InputPC : IInput
 
     public bool GetJumpButton() 
     {
-        if(Input.GetKey("space")) 
+        if(Input.GetKeyDown(KeyCode.Space)) 
         {
             Debug.Log("space");
             return true;
