@@ -16,7 +16,7 @@ public class BallMove : MonoBehaviour{
 
     void Update()
     {
-        //SALTO-------------------------------------------------------------------   
+        //SALTO---------------------------------------------------------------------------------------- 
         if(InputManager.Instance.GetJumpButton() == true && isGrounded==true)
         {
             Debug.Log("ifSalto");
@@ -28,17 +28,17 @@ public class BallMove : MonoBehaviour{
 
     private void FixedUpdate()
     {
-		//movimiento izq-derecha// Si esta en el aire el movimiento es ínfimo
+		//MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
 		this.transform.rotation = Quaternion.identity;
         
         if(isGrounded==true)
             rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
         else
-            rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * 10.0f * Time.deltaTime, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed / 10 * Time.deltaTime, ForceMode2D.Impulse);
 
     }
 
-    //salto
+   
     void OnCollisionEnter2D(Collision2D collision) 
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
@@ -48,9 +48,9 @@ public class BallMove : MonoBehaviour{
         
     }
 
-    void OnCollisionExit2D(Collision2D collision) {
-        isGrounded = false;
-        
+    void OnCollisionExit2D(Collision2D collision) 
+    {
+        isGrounded = false;        
     }
 }
 
