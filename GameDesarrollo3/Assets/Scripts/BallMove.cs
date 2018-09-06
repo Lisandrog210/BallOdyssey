@@ -16,7 +16,7 @@ public class BallMove : MonoBehaviour{
 
     void Update()
     {
-        //SALTO---------------------------------------------------------------------------------------- 
+        //SALTO--------------solo cuando esta en la plataf--------------------------------------------------------------- 
         if(InputManager.Instance.GetJumpButton() == true && isGrounded==true)
         {
             Debug.Log("ifSalto");
