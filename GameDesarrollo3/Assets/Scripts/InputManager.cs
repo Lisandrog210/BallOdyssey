@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
     {
         instance = this;
 
-        /*if (Application.platform == RuntimePlatform.Android)
+       /*if (Application.platform == RuntimePlatform.Android)
         {
             input = new InputAndroid();
         }
