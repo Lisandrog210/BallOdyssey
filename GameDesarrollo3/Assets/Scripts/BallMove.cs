@@ -24,7 +24,7 @@ public class BallMove : MonoBehaviour{
         }
 
         
-}
+    }
 
     private void FixedUpdate()
     {
