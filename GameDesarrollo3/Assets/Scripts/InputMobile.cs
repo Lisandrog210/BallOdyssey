@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InputMobile : IInput
 {
-    public bool GetFireButton()
-    {
-        return Input.touchCount > 0;
-    }
-
+    
     public float GetHorizontalAxis()
     {
         return Input.acceleration.x;
     }
 
+    public bool GetJumpButton() 
+    {
+        return Input.touchCount > 0;
+    }
 }

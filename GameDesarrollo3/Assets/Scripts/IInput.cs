@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 
-interface IInput
-{    
+interface IInput 
+{
     float GetHorizontalAxis();
+    bool GetJumpButton();
 }

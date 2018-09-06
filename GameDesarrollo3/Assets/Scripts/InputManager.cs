@@ -47,4 +47,9 @@ public class InputManager : MonoBehaviour
         return input.GetHorizontalAxis();
     }
 
+    public bool GetJumpButton() 
+    {
+        return input.GetJumpButton();
+    }
+
 }

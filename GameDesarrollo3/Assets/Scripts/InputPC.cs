@@ -9,4 +9,16 @@ public class InputPC : IInput
         return Input.GetAxis("Horizontal");
     }
 
+    public bool GetJumpButton() 
+    {
+        if(Input.GetKey("space")) 
+        {
+            Debug.Log("space");
+            return true;
+           
+        }
+            
+        else
+            return false;
+    }
 }

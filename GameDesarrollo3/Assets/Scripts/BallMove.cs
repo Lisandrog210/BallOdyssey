@@ -28,7 +28,11 @@ public class BallMove : MonoBehaviour{
 		//rb.velocity = new Vector2(Input.acceleration.x * moveSpeed, fallingSpeed);
 		//rb.AddForce(Vector2.right * Input.acceleration.x * moveSpeed,ForceMode2D.Impulse);
 		this.transform.rotation = Quaternion.identity;
-		rb.AddForce(Vector2.right* InputManager.Instance.GetHorizontalAxis() * 100.0f * Time.deltaTime,ForceMode2D.Impulse);
+        rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * 100.0f * Time.deltaTime, ForceMode2D.Impulse);
+        
+        //salto
+        if(InputManager.Instance.GetJumpButton() == true)
+        rb.AddForce(Vector2.up * 250.0f * Time.deltaTime, ForceMode2D.Impulse);
 	}
 }
 
