@@ -7,6 +7,7 @@ TagManager:
   - WinCheck
   - LoseCheck
   - Ball
+  - Coin
   layers:
   - Default
   - TransparentFX
