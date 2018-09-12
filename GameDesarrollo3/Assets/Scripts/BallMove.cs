@@ -2,16 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallMove : MonoBehaviour{
+public class Ball : MonoBehaviour{
 
     public float jumpForce = 250.0f;   
-    private Rigidbody2D rb;
+    private Rigidbody2D rb;    
     public float moveSpeed = 100.0f;
     private bool isGrounded;
+    public static Ball instance;
+
+    public static Ball Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Ball>();
+            }
+            return instance;
+        }
+    }
+
+
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();       
+        rb = GetComponent<Rigidbody2D>();        
+        instance = this;
     }
 
     void Update()
@@ -21,7 +37,7 @@ public class BallMove : MonoBehaviour{
         {
             Debug.Log("ifSalto");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+        }      
 
         
     }
@@ -43,7 +59,7 @@ public class BallMove : MonoBehaviour{
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
-            isGrounded = true;
+            isGrounded = true;            
         }
         
     }

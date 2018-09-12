@@ -11,7 +11,7 @@ public class Camera : MonoBehaviour {
     void LateUpdate()
     {
         Vector3 blahblah = Vector2.zero;
-        blahblah.x = -6.0f;
+        blahblah.x = 0f;
         blahblah.y = player.transform.position.y;
         blahblah.z = -10.0f;
         transform.position = blahblah;
