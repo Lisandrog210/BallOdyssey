@@ -59,7 +59,7 @@ public class Ball : MonoBehaviour{
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
-            isGrounded = true;            
+            isGrounded = true;                       
         }
         
     }

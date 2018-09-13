@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Quit : MonoBehaviour
+public class QuitButton : MonoBehaviour
 {
 
-    public void Awake()
+    private void Awake()
     {
-        var btn = GetComponent<Button>();
-        btn.onClick.AddListener(Close);
+        var btn2 = GetComponent<Button>();
+        btn2.onClick.AddListener(Close);
 
     }
 
-    public void Close()
+   public void Close()
     {
         Application.Quit();
     }
