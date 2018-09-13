@@ -3,44 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinLoseCheck : MonoBehaviour
-{
-    public bool coinPicked = false;  
+public class WinLoseCheck : MonoBehaviour {
+    int grabbedCoins = 0;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "WinCheck" && coinPicked == true)
-        {
+
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.tag == "WinCheck" && grabbedCoins>0 ) {
             WinScene();
-
-        }else if (collision.gameObject.tag == "WinCheck" && coinPicked == false)
-            {
-                GameOverScene();
-            }
-
-        if (collision.gameObject.tag == "LoseCheck")
-        {
+        }
+        else if(collider.tag == "WinCheck" && grabbedCoins <= 0) {
             GameOverScene();
         }
 
-        if (collision.gameObject.tag == "Coin")
-        {
-            Debug.Log(coinPicked);
-            coinPicked = true;
-            collision.gameObject.SetActive(false);
+        if(collider.tag == "LoseCheck") {
+            GameOverScene();
         }
+
 
     }
 
-    
+    public void CheckCoin() {
+        grabbedCoins++;        
+    }
 
-    public void WinScene()
-    {
+    void OnEnable() {
+        Coin.OnPickedUp += CheckCoin;
+    }
+
+
+    void OnDisable() {
+        Coin.OnPickedUp -= CheckCoin;
+    }
+
+
+
+    public void WinScene() {
         SceneManager.LoadScene("WinMenu");
     }
 
-    public void GameOverScene()
-    {
+    public void GameOverScene() {
         SceneManager.LoadScene("GameOverMenu");
     }
 }
