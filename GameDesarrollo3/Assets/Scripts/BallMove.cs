@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour{
+public class BallMove : MonoBehaviour{
 
     public float jumpForce = 250.0f;   
     private Rigidbody2D rb;    
     public float moveSpeed = 100.0f;
     private bool isGrounded;
-    public static Ball instance;
+    public static BallMove instance;
 
-    public static Ball Instance
+    public static BallMove Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<Ball>();
+                instance = FindObjectOfType<BallMove>();
             }
             return instance;
         }
@@ -32,8 +32,9 @@ public class Ball : MonoBehaviour{
 
     void Update()
     {
+        
         //SALTO--------------solo cuando esta en la plataf--------------------------------------------------------------- 
-        if(InputManager.Instance.GetJumpButton() == true && isGrounded==true)
+        if (InputManager.Instance.GetJumpButton() == true && isGrounded==true)
         {
             Debug.Log("ifSalto");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);

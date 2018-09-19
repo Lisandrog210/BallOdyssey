@@ -12,6 +12,6 @@ public class InputMobile : IInput
 
     public bool GetJumpButton() 
     {
-        return Input.touchCount > 0;
+        return Input.GetMouseButtonDown(0);
     }
 }

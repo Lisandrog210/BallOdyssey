@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212794174780875188}
   - component: {fileID: 58051873047457546}
   - component: {fileID: 50446167643770600}
-  - component: {fileID: 114861831670609394}
+  - component: {fileID: 114692006456073804}
   m_Layer: 0
   m_Name: Ball1
   m_TagString: Ball
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1031633852691626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.73, y: 2.6, z: 0}
+  m_LocalPosition: {x: 0, y: 4.9, z: 0}
   m_LocalScale: {x: 8.657283, y: 8.657283, z: 8.657283}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,14 +71,14 @@ CircleCollider2D:
   m_GameObject: {fileID: 1031633852691626}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 98516d300db5cf24fb704ed3826e09b1, type: 2}
+  m_Material: {fileID: 6200000, guid: 872a9eec6b7f3ed488499ed7db1712f5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0000000116955405, y: 0}
   serializedVersion: 2
   m_Radius: 0.08854959
---- !u!114 &114861831670609394
+--- !u!114 &114692006456073804
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,11 +86,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1031633852691626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d17d595ff0bebd478da071c7aa8af6c, type: 3}
+  m_Script: {fileID: 11500000, guid: f689f9cb589d19c42b2e409bb736bea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
-  moveSpeed: 100
+  jumpForce: 25
+  moveSpeed: 20
 --- !u!212 &212794174780875188
 SpriteRenderer:
   m_ObjectHideFlags: 1
