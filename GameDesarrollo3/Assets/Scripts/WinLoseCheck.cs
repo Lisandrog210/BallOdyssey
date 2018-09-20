@@ -8,12 +8,12 @@ public class WinLoseCheck : MonoBehaviour {
 
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.tag == "WinCheck" /*&& grabbedCoins>0 */) {
+        if(collider.tag == "WinCheck" && grabbedCoins>0) {
             WinScene();
         }
-        /*else if(collider.tag == "WinCheck" && grabbedCoins <= 0) {
+        else if(collider.tag == "WinCheck" && grabbedCoins <= 0) {
             GameOverScene();
-        }*/
+        }
 
         if(collider.tag == "LoseCheck") {
             GameOverScene();
