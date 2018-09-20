@@ -9,6 +9,7 @@ public class BallMove : MonoBehaviour{
     public float moveSpeed = 100.0f;
     private bool isGrounded;
     public static BallMove instance;
+    private bool moving;
 
     public static BallMove Instance
     {
@@ -31,8 +32,8 @@ public class BallMove : MonoBehaviour{
     }
 
     void Update()
-    {
-        
+    {        
+
         //SALTO--------------solo cuando esta en la plataf--------------------------------------------------------------- 
         if (InputManager.Instance.GetJumpButton() == true && isGrounded==true)
         {
@@ -47,11 +48,16 @@ public class BallMove : MonoBehaviour{
     {
 		//MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
 		this.transform.rotation = Quaternion.identity;
-        
-        if(isGrounded==true)
+
+        if(isGrounded == true)
+        {
             rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        }
         else
+        {
             rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed / 10 * Time.deltaTime, ForceMode2D.Impulse);
+        }
+            
 
     }
 
@@ -60,7 +66,9 @@ public class BallMove : MonoBehaviour{
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
-            isGrounded = true;                       
+            isGrounded = true;
+            this.transform.SetParent(collision.transform);
+            
         }
         
     }

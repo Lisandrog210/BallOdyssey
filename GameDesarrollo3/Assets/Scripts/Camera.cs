@@ -5,15 +5,13 @@ using UnityEngine;
 public class Camera : MonoBehaviour {
 
     public GameObject player;
-   
-
 
     void LateUpdate()
     {
-        Vector3 blahblah = Vector2.zero;
-        blahblah.x = 0f;
-        blahblah.y = player.transform.position.y;
-        blahblah.z = -10.0f;
-        transform.position = blahblah;
+        Vector3 vec = Vector2.zero;
+        vec.x = 0f;
+        vec.y = player.transform.position.y;
+        vec.z = -10.0f;
+        transform.position = vec;
     }
 }
