@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BallMove : MonoBehaviour{
 
-    public float jumpForce = 250.0f;   
+    private float jumpForce = 28.0f;   
     private Rigidbody2D rb;    
-    public float moveSpeed = 100.0f;
+    private float moveSpeed = 19.0f;
     private bool isGrounded;
     public static BallMove instance;
 
@@ -62,7 +62,6 @@ public class BallMove : MonoBehaviour{
         {
             isGrounded = true;                       
         }
-        
     }
 
     void OnCollisionExit2D(Collision2D collision) 
