@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212600613118845440}
   - component: {fileID: 61127419894510380}
   - component: {fileID: 50482697971029046}
-  - component: {fileID: 70550258019851196}
+  - component: {fileID: 114761308052271598}
   m_Layer: 8
   m_Name: Spring
   m_TagString: Untagged
@@ -71,11 +71,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1475517522074062}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: ae628f19d9de3424dbe8efd42a4326f0, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0007624626, y: 0.36986256}
+  m_Offset: {x: 0.0042928457, y: 0.3820622}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -86,23 +86,19 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3703356, y: 0.021662712}
+  m_Size: {x: 1.3804462, y: 0.0076155663}
   m_EdgeRadius: 0
---- !u!70 &70550258019851196
-CapsuleCollider2D:
+--- !u!114 &114761308052271598
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1475517522074062}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 872a9eec6b7f3ed488499ed7db1712f5, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0023778677, y: 0.31265295}
-  m_Size: {x: 1.4167993, y: 1.4167998}
-  m_Direction: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85967126290f73641b10adf4ee4acf8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212600613118845440
 SpriteRenderer:
   m_ObjectHideFlags: 1
