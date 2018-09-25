@@ -58,10 +58,4 @@ public class PlatformMove: MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //LIMITAR FRICCION????
-
-    }
 }
