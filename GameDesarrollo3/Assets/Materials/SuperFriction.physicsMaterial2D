@@ -5,6 +5,6 @@ PhysicsMaterial2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: NoBounciness
-  friction: 100
+  m_Name: SuperFriction
+  friction: 50
   bounciness: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallMove : MonoBehaviour{
 
-    private float jumpForce = 28.0f;   
+    private float jumpForce = 24.0f;   
     private Rigidbody2D rb;    
     private float moveSpeed = 19.0f;
     private bool isGrounded;
@@ -67,13 +67,16 @@ public class BallMove : MonoBehaviour{
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
             isGrounded = true;
-            this.transform.SetParent(collision.transform);
-            
+            this.transform.SetParent(collision.transform);            
+
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
-        {
-            Debug.Log("FAST");
-            rb.AddForce(Vector2.right * moveSpeed * 8, ForceMode2D.Impulse);
+        {            
+            rb.AddForce(Vector2.right * moveSpeed*1.3f, ForceMode2D.Impulse);
+        }
+        if (collision.collider.gameObject.tag == "FastPlatformx2")
+        {            
+            rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
         }
     }
 

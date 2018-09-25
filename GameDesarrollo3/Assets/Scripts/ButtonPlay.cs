@@ -16,7 +16,7 @@ public class ButtonPlay : MonoBehaviour
 
     private void ChangeLevel()
     {
-        SceneManager.LoadScene("LevelRodrigo");
+        SceneManager.LoadScene("TestLevel 1");
     }
 }
 

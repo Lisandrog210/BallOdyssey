@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class PlatformMove: MonoBehaviour
+public class TrapMove : MonoBehaviour
 {
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private float speed;
@@ -24,7 +24,7 @@ public class PlatformMove: MonoBehaviour
             CalculateNextWaypoint();
         }
         StartCoroutine(WaitTime());
-    }    
+    }
 
     void Update()
     {
@@ -32,10 +32,11 @@ public class PlatformMove: MonoBehaviour
         Move();
     }
 
-    private void CalculateNextWaypoint() {
+    private void CalculateNextWaypoint()
+    {
 
         nextWaypointIndex++;
-        if(nextWaypointIndex == waypoints.Length)
+        if (nextWaypointIndex == waypoints.Length)
             nextWaypointIndex = 0;
 
         nextPoint = waypoints[nextWaypointIndex].position;
@@ -45,23 +46,17 @@ public class PlatformMove: MonoBehaviour
     }
 
     private void Move()
-    {       
+    {
         transform.Translate(moveVector * speed * Time.deltaTime);
 
-        if(Vector3.Distance(transform.position,nextPoint)<0.5f)
+        if (Vector3.Distance(transform.position, nextPoint) < 0.5f)
         {
             CalculateNextWaypoint();
         }
     }
-    
+
     IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(wait);
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //LIMITAR FRICCION????
-
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Ball
   - Coin
   - FastPlatform
+  - FastPlatformx2
   layers:
   - Default
   - TransparentFX

@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class WinLoseCheck : MonoBehaviour {
     int grabbedCoins = 0;
+    [SerializeField] int toCollect = 3;
 
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.tag == "WinCheck" && grabbedCoins>0) {
+        if(collider.tag == "WinCheck" && grabbedCoins==toCollect) {
             WinScene();
         }
-        else if(collider.tag == "WinCheck" && grabbedCoins <= 0) {
+        else if(collider.tag == "WinCheck" && grabbedCoins < toCollect) {
             GameOverScene();
         }
 
