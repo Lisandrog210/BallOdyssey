@@ -78,11 +78,6 @@ public class BallMove : MonoBehaviour{
         {            
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
         }
-        if (collision.collider.gameObject.tag == "FastPlatform")
-        {
-            Debug.Log("FAST");
-            rb.AddForce(Vector2.right * moveSpeed * 8, ForceMode2D.Impulse);
-        }
     }
 
     void OnCollisionExit2D(Collision2D collision) 
