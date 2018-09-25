@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlatformMove: MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlatformMove: MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private bool loop;
     [SerializeField] private int timesRepeat;
+    [SerializeField] private float wait;
 
 
     private Vector3 nextPoint = Vector2.zero;
@@ -21,11 +23,12 @@ public class PlatformMove: MonoBehaviour
 
             CalculateNextWaypoint();
         }
-    }
+        StartCoroutine(WaitTime());
+    }    
 
     void Update()
     {
-        Debug.Log(moveVector);
+        //Debug.Log(moveVector);
         Move();
     }
 
@@ -42,13 +45,17 @@ public class PlatformMove: MonoBehaviour
     }
 
     private void Move()
-    {
+    {       
         transform.Translate(moveVector * speed * Time.deltaTime);
 
         if(Vector3.Distance(transform.position,nextPoint)<0.5f)
         {
             CalculateNextWaypoint();
         }
-
-    }    
+    }
+    
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(wait);
+    }
 }
