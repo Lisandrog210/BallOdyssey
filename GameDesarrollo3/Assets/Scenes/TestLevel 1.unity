@@ -837,7 +837,7 @@ Prefab:
     - target: {fileID: 61807053665366166, guid: 58409ede865336543bdb2186feca7b55,
         type: 2}
       propertyPath: m_Offset.x
-      value: 0.073658705
+      value: 0.07365894
       objectReference: {fileID: 0}
     - target: {fileID: 61807053665366166, guid: 58409ede865336543bdb2186feca7b55,
         type: 2}
@@ -899,6 +899,26 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61807053665366166, guid: 58409ede865336543bdb2186feca7b55,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 872a9eec6b7f3ed488499ed7db1712f5, type: 2}
+    - target: {fileID: 61807053665366166, guid: 58409ede865336543bdb2186feca7b55,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.0080937445
+      objectReference: {fileID: 0}
+    - target: {fileID: 61807053665366166, guid: 58409ede865336543bdb2186feca7b55,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.4161875
+      objectReference: {fileID: 0}
+    - target: {fileID: 50742821498391242, guid: 58409ede865336543bdb2186feca7b55,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58409ede865336543bdb2186feca7b55, type: 2}
@@ -1385,7 +1405,6 @@ MonoBehaviour:
   speed: 2
   loop: 1
   timesRepeat: 0
-  wait: 40
 --- !u!58 &131705137
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4504,7 +4523,6 @@ MonoBehaviour:
   speed: 2
   loop: 1
   timesRepeat: 0
-  wait: 1
 --- !u!1 &536200165
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,7 +4558,6 @@ MonoBehaviour:
   speed: 3
   loop: 1
   timesRepeat: 0
-  wait: 0
 --- !u!58 &536200167
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8030,7 +8047,6 @@ MonoBehaviour:
   speed: 2
   loop: 1
   timesRepeat: 0
-  wait: 0
 --- !u!58 &1008178260
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8358,7 +8374,6 @@ MonoBehaviour:
   speed: 2
   loop: 1
   timesRepeat: 0
-  wait: 2
 --- !u!1001 &1054967053
 Prefab:
   m_ObjectHideFlags: 0
@@ -8520,7 +8535,6 @@ MonoBehaviour:
   speed: 2
   loop: 1
   timesRepeat: 0
-  wait: 20
 --- !u!58 &1065002929
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8771,7 +8785,6 @@ MonoBehaviour:
   speed: 2
   loop: 1
   timesRepeat: 0
-  wait: 0
 --- !u!1 &1131142635
 GameObject:
   m_ObjectHideFlags: 0
@@ -10108,11 +10121,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -20.3
+      value: -11.88
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.9
+      value: -33.2
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10158,7 +10171,7 @@ Prefab:
     - target: {fileID: 50446167643770600, guid: 671189a2f6b14694fbb14f33219a9221,
         type: 2}
       propertyPath: m_LinearDrag
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 50446167643770600, guid: 671189a2f6b14694fbb14f33219a9221,
         type: 2}
@@ -10180,6 +10193,26 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 872a9eec6b7f3ed488499ed7db1712f5, type: 2}
+    - target: {fileID: 50446167643770600, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50446167643770600, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114692006456073804, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: jumpForce
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 114692006456073804, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_IsPrefabAsset: 0
@@ -13223,7 +13256,7 @@ Prefab:
         type: 2}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: e1bcd65a2f34a7f42920c30cd50c867b, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0b6783c8efa65142bb3c6c1a6bc1afc, type: 2}
   m_IsPrefabAsset: 0
@@ -14344,7 +14377,6 @@ MonoBehaviour:
   speed: 2
   loop: 1
   timesRepeat: 0
-  wait: 0
 --- !u!61 &1928100966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15393,7 +15425,6 @@ MonoBehaviour:
   speed: 2
   loop: 1
   timesRepeat: 0
-  wait: 0
 --- !u!50 &2121731543
 Rigidbody2D:
   serializedVersion: 4
@@ -15424,7 +15455,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2121731540}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: e1bcd65a2f34a7f42920c30cd50c867b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

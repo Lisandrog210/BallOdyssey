@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallMove : MonoBehaviour{
+public class BallMove : MonoBehaviour {
 
-    private float jumpForce = 24.0f;   
+    [SerializeField] private float jumpForce = 24.0f;   
     private Rigidbody2D rb;    
-    private float moveSpeed = 19.0f;
+    [SerializeField] private float moveSpeed = 19.0f;
     private bool isGrounded;
     public static BallMove instance;
     private bool moving;
@@ -67,12 +67,12 @@ public class BallMove : MonoBehaviour{
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
             isGrounded = true;
-            this.transform.SetParent(collision.transform);            
+            this.transform.SetParent(collision.transform);          
 
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
         {            
-            rb.AddForce(Vector2.right * moveSpeed*1.3f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * moveSpeed*1f, ForceMode2D.Impulse);
         }
         if (collision.collider.gameObject.tag == "FastPlatformx2")
         {            

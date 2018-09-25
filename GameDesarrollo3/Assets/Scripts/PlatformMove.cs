@@ -8,7 +8,7 @@ public class PlatformMove: MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private bool loop;
     [SerializeField] private int timesRepeat;
-    [SerializeField] private float wait;
+    //[SerializeField] private float wait;
 
 
     private Vector3 nextPoint = Vector2.zero;
@@ -56,12 +56,16 @@ public class PlatformMove: MonoBehaviour
     
     IEnumerator WaitTime()
     {
-        yield return new WaitForSeconds(wait);
+        yield return new WaitForSeconds(1);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //LIMITAR FRICCION????
+        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+        rb.drag = 50f;
+        StartCoroutine(WaitTime());
+        rb.drag = 0.5f;
+
 
     }
 }
