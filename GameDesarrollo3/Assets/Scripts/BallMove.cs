@@ -70,11 +70,17 @@ public class BallMove : MonoBehaviour{
             this.transform.SetParent(collision.transform);
             
         }
+        if (collision.collider.gameObject.tag == "FastPlatform")
+        {
+            Debug.Log("FAST");
+            rb.AddForce(Vector2.right * moveSpeed * 8, ForceMode2D.Impulse);
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision) 
     {
-        isGrounded = false;        
+        isGrounded = false;
+        this.transform.SetParent(null);        
     }
 }
 
