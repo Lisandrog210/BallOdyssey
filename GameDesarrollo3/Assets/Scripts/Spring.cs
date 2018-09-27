@@ -7,6 +7,9 @@ public class Spring : MonoBehaviour {
     private Rigidbody2D colRb;        
     [SerializeField] GameObject ballGO;
     [SerializeField] float bounceForce = 30f;
+    private float colAngle;
+    private Collision2D springCollision2D;
+
 
 
     
@@ -15,10 +18,15 @@ public class Spring : MonoBehaviour {
     {        
         if (other.gameObject.CompareTag("Ball"))
         {
-            colRb = other.gameObject.GetComponent<Rigidbody2D>();           
-            if (other.contacts[0].normal.y == -1.0f)
+            colAngle = Vector2.Angle(other.contacts[0].normal, new Vector2(this.transform.up.x, this.transform.up.y));
+            Debug.Log(colAngle);
+            Debug.Log(other.contacts.Length);
+            colRb = other.gameObject.GetComponent<Rigidbody2D>();
+            if (colAngle > 120)
             {
-                colRb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+                colRb.AddForce(this.transform.up * bounceForce, ForceMode2D.Impulse);
+                
+               
             }            
         }
     }

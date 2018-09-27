@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: LevelRodrigo
+  nextLevel: LevelSelect
 --- !u!1001 &381446104
 Prefab:
   m_ObjectHideFlags: 0
@@ -287,6 +287,14 @@ Prefab:
       value: '... Games
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133300585723538, guid: 50925185bcf4a564a9b8a160a329b382, type: 2}
+      propertyPath: m_Name
+      value: StartGameButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088880633053758, guid: 50925185bcf4a564a9b8a160a329b382, type: 2}
+      propertyPath: m_Name
+      value: StartGameButtonText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50925185bcf4a564a9b8a160a329b382, type: 2}
