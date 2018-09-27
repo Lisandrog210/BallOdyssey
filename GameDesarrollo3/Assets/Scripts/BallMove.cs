@@ -23,8 +23,6 @@ public class BallMove : MonoBehaviour {
         }
     }
 
-
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();        
@@ -39,7 +37,11 @@ public class BallMove : MonoBehaviour {
         {
             Debug.Log("ifSalto");
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }      
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log(isGrounded);
+        }
 
         
     }
@@ -57,8 +59,6 @@ public class BallMove : MonoBehaviour {
         {
             rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed / 10 * Time.deltaTime, ForceMode2D.Impulse);
         }
-            
-
     }
 
    
@@ -66,9 +66,9 @@ public class BallMove : MonoBehaviour {
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
+            Debug.Log("Col con plat");
             isGrounded = true;
-            this.transform.SetParent(collision.transform);          
-
+            this.transform.SetParent(collision.transform);
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
         {            
@@ -88,8 +88,11 @@ public class BallMove : MonoBehaviour {
 
     void OnCollisionExit2D(Collision2D collision) 
     {
-        isGrounded = false;
-        this.transform.SetParent(null);        
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
+        {
+            isGrounded = false;
+        this.transform.SetParent(null);
+        }
     }
 }
 

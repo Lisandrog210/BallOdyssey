@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4158682143294176}
   - component: {fileID: 212600613118845440}
   - component: {fileID: 61127419894510380}
+  - component: {fileID: 114323637753649670}
   - component: {fileID: 50482697971029046}
-  - component: {fileID: 114761308052271598}
   m_Layer: 8
   m_Name: Spring
   m_TagString: Untagged
@@ -88,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3804462, y: 0.0076155663}
   m_EdgeRadius: 0
---- !u!114 &114761308052271598
+--- !u!114 &114323637753649670
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85967126290f73641b10adf4ee4acf8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bounceForce: 30
 --- !u!212 &212600613118845440
 SpriteRenderer:
   m_ObjectHideFlags: 1
