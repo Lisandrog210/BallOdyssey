@@ -12,7 +12,7 @@ public class Rotator : MonoBehaviour {
     }
 	
 	void Update () {
-       transform.Rotate(Vector3.forward * rotationSpeed);
+       transform.Rotate(Vector3.forward * rotationSpeed,Space.Self);
     }
 }
 

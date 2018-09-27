@@ -9,7 +9,7 @@ public class BallMove : MonoBehaviour {
     [SerializeField] private float moveSpeed = 19.0f;
     private bool isGrounded;
     public static BallMove instance;
-    private bool moving;
+    private bool moving;    
 
     public static BallMove Instance
     {
@@ -77,6 +77,12 @@ public class BallMove : MonoBehaviour {
         if (collision.collider.gameObject.tag == "FastPlatformx2")
         {            
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
+        }
+        if(collision.collider.gameObject.tag == "MovingPlatform")
+        {
+            FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
+            rb2d.connectedBody = rb;
+            
         }
     }
 

@@ -8,7 +8,7 @@ public class PlatformMove: MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private bool loop;
     [SerializeField] private int timesRepeat;
-    //[SerializeField] private float wait;
+    
 
 
     private Vector3 nextPoint = Vector2.zero;
@@ -22,13 +22,12 @@ public class PlatformMove: MonoBehaviour
             transform.position = waypoints[0].position;
 
             CalculateNextWaypoint();
-        }
-        StartCoroutine(WaitTime());
+        }        
     }    
 
-    void Update()
+    void LateUpdate()
     {
-        //Debug.Log(moveVector);
+        
         Move();
     }
 
@@ -46,26 +45,12 @@ public class PlatformMove: MonoBehaviour
 
     private void Move()
     {       
-        transform.Translate(moveVector * speed * Time.deltaTime);
+        transform.Translate(moveVector * speed * Time.deltaTime, Space.World);
 
         if(Vector3.Distance(transform.position,nextPoint)<0.5f)
         {
             CalculateNextWaypoint();
         }
-    }
-    
-    IEnumerator WaitTime()
-    {
-        yield return new WaitForSeconds(1);
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-        rb.drag = 50f;
-        StartCoroutine(WaitTime());
-        rb.drag = 0.5f;
-
-
-    }
+    } 
+  
 }
