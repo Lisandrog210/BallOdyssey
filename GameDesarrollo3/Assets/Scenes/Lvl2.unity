@@ -916,11 +916,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.41
+      value: -9.6
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.04
+      value: -44.8
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1909,7 +1909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63272027f61537f468fedc4e47e15884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toCollect: 3
+  grabbedCoins: 0
+  toCollect: 0
+  level: 2
 --- !u!1001 &1853282392
 Prefab:
   m_ObjectHideFlags: 0

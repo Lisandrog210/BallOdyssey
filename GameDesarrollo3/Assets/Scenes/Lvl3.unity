@@ -6563,7 +6563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63272027f61537f468fedc4e47e15884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toCollect: 3
+  grabbedCoins: 0
+  toCollect: 0
+  level: 3
 --- !u!1001 &730263706
 Prefab:
   m_ObjectHideFlags: 0
@@ -10212,11 +10214,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.66
+      value: 2.69
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -78.59
+      value: -79.67
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.z

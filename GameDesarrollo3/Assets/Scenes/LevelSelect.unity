@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Lvl4
+  nextLevel: Lvl3
 --- !u!114 &32475544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,14 +1285,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.34117648}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 0.34117648}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 38fc6c486faf5cb4f83908441ce3a521, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1308,6 +1308,54 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 648246957}
   m_CullTransparentMesh: 0
+--- !u!1 &664223665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 664223667}
+  - component: {fileID: 664223666}
+  m_Layer: 0
+  m_Name: LevelSelectButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &664223666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664223665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb8dbb2b9185f443ba986a78d6e54ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl1GO: {fileID: 322917262}
+  lvl2GO: {fileID: 1197651334}
+  lvl3GO: {fileID: 973663970}
+  lvl4GO: {fileID: 32475541}
+  level1Won: 0
+  level2Won: 0
+  level3Won: 0
+  level4Won: 0
+--- !u!4 &664223667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664223665}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &743434688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1450,6 @@ GameObject:
   - component: {fileID: 965418272}
   - component: {fileID: 965418271}
   - component: {fileID: 965418270}
-  - component: {fileID: 965418269}
   m_Layer: 0
   m_Name: World 2
   m_TagString: Untagged
@@ -1430,18 +1477,6 @@ RectTransform:
   m_AnchoredPosition: {x: 109.7, y: 118.5}
   m_SizeDelta: {x: 174.91, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &965418269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 965418267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevel: Lvl1
 --- !u!114 &965418270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2236,7 +2271,6 @@ GameObject:
   - component: {fileID: 1118139964}
   - component: {fileID: 1118139963}
   - component: {fileID: 1118139962}
-  - component: {fileID: 1118139961}
   m_Layer: 0
   m_Name: World 1
   m_TagString: Untagged
@@ -2244,18 +2278,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1118139961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1118139960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevel: Lvl1
 --- !u!114 &1118139962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2664,10 +2686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9250ab6a83dc09b48b7f93ca37a1a066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl1GO: {fileID: 322917262}
-  lvl2GO: {fileID: 1197651334}
-  lvl3GO: {fileID: 973663970}
-  lvl4GO: {fileID: 32475541}
+  lvl1Won: 0
+  lvl2Won: 0
+  lvl3Won: 0
+  lvl4Won: 0
 --- !u!4 &1376293865
 Transform:
   m_ObjectHideFlags: 0

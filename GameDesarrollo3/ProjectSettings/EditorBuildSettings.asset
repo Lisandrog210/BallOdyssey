@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: ddf6120c0708c134da7af9961627e131
@@ -18,10 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect.unity
     guid: de5bae87249b7f243aa14e1a206e742a
   - enabled: 1
-    path: Assets/Scenes/LevelRodrigo.unity
+    path: Assets/Scenes/Lvl1.unity
+    guid: 7b3c459c242ec1f42bc101bff917d533
+  - enabled: 1
+    path: Assets/Scenes/Lvl2.unity
     guid: 31f15e9ea2dd54a47a7dbd3fda5e9ad0
   - enabled: 1
-    path: Assets/Scenes/TestLevel 1.unity
+    path: Assets/Scenes/Lvl3.unity
     guid: 059fa8c9afe6c6945b4ed5e2dcee203f
   - enabled: 1
     path: Assets/Scenes/WinMenu.unity
@@ -29,7 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverMenu.unity
     guid: bb8111f093d83604597bea571542a8ab
-  - enabled: 0
-    path: Assets/Scenes/Level1.unity
-    guid: ca2cd9ea5b95e3b4093fe36e00a97cec
   m_configObjects: {}
