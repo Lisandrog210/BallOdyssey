@@ -13,7 +13,7 @@ public class InputPC : IInput
     {
         if(Input.GetKeyDown(KeyCode.Space)) 
         {
-            Debug.Log("space");
+
             return true;
            
         }

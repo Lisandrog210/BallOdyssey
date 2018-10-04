@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 58051873047457546}
   - component: {fileID: 50446167643770600}
   - component: {fileID: 114692006456073804}
+  - component: {fileID: 114371744578942320}
   m_Layer: 0
   m_Name: Ball1
   m_TagString: Ball
@@ -37,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1031633852691626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.9, z: 0}
-  m_LocalScale: {x: 8.657283, y: 8.657283, z: 8.657283}
+  m_LocalPosition: {x: -9.75, y: 10.28, z: 0}
+  m_LocalScale: {x: 4.89881, y: 4.89881, z: 4.89881}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,7 +56,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDrag: 0.2
+  m_LinearDrag: 0.3
   m_AngularDrag: 0.05
   m_GravityScale: 2
   m_Material: {fileID: 0}
@@ -78,6 +79,20 @@ CircleCollider2D:
   m_Offset: {x: 0.0000000116955405, y: 0}
   serializedVersion: 2
   m_Radius: 0.08854959
+--- !u!114 &114371744578942320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031633852691626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63272027f61537f468fedc4e47e15884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbedCoins: 0
+  toCollect: 3
+  level: 1
 --- !u!114 &114692006456073804
 MonoBehaviour:
   m_ObjectHideFlags: 1

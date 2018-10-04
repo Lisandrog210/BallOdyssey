@@ -956,7 +956,8 @@ Prefab:
       propertyPath: moveSpeed
       value: 19
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114371744578942320, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &567189882
@@ -1909,8 +1910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63272027f61537f468fedc4e47e15884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabbedCoins: 0
-  toCollect: 0
   level: 2
 --- !u!1001 &1853282392
 Prefab:

@@ -17,7 +17,7 @@ public class CoinsManager : MonoBehaviour {
 
     void Update()
     {
-        score = winlose.grabbedCoins;
-        scoreText.text = score.ToString();
+        //score = winlose.grabbedCoins;
+        //scoreText.text = score.ToString();
     }
 }

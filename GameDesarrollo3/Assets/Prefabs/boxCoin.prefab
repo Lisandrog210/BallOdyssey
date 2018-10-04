@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4420266185568822}
   - component: {fileID: 212913771601672398}
   - component: {fileID: 58077350894407528}
-  - component: {fileID: 114610334927986078}
   m_Layer: 0
   m_Name: boxCoin
   m_TagString: Coin
@@ -35,9 +34,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1446227020843616}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.18, y: 9.85, z: 0}
-  m_LocalScale: {x: 0.46472, y: 0.46472, z: 0.46472}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -40.6, y: -54.28, z: 22.27356}
+  m_LocalScale: {x: 0.46359998, y: 0.46359998, z: 0.46359998}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,17 +56,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.795
---- !u!114 &114610334927986078
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1446227020843616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9203b56d82e604446b5e0f031a5db72e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212913771601672398
 SpriteRenderer:
   m_ObjectHideFlags: 1

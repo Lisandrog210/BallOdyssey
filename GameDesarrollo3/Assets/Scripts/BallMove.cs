@@ -35,7 +35,7 @@ public class BallMove : MonoBehaviour {
         //SALTO--------------solo cuando esta en la plataf--------------------------------------------------------------- 
         if (InputManager.Instance.GetJumpButton() == true && isGrounded==true)
         {
-            Debug.Log("ifSalto");
+
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         if (Input.GetKeyDown(KeyCode.L))
@@ -66,8 +66,8 @@ public class BallMove : MonoBehaviour {
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
-            Debug.Log("Col con plat");
             isGrounded = true;
+            Debug.Log(isGrounded+" -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
@@ -88,10 +88,23 @@ public class BallMove : MonoBehaviour {
 
     void OnCollisionExit2D(Collision2D collision) 
     {
+
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
             isGrounded = false;
-        this.transform.SetParent(null);
+            Debug.Log(isGrounded+" -- " +collision.collider.name);
+            this.transform.SetParent(null);
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
+        {
+            isGrounded = true;
+            Debug.Log(isGrounded + " -- " + collision.collider.name);
+            this.transform.SetParent(collision.transform);
         }
     }
 }
