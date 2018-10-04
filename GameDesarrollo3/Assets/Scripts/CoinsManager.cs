@@ -12,7 +12,7 @@ public class CoinsManager : MonoBehaviour {
 
     void Start()
     {
-        winlose.GetComponent<WinLoseCheck>();        
+        //winlose.GetComponent<WinLoseCheck>();        
     }
 
     void Update()

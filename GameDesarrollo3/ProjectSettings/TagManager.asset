@@ -11,6 +11,8 @@ TagManager:
   - FastPlatform
   - FastPlatformx2
   - MovingPlatform
+  - Checkpoint
+  - CheckpointManager
   layers:
   - Default
   - TransparentFX

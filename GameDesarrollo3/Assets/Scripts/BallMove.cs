@@ -40,7 +40,7 @@ public class BallMove : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Debug.Log(isGrounded);
+            //Debug.Log(isGrounded);
         }
 
         
@@ -67,7 +67,7 @@ public class BallMove : MonoBehaviour {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
             isGrounded = true;
-            Debug.Log(isGrounded+" -- " + collision.collider.name);
+            //Debug.Log(isGrounded+" -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
@@ -92,7 +92,7 @@ public class BallMove : MonoBehaviour {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
             isGrounded = false;
-            Debug.Log(isGrounded+" -- " +collision.collider.name);
+            //Debug.Log(isGrounded+" -- " +collision.collider.name);
             this.transform.SetParent(null);
         }
     }
@@ -103,7 +103,7 @@ public class BallMove : MonoBehaviour {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
             isGrounded = true;
-            Debug.Log(isGrounded + " -- " + collision.collider.name);
+            //Debug.Log(isGrounded + " -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
         }
     }

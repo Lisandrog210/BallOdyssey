@@ -115,7 +115,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d9a246c8628c91545b9235c70bd3868f, type: 3}
   - {fileID: 21300000, guid: 68f711d8fe86da740898146b1162b7f7, type: 3}
   - {fileID: 21300000, guid: 89c80fe88374fae4ba4c9b7ac36e5c3a, type: 3}
-  - {fileID: 21300000, guid: 8aa1712998d2c3b469e7aa8b41c6e6eb, type: 3}
   - {fileID: 21300000, guid: b1a37529c058b5647b1e867babe20b6b, type: 3}
   - {fileID: 21300000, guid: 46c069497322cd64a8296b3916e89644, type: 3}
   - {fileID: 21300000, guid: 3bb98a69265394f438bc50c0ab9717f1, type: 3}
@@ -164,7 +163,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d35a0d0cd40503648a048ebbbaa60919, type: 3}
   - {fileID: 21300000, guid: 550ad61c42175ac449dcb8a8f26684d1, type: 3}
   - {fileID: 21300000, guid: d007b71c3e1925740ad66c4f3bce272b, type: 3}
-  - {fileID: 21300000, guid: 3dc0862cb7dc2394bab797470137cc29, type: 3}
   - {fileID: 21300000, guid: 3396cf2c56a795745b3dcb36cf9e2dad, type: 3}
   - {fileID: 21300000, guid: f0bf453cd1106b44aa964a013cc47e8b, type: 3}
   - {fileID: 21300000, guid: 086fa99c2a047614ca05feafd57b16f2, type: 3}
@@ -199,7 +197,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 545ba2ee91f8e844fb259d65f3d1bdbf, type: 3}
   - {fileID: 21300000, guid: d837b01fbe4efcd40abc24f71afaeb9d, type: 3}
   - {fileID: 21300000, guid: 753b592f2f8a67f46956f7d628ba4eb5, type: 3}
-  - {fileID: 21300000, guid: 919f5d2ff61bb804ab51c3fdbb30fb20, type: 3}
   - {fileID: 21300000, guid: 6dccee2f6ff49fc4baf007a266d98485, type: 3}
   - {fileID: 21300000, guid: 7307fbcfed2b73f479770cfd6425629c, type: 3}
   - {fileID: 21300000, guid: 37f05edfe84961742aa2899195491d42, type: 3}
@@ -288,7 +285,6 @@ SpriteAtlas:
   - lock_blue
   - sandHillLeft
   - castleHalfRight
-  - tochLit2
   - box
   - dirtHillLeft
   - ladder_top
@@ -337,7 +333,6 @@ SpriteAtlas:
   - boxItemAlt
   - castleLeft
   - castleCliffRight
-  - tochLit
   - stoneHalfMid
   - boxAlt
   - liquidLavaTop_mid
@@ -372,7 +367,6 @@ SpriteAtlas:
   - stoneLedgeRight
   - grassLedgeRight
   - dirtLedgeRight
-  - torch
   - dirtHillRight
   - ropeVertical
   - rockHillLeft
