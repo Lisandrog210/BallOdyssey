@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 public class WinLoseCheck : MonoBehaviour {
         
     public int level;
-    [SerializeField] private int lives = 3;
-    CheckpointManager cm;
+    [SerializeField] public int lives = 3;
+    GameObject cm;
+    CheckpointManager cmClass;
 
     private void Start()
     {
-        cm = GameObject.FindGameObjectWithTag("CheckpointManager").GetComponent<CheckpointManager>();
+        cm = GameObject.FindGameObjectWithTag("CheckpointManager");
+        cmClass = cm.GetComponent<CheckpointManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -34,11 +36,11 @@ public class WinLoseCheck : MonoBehaviour {
 
     private void MoveToCheckpoint()
     {
-        if (cm.lastActivated)
+        if (cmClass.lastActivated)
         {
             Debug.Log("MOVE THE BALL!!!");
             //aca tiene que ser el ultimo checkpoint activado
-            this.transform.position = cm.lastActivated.transform.position;
+            this.transform.position = cmClass.lastActivated.transform.position;
         }else
             GameOverScene();
 
@@ -57,6 +59,11 @@ public class WinLoseCheck : MonoBehaviour {
     public void GameOverScene() {
         SceneManager.LoadScene("GameOverMenu");
     }
-  
+
+    private void Update()
+    {
+        Debug.Log("LIVES: " + lives);
+    }
+
 
 }
