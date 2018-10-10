@@ -38,7 +38,8 @@ public class WinLoseCheck : MonoBehaviour {
     {
         if (cmClass.lastActivated)
         {
-            this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            Debug.Log("MOVE THE BALL!!!");
+            //aca tiene que ser el ultimo checkpoint activado
             this.transform.position = cmClass.lastActivated.transform.position;
         }else
             GameOverScene();

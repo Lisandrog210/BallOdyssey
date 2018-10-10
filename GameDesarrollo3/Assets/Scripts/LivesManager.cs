@@ -20,18 +20,15 @@ public class LivesManager : MonoBehaviour {
 
         if (_lives == 2)
         {
-            Destroy(GameObject.Find("Life0"));
-            Debug.Log("Destroy1");
+            Destroy(GameObject.Find("Life2"));            
         }
         if (_lives == 1)
         {
             Destroy(GameObject.Find("Life1"));
-            Debug.Log("Destroy2");
         }
         if (_lives == 0)
         {
-            Destroy(GameObject.Find("Life2"));
-            Debug.Log("Destroy3");
+            Destroy(GameObject.Find("Life0"));
         }
     }
 }
