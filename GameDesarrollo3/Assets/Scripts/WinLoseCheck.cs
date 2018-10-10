@@ -20,8 +20,8 @@ public class WinLoseCheck : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collider) {
 
         if (collider.tag == "WinCheck" )
-        {
-           LevelSelectManager.instance.IsLevelWon(level);
+        {            
+           //LevelSelectManager.instance.IsLevelWon(level);
            WinScene();
         }        
 
