@@ -954,7 +954,7 @@ Prefab:
     - target: {fileID: 114692006456073804, guid: 671189a2f6b14694fbb14f33219a9221,
         type: 2}
       propertyPath: moveSpeed
-      value: 19
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114371744578942320, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
@@ -1956,6 +1956,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1803952302}
+    - target: {fileID: 20044324038468668, guid: 1423d7097841378428a6aa6d1b87b6fc,
+        type: 2}
+      propertyPath: orthographic size
+      value: 7.539942
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1423d7097841378428a6aa6d1b87b6fc, type: 2}
   m_IsPrefabAsset: 0
