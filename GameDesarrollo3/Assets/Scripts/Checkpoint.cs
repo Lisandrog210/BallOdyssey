@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour {
 
-    private bool isActive = false;
+    public bool isActive = false;
     Animator torchAnimator;
     CheckpointManager cm;
 

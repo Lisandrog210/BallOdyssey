@@ -10,11 +10,21 @@ public class WinLoseCheck : MonoBehaviour {
     [SerializeField] public int lives = 3;
     GameObject cm;
     CheckpointManager cmClass;
+    GameObject[] fallingPlat;
+    PlatformFall[] pfClass;
 
-    private void Start()
+    private void Awake()
     {
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
+        fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
         cmClass = cm.GetComponent<CheckpointManager>();
+        pfClass = new PlatformFall[fallingPlat.Length];
+
+        for (int i = 0; i < fallingPlat.Length; i++)
+        {
+            pfClass[i] = fallingPlat[i].GetComponent<PlatformFall>();
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -29,6 +39,10 @@ public class WinLoseCheck : MonoBehaviour {
             //CARGAR PANEL DE VOLVER AL CHECKPOINT
             RemoveLife();
             MoveToCheckpoint();
+            for (int i = 0; i < pfClass.Length; i++)
+            {
+                pfClass[i].ResetPosition();
+            }            
         }
         else if(collider.tag == "LoseCheck" && lives == 0 )
             GameOverScene();
@@ -49,6 +63,7 @@ public class WinLoseCheck : MonoBehaviour {
     {
         Debug.Log("LIFE --");
         lives--;
+        
     }
 
     public void WinScene() {
@@ -62,7 +77,14 @@ public class WinLoseCheck : MonoBehaviour {
     private void Update()
     {
         Debug.Log("LIVES: " + lives);
+        Debug.Log("LONGITUD go: " +fallingPlat.Length);
+        Debug.Log("LONGITUD class: " + pfClass.Length);
     }
 
+    private void ResetPlatforms()
+    {
+
+        GameObject.FindGameObjectsWithTag("FallingPlatform");
+    }
 
 }
