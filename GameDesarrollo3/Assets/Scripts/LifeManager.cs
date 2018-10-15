@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LivesManager : MonoBehaviour {
+public class LifeManager : MonoBehaviour {
 
     GameObject ball;
-    int _lives = 3;    
+    int? _lives = 3;    
 
 	void Start ()
     {

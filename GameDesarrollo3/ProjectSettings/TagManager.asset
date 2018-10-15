@@ -14,6 +14,8 @@ TagManager:
   - Checkpoint
   - CheckpointManager
   - FallingPlatform
+  - LifeManager
+  - UI
   layers:
   - Default
   - TransparentFX

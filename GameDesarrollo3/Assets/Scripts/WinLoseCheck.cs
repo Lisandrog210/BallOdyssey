@@ -3,35 +3,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ExaGames.Common.TimeBasedLifeSystem;
 
 public class WinLoseCheck : MonoBehaviour {
         
     public int level;
-    [SerializeField] public int lives = 3;
+    //[SerializeField] public int lives = 3;
+    public int lives;
     GameObject cm;
     CheckpointManager cmClass;
     GameObject[] fallingPlat;
     PlatformFall[] pfClass;
+    LivesManager livesManager;
+    GameObject lm;
+    GameObject canvas;
+    UIManager uiman;
 
     private void Awake()
-    {
+    {        
+
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
+        lm = GameObject.FindGameObjectWithTag("LifeManager");
+        canvas = GameObject.FindGameObjectWithTag("UI");
+        uiman = canvas.GetComponent<UIManager>();
         cmClass = cm.GetComponent<CheckpointManager>();
         pfClass = new PlatformFall[fallingPlat.Length];
+        livesManager = lm.GetComponent<LivesManager>();
+        
+               
 
         for (int i = 0; i < fallingPlat.Length; i++)
         {
             pfClass[i] = fallingPlat[i].GetComponent<PlatformFall>();
-        }
-        
+        }        
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
 
         if (collider.tag == "WinCheck" )
         {
-            LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
+            //LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
             WinScene();
         }        
 
@@ -63,7 +75,7 @@ public class WinLoseCheck : MonoBehaviour {
     {
         Debug.Log("LIFE --");
         lives--;
-        
+        canvas.GetComponent<UIManager>().ConsumeLife();
     }
 
     public void WinScene() {
@@ -76,6 +88,7 @@ public class WinLoseCheck : MonoBehaviour {
 
     private void Update()
     {
+        lives = livesManager.Lives;
         Debug.Log("LIVES: " + lives);
         Debug.Log("LONGITUD go: " +fallingPlat.Length);
         Debug.Log("LONGITUD class: " + pfClass.Length);
@@ -83,7 +96,6 @@ public class WinLoseCheck : MonoBehaviour {
 
     private void ResetPlatforms()
     {
-
         GameObject.FindGameObjectsWithTag("FallingPlatform");
     }
 
