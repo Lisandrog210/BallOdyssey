@@ -2,26 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StarsManager : MonoBehaviour {
-    public GameObject star1;
-    public GameObject star2;
-    public GameObject star3;
-    public bool isStar1Taken;
-    public bool isStar2Taken;
-    public bool isStar3Taken;
+public class StarsManager : MonoBehaviour
+{
+    [SerializeField] public GameObject[] star;
+    private Level levelInfo;
+    [SerializeField]  public bool[] isStarTaken;
+    public static StarsManager instance;
+    public int levelNumb;
+
+
+    public static StarsManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<StarsManager>();
+            }
+            return instance;
+        }
+
+
+
+    }
 
     public void Awake()
     {
-        if (isStar1Taken)
-            star1.gameObject.SetActive(false);
-        if (isStar2Taken)
-            star2.gameObject.SetActive(false);
-        if (isStar3Taken)
-            star3.gameObject.SetActive(false);
+        levelInfo = LevelManager.Instance.GetLevel(levelNumb);
+        isStarTaken[0] = levelInfo.stars[0];
+        isStarTaken[1] = levelInfo.stars[1];
+        isStarTaken[2] = levelInfo.stars[2];
+        if (isStarTaken[0])
+            star[0].gameObject.SetActive(false);
+        if (isStarTaken[1])
+            star[1].gameObject.SetActive(false);
+        if (isStarTaken[2])
+            star[2].gameObject.SetActive(false);
+
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
-   
-    void Update () {
-        Debug.Log("isstar1taken"+isStar1Taken);
-        LevelSelectManager.instance.SetStars(3, isStar1Taken, isStar2Taken, isStar3Taken);
+
+    void Update()
+    {
+    }
+
+    public bool GetStarsTaken(int star)
+    {
+        return isStarTaken[star];
     }
 }

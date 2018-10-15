@@ -1073,6 +1073,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114371744578942320, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
+    - {fileID: 114596802921151180, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1085440498 stripped
@@ -1091,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63272027f61537f468fedc4e47e15884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 0
   lives: 3
 --- !u!1001 &1182727881
 Prefab:

@@ -2058,12 +2058,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e9f280f7960f64cbe3a9f809067678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  star1: {fileID: 1435274716}
-  star2: {fileID: 1835248796}
-  star3: {fileID: 732234642}
-  isStar1Taken: 0
-  isStar2Taken: 0
-  isStar3Taken: 1
+  star:
+  - {fileID: 1435274716}
+  - {fileID: 1835248796}
+  - {fileID: 732234642}
+  isStarTaken: 010101
+  levelNumb: 3
 --- !u!4 &246278193
 Transform:
   m_ObjectHideFlags: 0
@@ -10918,11 +10918,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.1
+      value: -8.7
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -30.6
+      value: -79.8
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.z
