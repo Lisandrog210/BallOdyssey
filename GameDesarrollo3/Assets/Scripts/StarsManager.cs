@@ -21,9 +21,6 @@ public class StarsManager : MonoBehaviour
             }
             return instance;
         }
-
-
-
     }
 
     public void Awake()

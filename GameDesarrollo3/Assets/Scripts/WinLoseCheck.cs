@@ -43,7 +43,7 @@ public class WinLoseCheck : MonoBehaviour {
 
         if (collider.tag == "WinCheck" )
         {
-            //LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
+            LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
             WinScene();
         }        
 
@@ -89,9 +89,9 @@ public class WinLoseCheck : MonoBehaviour {
     private void Update()
     {
         lives = livesManager.Lives;
-        Debug.Log("LIVES: " + lives);
+       /* Debug.Log("LIVES: " + lives);
         Debug.Log("LONGITUD go: " +fallingPlat.Length);
-        Debug.Log("LONGITUD class: " + pfClass.Length);
+        Debug.Log("LONGITUD class: " + pfClass.Length);*/
     }
 
     private void ResetPlatforms()

@@ -31,11 +31,6 @@ public class LevelManager
         }
     }
 
-    /*public void Update()
-    {
-        Debug.Log("LSM"+stars[2, 0]);
-    }*/
-
     public int GetLevelQuantity()
     {
         return levelQtty;

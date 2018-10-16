@@ -953,7 +953,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 265416362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1409,13 +1409,16 @@ MonoBehaviour:
   - {fileID: 1197651337}
   - {fileID: 973663973}
   - {fileID: 32475544}
-  coinImage: []
+  coinImage:
+  - {fileID: 265416364}
+  - {fileID: 1955416503}
+  - {fileID: 1671918138}
   lvl3star1: {fileID: 0}
   lvl3star2: {fileID: 0}
   lvl3star3: {fileID: 0}
-  level1Won: 0
-  level2Won: 0
-  level3Won: 0
+  level1Won: 1
+  level2Won: 1
+  level3Won: 1
   level4Won: 0
 --- !u!4 &664223667
 Transform:
@@ -1884,7 +1887,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 973663974}
   m_OnClick:
     m_PersistentCalls:
@@ -2856,7 +2859,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1671918136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3186,7 +3189,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1955416501}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
