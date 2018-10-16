@@ -43,7 +43,7 @@ public class WinLoseCheck : MonoBehaviour {
 
         if (collider.tag == "WinCheck" )
         {
-            LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
+            //LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
             WinScene();
         }        
 
