@@ -299,6 +299,32 @@ Prefab:
       propertyPath: m_Name
       value: StartGameButtonText
       objectReference: {fileID: 0}
+    - target: {fileID: 114391554569663476, guid: 50925185bcf4a564a9b8a160a329b382,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c832a3365dc940b48b86ec2c491d9e6a,
+        type: 3}
+    - target: {fileID: 224560920550298566, guid: 50925185bcf4a564a9b8a160a329b382,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -6.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 224560920550298566, guid: 50925185bcf4a564a9b8a160a329b382,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 86.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 114092364198856014, guid: 50925185bcf4a564a9b8a160a329b382,
+        type: 2}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114092364198856014, guid: 50925185bcf4a564a9b8a160a329b382,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50925185bcf4a564a9b8a160a329b382, type: 2}
   m_IsPrefabAsset: 0
