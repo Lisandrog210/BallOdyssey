@@ -40,10 +40,15 @@ public class WinLoseCheck : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.tag == "Coin")
+        {
+            StarsManager.Instance.SetStarsTaken(collider.gameObject);
+            collider.gameObject.SetActive(false);
+        }
 
         if (collider.tag == "WinCheck" )
         {
-            //LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
+            LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
             WinScene();
         }        
 

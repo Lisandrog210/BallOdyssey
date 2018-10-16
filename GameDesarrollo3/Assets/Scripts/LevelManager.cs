@@ -31,6 +31,7 @@ public class LevelManager
         }
     }
 
+
     public int GetLevelQuantity()
     {
         return levelQtty;
@@ -46,6 +47,10 @@ public class LevelManager
         levels[level].stars[2] = star3;
     }
        
+    public bool ReturnStars(int aux,int aux2)
+    {
+        return levels[aux].stars[aux2];
+    }
 
     public Level GetLevel(int level)
     {

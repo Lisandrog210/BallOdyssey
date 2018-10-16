@@ -46,6 +46,17 @@ public class StarsManager : MonoBehaviour
 
     void Update()
     {
+        
+    }
+
+    public void SetStarsTaken(GameObject starN)
+    {
+        if (starN == star[0])
+            isStarTaken[0] = true;
+        if (starN == star[1])
+            isStarTaken[1] = true;
+        if (starN == star[2])
+            isStarTaken[2] = true;
     }
 
     public bool GetStarsTaken(int star)
