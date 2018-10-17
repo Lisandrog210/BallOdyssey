@@ -21,7 +21,7 @@ namespace ExaGames.Common.TimeBasedLifeSystem.Display {
 		/// </summary>
 		/// <param name="livesStatus">Current lives status reported by the <see cref="LivesManager"/>.</param>
 		public void OnLivesChanged(LivesStatus livesStatus) {
-           // Debug.Log("ESTA GRASA NO SE QUITA");
+           
 			textComponent.text = livesStatus.LivesText;
 		}
 	}

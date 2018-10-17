@@ -18,10 +18,13 @@ public class WinLoseCheck : MonoBehaviour {
     GameObject lm;
     GameObject canvas;
     UIManager uiman;
+    GameObject deathPanel;
+    
 
     private void Awake()
-    {        
-
+    {
+        
+        deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
         lm = GameObject.FindGameObjectWithTag("LifeManager");
@@ -30,6 +33,7 @@ public class WinLoseCheck : MonoBehaviour {
         cmClass = cm.GetComponent<CheckpointManager>();
         pfClass = new PlatformFall[fallingPlat.Length];
         livesManager = lm.GetComponent<LivesManager>();
+
         
                
 
@@ -54,8 +58,10 @@ public class WinLoseCheck : MonoBehaviour {
 
         if(collider.tag == "LoseCheck" && lives > 0) {
             //CARGAR PANEL DE VOLVER AL CHECKPOINT
-            RemoveLife();
-            MoveToCheckpoint();
+            RemoveLife();            
+            this.gameObject.SetActive(false);
+
+            //MoveToCheckpoint();
             for (int i = 0; i < pfClass.Length; i++)
             {
                 pfClass[i].ResetPosition();
@@ -65,16 +71,18 @@ public class WinLoseCheck : MonoBehaviour {
             GameOverScene();
     }
 
-    private void MoveToCheckpoint()
+    /*private void MoveToCheckpoint()
     {
         if (cmClass.lastActivated)
         {
+            deathPanel.gameObject.SetActive(false);
+            this.gameObject.SetActive(true);
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             this.transform.position = cmClass.lastActivated.transform.position;
         }else
             GameOverScene();
 
-    }
+    }*/
 
     private void RemoveLife()
     {

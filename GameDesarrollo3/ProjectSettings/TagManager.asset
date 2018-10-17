@@ -16,6 +16,7 @@ TagManager:
   - FallingPlatform
   - LifeManager
   - UI
+  - DeathPanel
   layers:
   - Default
   - TransparentFX
