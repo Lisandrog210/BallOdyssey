@@ -57,10 +57,10 @@ public class WinLoseCheck : MonoBehaviour {
             this.gameObject.SetActive(false);
 
             //MoveToCheckpoint();
-            for (int i = 0; i < pfClass.Length; i++)
+            /*for (int i = 0; i < pfClass.Length; i++)
             {
                 pfClass[i].ResetPosition();
-            }            
+            }    */        
         }
         else if(collider.tag == "LoseCheck" && lives == 0 )
             GameOverScene();

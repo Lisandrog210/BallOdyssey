@@ -17,7 +17,6 @@ public class LevelSelectButtons : MonoBehaviour
     public bool level4Won;
     public static LevelSelectButtons instance;
 
-
     public static LevelSelectButtons Instance
     {
         get
@@ -54,11 +53,18 @@ public class LevelSelectButtons : MonoBehaviour
             Level level = LevelManager.Instance.GetLevel(i - 1);
             lvlButtons[i].interactable = level.won;
             if (level.stars[0])
-                coinImage[(i - 3) + (2 * i)].enabled = true;
+            {
+                coinImage[(i - 3) + (2 * i)].enabled = true;               
+            }
             if (level.stars[1])
-                coinImage[(i - 2) + (2 * i)].enabled = true;
+            {
+                coinImage[(i - 2) + (2 * i)].enabled = true;                
+            }
+
             if (level.stars[2])
-                coinImage[(i - 1) + (2 * i)].enabled = true;
+            {
+                coinImage[(i - 1) + (2 * i)].enabled = true;               
+            }
         }
     }
 

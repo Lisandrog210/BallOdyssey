@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour {
         
     public GameObject lastActivated;
+    CheckpointCoinReset ccr;
 
 	void Start () {
         lastActivated = null;
@@ -12,8 +13,16 @@ public class CheckpointManager : MonoBehaviour {
 
     void Update()
     {
-            
+        if (lastActivated)
+        {
+            ccr = lastActivated.GetComponent<CheckpointCoinReset>();
+        }
+        
     }
 
-
+    public void ResetCoins()
+    {
+        Debug.Log("ResetCoins");
+        ccr.ReactivateCoins();
+    }
 }

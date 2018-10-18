@@ -9,7 +9,7 @@ public class MoveToCheckpoint : MonoBehaviour {
     CheckpointManager cmClass;  
     GameObject deathPanel;
     PlatformFall[] pfClass;
-    GameObject[] fallingPlat;
+    GameObject[] fallingPlat;    
 
     private void Awake()
     {
@@ -28,9 +28,10 @@ public class MoveToCheckpoint : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == "LoseCheck")
-        {
+        {            
             if (cmClass.lastActivated)
             {
+                cmClass.ResetCoins();
                 deathPanel.gameObject.SetActive(true);
             }
             else
@@ -40,7 +41,7 @@ public class MoveToCheckpoint : MonoBehaviour {
     }
 
     public void Move()
-    {
+    {        
         if (cmClass.lastActivated)
         {
             for (int i = 0; i < pfClass.Length; i++)

@@ -17,6 +17,7 @@ TagManager:
   - LifeManager
   - UI
   - DeathPanel
+  - StarManager
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - IcePlatforms
   - LoseCheck
   - Background
-  - 
+  - FallingPlatforms
   - 
   - 
   - 
