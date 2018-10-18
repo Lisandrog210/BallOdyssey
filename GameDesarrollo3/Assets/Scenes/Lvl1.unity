@@ -2450,6 +2450,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224335705946643682, guid: bae715cffb76c6c4b804fe317acdfbcd,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae715cffb76c6c4b804fe317acdfbcd, type: 2}
   m_IsPrefabAsset: 0
@@ -2593,7 +2598,8 @@ Prefab:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1321528092}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114080735491400642, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1085440498 stripped
