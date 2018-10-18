@@ -14,28 +14,23 @@ public class PlatformFall : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
-        originalPosition = this.transform.position;
+        originalPosition = this.transform.position;        
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ball"))
-        {
             Invoke("Fall", fallDelay);
-            Invoke("DisableCollider", DisableColliderDelay);
-        }
         else
             this.gameObject.SetActive(false);
-    }
 
-    void DisableCollider()
-    {
-        col2d.enabled = false;
+
     }
 
     void Fall()
     {
-        rb2d.bodyType = RigidbodyType2D.Dynamic;                
+        rb2d.bodyType = RigidbodyType2D.Dynamic;
+        this.transform.DetachChildren();
     }
 
     public void ResetPosition()
@@ -46,7 +41,4 @@ public class PlatformFall : MonoBehaviour
         this.transform.position = originalPosition;
         col2d.enabled = true;
     }
-
-
-
 }
