@@ -11211,11 +11211,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -21.11
+      value: -20.46
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11248,15 +11248,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalScale.x
-      value: 5.8869524
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalScale.y
-      value: 5.8869524
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalScale.z
-      value: 5.8869524
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 50446167643770600, guid: 671189a2f6b14694fbb14f33219a9221,
         type: 2}
@@ -11307,6 +11307,26 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212794174780875188, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 58051873047457546, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.00044085583
+      objectReference: {fileID: 0}
+    - target: {fileID: 58051873047457546, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.09198427
+      objectReference: {fileID: 0}
+    - target: {fileID: 58051873047457546, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.00023380916
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114371744578942320, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
