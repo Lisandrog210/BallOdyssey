@@ -21,14 +21,10 @@ public class PlatformFall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
             Invoke("Fall", fallDelay);
-        else
-            this.transform.DetachChildren();
+        else            
             this.gameObject.SetActive(false);
-           
-    }
-
-
-    }
+        
+    }    
 
     void Fall()
     {
