@@ -5,8 +5,7 @@ public class PlatformFall : MonoBehaviour
 {
 
     public float fallDelay = 1f;
-
-
+    public float DisableColliderDelay = 3f;
     private Rigidbody2D rb2d;
     private Collider2D col2d;
     private Vector2 originalPosition;
@@ -23,14 +22,20 @@ public class PlatformFall : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             Invoke("Fall", fallDelay);
+            Invoke("DisableCollider", DisableColliderDelay);
         }
+        else
+            this.gameObject.SetActive(false);
     }
-    
+
+    void DisableCollider()
+    {
+        col2d.enabled = false;
+    }
 
     void Fall()
     {
-        rb2d.bodyType = RigidbodyType2D.Dynamic;
-        col2d.enabled = false;        
+        rb2d.bodyType = RigidbodyType2D.Dynamic;                
     }
 
     public void ResetPosition()

@@ -7,8 +7,7 @@ using ExaGames.Common.TimeBasedLifeSystem;
 
 public class WinLoseCheck : MonoBehaviour {
         
-    public int level;
-    //[SerializeField] public int lives = 3;
+    public int level;    
     public int lives;
     GameObject cm;
     CheckpointManager cmClass;
@@ -26,21 +25,18 @@ public class WinLoseCheck : MonoBehaviour {
         
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
-        fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
+        //fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
         lm = GameObject.FindGameObjectWithTag("LifeManager");
         canvas = GameObject.FindGameObjectWithTag("UI");
         uiman = canvas.GetComponent<UIManager>();
         cmClass = cm.GetComponent<CheckpointManager>();
-        pfClass = new PlatformFall[fallingPlat.Length];
-        livesManager = lm.GetComponent<LivesManager>();
+        //pfClass = new PlatformFall[fallingPlat.Length];
+        livesManager = lm.GetComponent<LivesManager>();               
 
-        
-               
-
-        for (int i = 0; i < fallingPlat.Length; i++)
+        /*for (int i = 0; i < fallingPlat.Length; i++)
         {
             pfClass[i] = fallingPlat[i].GetComponent<PlatformFall>();
-        }        
+        }  */      
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -57,7 +53,6 @@ public class WinLoseCheck : MonoBehaviour {
         }        
 
         if(collider.tag == "LoseCheck" && lives > 0) {
-            //CARGAR PANEL DE VOLVER AL CHECKPOINT
             RemoveLife();            
             this.gameObject.SetActive(false);
 
@@ -70,19 +65,7 @@ public class WinLoseCheck : MonoBehaviour {
         else if(collider.tag == "LoseCheck" && lives == 0 )
             GameOverScene();
     }
-
-    /*private void MoveToCheckpoint()
-    {
-        if (cmClass.lastActivated)
-        {
-            deathPanel.gameObject.SetActive(false);
-            this.gameObject.SetActive(true);
-            this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            this.transform.position = cmClass.lastActivated.transform.position;
-        }else
-            GameOverScene();
-
-    }*/
+    
 
     private void RemoveLife()
     {
@@ -101,15 +84,12 @@ public class WinLoseCheck : MonoBehaviour {
 
     private void Update()
     {
-        lives = livesManager.Lives;
-       /* Debug.Log("LIVES: " + lives);
-        Debug.Log("LONGITUD go: " +fallingPlat.Length);
-        Debug.Log("LONGITUD class: " + pfClass.Length);*/
+        lives = livesManager.Lives;       
     }
 
-    private void ResetPlatforms()
+    /*private void ResetPlatforms()
     {
         GameObject.FindGameObjectsWithTag("FallingPlatform");
-    }
+    }*/
 
 }

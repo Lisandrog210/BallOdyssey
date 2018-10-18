@@ -67,7 +67,6 @@ public class BallMove : MonoBehaviour {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms")) 
         {
             isGrounded = true;
-            //Debug.Log(isGrounded+" -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
