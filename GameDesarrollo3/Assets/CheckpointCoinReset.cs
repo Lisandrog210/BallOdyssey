@@ -20,7 +20,9 @@ public class CheckpointCoinReset : MonoBehaviour {
         {
             if (level.stars[i])
             {
-                ReactivateCoins();
+                if (!level.won)
+                    ReactivateCoins();
+                
             }
         }    
         
@@ -33,13 +35,13 @@ public class CheckpointCoinReset : MonoBehaviour {
 
     public void ReactivateCoins()
     {
-        Debug.Log("Reactivate Coins1");
+        //Debug.Log("Reactivate Coins1");
         for (int i = 0; i < coinArray.Length; i++)
         {
-            Debug.Log("Reactivate Coins2");
+            //Debug.Log("Reactivate Coins2");
             if (coinArray[i].activeSelf == false)
             {
-                Debug.Log("Reactivate Coins3");
+                //Debug.Log("Reactivate Coins3");
                 coinArray[i].SetActive(true);
             }
         }
