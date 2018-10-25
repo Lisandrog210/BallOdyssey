@@ -20,11 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4249866744396186}
   - component: {fileID: 212718967419839266}
-  - component: {fileID: 61593267855603896}
   - component: {fileID: 114916807645521432}
   - component: {fileID: 50844703241217124}
   - component: {fileID: 256149138546010350}
-  m_Layer: 8
+  - component: {fileID: 68303595041223492}
+  - component: {fileID: 251651984553122348}
+  m_Layer: 12
   m_Name: PlatFall
   m_TagString: FallingPlatform
   m_Icon: {fileID: 0}
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971127141713812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.536, y: -21.482311, z: 0.8515625}
+  m_LocalPosition: {x: -2.3689485, y: 11.149277, z: 0.8515625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,31 +65,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61593267855603896
-BoxCollider2D:
+--- !u!68 &68303595041223492
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971127141713812}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 872a9eec6b7f3ed488499ed7db1712f5, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016417503, y: 0.4242531}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.78, y: 0.76}
-    newSize: {x: 2.013195, y: 1.4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 1
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.9612732, y: 0.5514939}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.93702626, y: 0.6893892}
+  - {x: 0.23498678, y: 0.70203876}
+  - {x: 0.937026, y: 0.7020397}
 --- !u!114 &114916807645521432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallDelay: 2
+  DisableColliderDelay: 3
 --- !u!212 &212718967419839266
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -147,6 +142,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!251 &251651984553122348
+PlatformEffector2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971127141713812}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!256 &256149138546010350
 FrictionJoint2D:
   m_ObjectHideFlags: 1
@@ -161,6 +174,6 @@ FrictionJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 15.646714, y: -35.24}
+  m_ConnectedAnchor: {x: -2.3689485, y: 11.149277}
   m_MaxForce: 2
   m_MaxTorque: 1

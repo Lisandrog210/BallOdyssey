@@ -21,4 +21,3 @@ public class CameraManager : MonoBehaviour {
         transform.position = vec;
     }
 }
-

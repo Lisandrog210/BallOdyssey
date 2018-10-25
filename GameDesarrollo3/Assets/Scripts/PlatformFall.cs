@@ -22,8 +22,7 @@ public class PlatformFall : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
             Invoke("Fall", fallDelay);
         else            
-            this.gameObject.SetActive(false);
-        
+            this.gameObject.SetActive(false);        
     }    
 
     void Fall()
@@ -35,9 +34,10 @@ public class PlatformFall : MonoBehaviour
     public void ResetPosition()
     {
         Debug.Log("RESET PLATFORM");
+        this.gameObject.SetActive(true);
         rb2d.velocity = Vector2.zero;
         rb2d.bodyType = RigidbodyType2D.Kinematic;
         this.transform.position = originalPosition;
-        col2d.enabled = true;
+        //col2d.enabled = true;
     }
 }
