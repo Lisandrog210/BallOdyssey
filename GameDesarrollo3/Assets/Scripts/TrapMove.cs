@@ -10,7 +10,6 @@ public class TrapMove : MonoBehaviour
     [SerializeField] private int timesRepeat;
     [SerializeField] private float wait;
 
-
     private Vector3 nextPoint = Vector2.zero;
     private Vector3 moveVector = Vector2.zero;
     private int nextWaypointIndex = 0;
@@ -20,7 +19,6 @@ public class TrapMove : MonoBehaviour
         if (waypoints.Length > 0)
         {
             transform.position = waypoints[0].position;
-
             CalculateNextWaypoint();
         }
         StartCoroutine(WaitTime());
@@ -28,19 +26,15 @@ public class TrapMove : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(moveVector);
         Move();
     }
 
     private void CalculateNextWaypoint()
     {
-
         nextWaypointIndex++;
         if (nextWaypointIndex == waypoints.Length)
             nextWaypointIndex = 0;
-
         nextPoint = waypoints[nextWaypointIndex].position;
-
         moveVector = nextPoint - transform.position;
         moveVector.Normalize();
     }
@@ -50,9 +44,8 @@ public class TrapMove : MonoBehaviour
         transform.Translate(moveVector * speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, nextPoint) < 0.5f)
-        {
             CalculateNextWaypoint();
-        }
+
     }
 
     IEnumerator WaitTime()

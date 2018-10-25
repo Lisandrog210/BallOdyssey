@@ -21,22 +21,14 @@ public class WinLoseCheck : MonoBehaviour {
     
 
     private void Awake()
-    {
-        
+    {        
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
-        //fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
         lm = GameObject.FindGameObjectWithTag("LifeManager");
         canvas = GameObject.FindGameObjectWithTag("UI");
         uiman = canvas.GetComponent<UIManager>();
         cmClass = cm.GetComponent<CheckpointManager>();
-        //pfClass = new PlatformFall[fallingPlat.Length];
-        livesManager = lm.GetComponent<LivesManager>();               
-
-        /*for (int i = 0; i < fallingPlat.Length; i++)
-        {
-            pfClass[i] = fallingPlat[i].GetComponent<PlatformFall>();
-        }  */      
+        livesManager = lm.GetComponent<LivesManager>();  
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -56,12 +48,6 @@ public class WinLoseCheck : MonoBehaviour {
         if(collider.tag == "LoseCheck" && lives > 0) {
             RemoveLife();            
             this.gameObject.SetActive(false);
-
-            //MoveToCheckpoint();
-            /*for (int i = 0; i < pfClass.Length; i++)
-            {
-                pfClass[i].ResetPosition();
-            }    */        
         }
         else if(collider.tag == "LoseCheck" && lives == 0 )
             GameOverScene();
@@ -69,8 +55,7 @@ public class WinLoseCheck : MonoBehaviour {
     
 
     private void RemoveLife()
-    {
-        Debug.Log("LIFE --");
+    {        
         lives--;
         canvas.GetComponent<UIManager>().ConsumeLife();
     }
@@ -87,10 +72,4 @@ public class WinLoseCheck : MonoBehaviour {
     {
         lives = livesManager.Lives;       
     }
-
-    /*private void ResetPlatforms()
-    {
-        GameObject.FindGameObjectsWithTag("FallingPlatform");
-    }*/
-
 }

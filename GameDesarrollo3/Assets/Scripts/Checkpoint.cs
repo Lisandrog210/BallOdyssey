@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour {
         
-    Animator torchAnimator;
-    //CheckpointManager cm;
+    Animator torchAnimator;    
 
 	void Start ()
-    {
-        //cm = GetComponentInParent<CheckpointManager>();
+    {        
         torchAnimator = this.GetComponent<Animator>();
 	}	
 	
