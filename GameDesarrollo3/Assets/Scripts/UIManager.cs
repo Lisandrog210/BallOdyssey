@@ -9,10 +9,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField] LivesManager livesManager;
     int lives;
 
-    void awake() {
+    void Awake() {
         lm = GameObject.FindGameObjectWithTag("LifeManager");
         livesManager = lm.GetComponent<LivesManager>();
-       
     }    
 
     public void ConsumeLife() {

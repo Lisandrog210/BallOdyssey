@@ -6,12 +6,8 @@ public class Rotator : MonoBehaviour {
 
     [SerializeField] private float rotationSpeed = 1f; 
 
-
-	void Awake () {
-       
-    }
-	
-	void Update () {
+	void Update ()
+    {
        transform.Rotate(Vector3.forward * rotationSpeed,Space.Self);
     }
 }

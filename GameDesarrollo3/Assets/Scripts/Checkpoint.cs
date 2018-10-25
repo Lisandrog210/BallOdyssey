@@ -4,37 +4,28 @@ using UnityEngine;
 
 
 public class Checkpoint : MonoBehaviour {
-
-    public bool isActive = false;
-    Animator torchAnimator;
-    CheckpointManager cm;
-
+        
+    Animator torchAnimator;    
 
 	void Start ()
-    {
-        cm = GetComponentInParent<CheckpointManager>();
+    {        
         torchAnimator = this.GetComponent<Animator>();
 	}	
 	
-	void Update () {       
-		
-	}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag =="Ball")
-        {
-            Debug.Log("me pego la bola");
+        if (collision.gameObject.tag =="Ball")                  
             Activate();
-        }
     }
 
     void Activate()
-    {
-        isActive = true;
-        torchAnimator.SetTrigger("Touched");
-        cm.lastActivated = this.gameObject;
-
+    {       
+        torchAnimator.SetTrigger("Touched");               
+        CheckpointManager.Instance.SetLastActivated(this.gameObject);
+        CheckpointManager.Instance.SetLastActivatedComponent();
+        StarsManager.Instance.ClearStarsList();
+        this.gameObject.GetComponent<Collider2D>().enabled = false;
     }
+
 
 }

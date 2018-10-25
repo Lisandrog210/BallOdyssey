@@ -7,8 +7,9 @@ public class StarsManager : MonoBehaviour
     [SerializeField] public GameObject[] star;
     private Level levelInfo;
     [SerializeField]  public bool[] isStarTaken;
-    public static StarsManager instance;
+    private static StarsManager instance;
     public int levelNumb;
+    public List<GameObject> starsList = new List<GameObject>();
 
 
     public static StarsManager Instance
@@ -44,9 +45,9 @@ public class StarsManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public GameObject GetStarsArray(int _star)
     {
-        
+        return star[_star];
     }
 
     public void SetStarsTaken(GameObject starN)
@@ -58,9 +59,29 @@ public class StarsManager : MonoBehaviour
         if (starN == star[2])
             isStarTaken[2] = true;
     }
-
     public bool GetStarsTaken(int star)
     {
         return isStarTaken[star];
+    }    
+    public int GetLevelNumber()
+    {
+        return levelNumb;
     }
+    public void AddStarsToResetList(GameObject starToAdd)
+    {
+        starsList.Add(starToAdd);
+    }
+
+    public void ReDrawStars()
+    {
+        for (int i = 0; i < starsList.Count; i++)        
+            starsList[i].SetActive(true);            
+        starsList.Clear();        
+    }
+
+    public void ClearStarsList()
+    {
+        starsList.Clear();
+    }
+   
 }

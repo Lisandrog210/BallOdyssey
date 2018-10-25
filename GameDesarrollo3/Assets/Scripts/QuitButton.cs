@@ -14,7 +14,7 @@ public class QuitButton : MonoBehaviour
 
     }
 
-   public void Close()
+    public void Close()
     {
         Application.Quit();
     }

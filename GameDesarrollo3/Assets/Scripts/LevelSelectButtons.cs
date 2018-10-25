@@ -22,9 +22,7 @@ public class LevelSelectButtons : MonoBehaviour
         get
         {
             if (instance == null)
-            {
                 instance = FindObjectOfType<LevelSelectButtons>();
-            }
             return instance;
         }
     }
@@ -33,16 +31,14 @@ public class LevelSelectButtons : MonoBehaviour
     private void Awake()
     {
         if (lvlButtons.Length >= 1)
-        {
             lvlButtons[0].interactable = true;
-        }
+
 
         if (instance == null)
             instance = this;
         else
-        {
             Destroy(this.gameObject);
-        }
+
 
     }
 
@@ -53,51 +49,18 @@ public class LevelSelectButtons : MonoBehaviour
             Level level = LevelManager.Instance.GetLevel(i - 1);
             lvlButtons[i].interactable = level.won;
             if (level.stars[0])
-            {
-                coinImage[(i - 3) + (2 * i)].enabled = true;               
-            }
+                coinImage[(i - 3) + (2 * i)].enabled = true;
             if (level.stars[1])
-            {
-                coinImage[(i - 2) + (2 * i)].enabled = true;                
-            }
-
+                coinImage[(i - 2) + (2 * i)].enabled = true;
             if (level.stars[2])
-            {
-                coinImage[(i - 1) + (2 * i)].enabled = true;               
-            }
+                coinImage[(i - 1) + (2 * i)].enabled = true;
         }
     }
 
 
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.P))
-        {
             lvlButtons[0].interactable = true;
-        }
-        /*level1Won = LevelManager.instance.ReturnLevel1Won();
-        level2Won = LevelManager.instance.ReturnLevel2Won();
-        level3Won = LevelManager.instance.ReturnLevel3Won();
-        level4Won = LevelManager.instance.ReturnLevel4Won();
-        
-        if (level1Won == true)        
-            lvl2Button.interactable = true;
-        if (level2Won == true)
-            lvl3Button.interactable = true;
-        if (level3Won == true)
-            lvl4Button.interactable = true;
-            
-        stars = LevelManager.instance.ReturnStars();
-        if (stars[2, 0] == true)       
-            lvl3star1.gameObject.SetActive(true);
-        if (stars[2, 1] == true)
-            lvl3star2.gameObject.SetActive(true);
-        if (stars[2, 2] == true)
-            lvl3star3.gameObject.SetActive(true);
-
-        Debug.Log(stars[2, 0]);
-        */
-
     }
 }

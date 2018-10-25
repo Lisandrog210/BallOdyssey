@@ -80,8 +80,7 @@ public class BallMove : MonoBehaviour {
         if(collision.collider.gameObject.tag == "MovingPlatform")
         {
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
-            rb2d.connectedBody = rb;
-            
+            rb2d.connectedBody = rb;            
         }
     }
 
