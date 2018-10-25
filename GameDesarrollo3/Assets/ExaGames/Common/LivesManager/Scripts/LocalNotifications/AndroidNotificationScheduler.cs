@@ -36,10 +36,10 @@ namespace ExaGames.Common.TimeBasedLifeSystem.LocalNotifications {
 					new Color(0, 0.6f, 1),
 					NotificationIcon.Star));
 	#else
-				UnityEngine.Debug.LogError("Cannot use AndroidNotificationScheduler to schedule notifications because the symbol ANDROID_NOTIFICATIONS is not defined. Please see Time-Based Life System's Readme file.");
+				//UnityEngine.Debug.LogError("Cannot use AndroidNotificationScheduler to schedule notifications because the symbol ANDROID_NOTIFICATIONS is not defined. Please see Time-Based Life System's Readme file.");
 	#endif
 #else
-			UnityEngine.Debug.LogError("Cannot use AndroidNotificationScheduler to schedule notifications because the target platform is not Android.");
+			//UnityEngine.Debug.LogError("Cannot use AndroidNotificationScheduler to schedule notifications because the target platform is not Android.");
 #endif
 		}
 	}
