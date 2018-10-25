@@ -164,11 +164,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4547037943234446, guid: 82d2decf4f8503c4293e823451895082, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -20.06
+      value: -19.9
       objectReference: {fileID: 0}
     - target: {fileID: 4547037943234446, guid: 82d2decf4f8503c4293e823451895082, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.355267
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: 4547037943234446, guid: 82d2decf4f8503c4293e823451895082, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2261,11 +2261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee5a3cddefa29c449d05361fa5d2a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinArray:
-  - {fileID: 63920067}
-  - {fileID: 1156485307}
-  - {fileID: 1128059075}
-  smClass: {fileID: 0}
+  stars: []
 --- !u!1001 &1455425019
 Prefab:
   m_ObjectHideFlags: 0

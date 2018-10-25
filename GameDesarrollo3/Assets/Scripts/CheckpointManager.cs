@@ -2,27 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointManager : MonoBehaviour {
-        
+public class CheckpointManager : MonoBehaviour
+{
+
     public GameObject lastActivated;
     CheckpointCoinReset ccr;
+    private static CheckpointManager instance;
 
-	void Start () {
-        lastActivated = null;
-	}
-
-    void Update()
+    public static CheckpointManager Instance
     {
-        if (lastActivated)
+        get
         {
-            ccr = lastActivated.GetComponent<CheckpointCoinReset>();
+            if (instance == null)
+            {
+                instance = FindObjectOfType<CheckpointManager>();
+            }
+            return instance;
         }
-        
+    }
+
+    void Start()
+    {
+        lastActivated = null;
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this.gameObject);
+    }
+
+    public void SetLastActivated(GameObject gameObject)
+    {
+        lastActivated = gameObject;
     }
 
     public void ResetCoins()
     {
-        Debug.Log("ResetCoins");
-        ccr.ReactivateCoins();
+        StarsManager.Instance.ReDrawStars();
     }
+
+    public void SetLastActivatedComponent()
+    {
+        ccr = lastActivated.GetComponent<CheckpointCoinReset>();
+    }
+
+   
+
+
 }

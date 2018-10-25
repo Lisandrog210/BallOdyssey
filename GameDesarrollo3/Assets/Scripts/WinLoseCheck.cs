@@ -43,6 +43,7 @@ public class WinLoseCheck : MonoBehaviour {
         if (collider.tag == "Coin")
         {
             StarsManager.Instance.SetStarsTaken(collider.gameObject);
+            StarsManager.Instance.AddStarsToResetList(collider.gameObject);
             collider.gameObject.SetActive(false);
         }
 
