@@ -26,6 +26,7 @@ public class Checkpoint : MonoBehaviour {
         CheckpointManager.Instance.SetLastActivated(this.gameObject);
         CheckpointManager.Instance.SetLastActivatedComponent();
         StarsManager.Instance.ClearStarsList();
+        this.gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
 
