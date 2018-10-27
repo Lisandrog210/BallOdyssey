@@ -57,7 +57,7 @@ public class BallMove : MonoBehaviour {
         }
         else
         {
-            rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed / 3 * Time.deltaTime, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed / 4 * Time.deltaTime, ForceMode2D.Impulse);
         }
     }
 
