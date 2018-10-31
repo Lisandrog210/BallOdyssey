@@ -8,15 +8,18 @@ public class PlatformMove: MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private bool loop;
     [SerializeField] private int timesRepeat;
-    
-
-
+    [SerializeField] private bool moveWhenPlayer;
+    public bool activate = false;
+    private Vector2 originalPosition;
+    private Rigidbody2D rb2d;
     private Vector3 nextPoint = Vector2.zero;
     private Vector3 moveVector = Vector2.zero;
     private int nextWaypointIndex = 0;
 
-    void Start()
+    void Awake()
     {
+        originalPosition = this.transform.position;
+
         if (waypoints.Length > 0)
         {
             transform.position = waypoints[0].position;
@@ -27,8 +30,15 @@ public class PlatformMove: MonoBehaviour
 
     void LateUpdate()
     {
-        
-        Move();
+        if (moveWhenPlayer==true)
+        {
+            if (activate == true)
+            {
+                Debug.Log("CHECKBOX");
+                Move();
+            } 
+        }
+        else Move();
     }
 
     private void CalculateNextWaypoint() {
@@ -51,6 +61,15 @@ public class PlatformMove: MonoBehaviour
         {
             CalculateNextWaypoint();
         }
-    } 
-  
+    }
+
+    public void ResetPosition()
+    {
+        Debug.Log("RESET MOVE PLATFORM");       
+        //rb2d.velocity = Vector2.zero;        
+        this.transform.position = originalPosition;
+        this.activate = false;
+        //col2d.enabled = true;
+    }
+
 }

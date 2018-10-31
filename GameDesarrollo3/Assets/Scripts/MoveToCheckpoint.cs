@@ -9,7 +9,9 @@ public class MoveToCheckpoint : MonoBehaviour {
     CheckpointManager cmClass;  
     GameObject deathPanel;
     PlatformFall[] pfClass;
-    GameObject[] fallingPlat;    
+    GameObject[] fallingPlat;
+    PlatformMove[] pmClass;
+    GameObject[] movingPlatform;
 
     private void Awake()
     {
@@ -17,12 +19,19 @@ public class MoveToCheckpoint : MonoBehaviour {
         cmClass = cm.GetComponent<CheckpointManager>();
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
         fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
+        movingPlatform = GameObject.FindGameObjectsWithTag("MovingPlatform");
         pfClass = new PlatformFall[fallingPlat.Length];
+        pmClass = new PlatformMove[movingPlatform.Length];
         deathPanel.gameObject.SetActive(false);
 
         for (int i = 0; i < fallingPlat.Length; i++)
         {
             pfClass[i] = fallingPlat[i].GetComponent<PlatformFall>();
+        }
+
+        for (int i = 0; i < movingPlatform.Length; i++)
+        {
+            pmClass[i] = movingPlatform[i].GetComponent<PlatformMove>();
         }
     }
     private void OnTriggerEnter2D(Collider2D collider)
@@ -47,6 +56,11 @@ public class MoveToCheckpoint : MonoBehaviour {
             for (int i = 0; i < pfClass.Length; i++)
             {
                 pfClass[i].ResetPosition();
+            }
+
+            for (int i = 0; i < pmClass.Length; i++)
+            {
+                pmClass[i].ResetPosition();
             }
 
             deathPanel.gameObject.SetActive(false);
