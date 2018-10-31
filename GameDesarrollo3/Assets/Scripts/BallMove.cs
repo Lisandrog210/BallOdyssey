@@ -97,7 +97,7 @@ public class BallMove : MonoBehaviour {
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms")*/)
         {
             isGrounded = false;
-            Debug.Log(isGrounded+" -- " +collision.collider.name);
+            //Debug.Log(isGrounded+" -- " +collision.collider.name);
             this.transform.SetParent(null);
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
@@ -112,7 +112,7 @@ public class BallMove : MonoBehaviour {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
             isGrounded = true;
-            Debug.Log(isGrounded + " -- " + collision.collider.name);
+            //Debug.Log(isGrounded + " -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
         }
         

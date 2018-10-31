@@ -30,15 +30,14 @@ public class PlatformMove: MonoBehaviour
 
     void LateUpdate()
     {
-        if (moveWhenPlayer==true)
+        if (moveWhenPlayer == true)
         {
-            if (activate == true)
-            {
-                Debug.Log("CHECKBOX");
-                Move();
-            } 
+            if (activate == true)            
+                Move();            
         }
         else Move();
+        
+        
     }
 
     private void CalculateNextWaypoint() {
@@ -58,18 +57,19 @@ public class PlatformMove: MonoBehaviour
         transform.Translate(moveVector * speed * Time.deltaTime, Space.World);
 
         if(Vector3.Distance(transform.position,nextPoint)<0.5f)
-        {
+        {          
             CalculateNextWaypoint();
         }
     }
 
     public void ResetPosition()
-    {
-        Debug.Log("RESET MOVE PLATFORM");       
-        //rb2d.velocity = Vector2.zero;        
+    {        
         this.transform.position = originalPosition;
+        nextWaypointIndex = 0;
+        nextPoint = Vector2.zero;
+        moveVector = Vector2.zero;        
+        transform.position = waypoints[0].position;        
         this.activate = false;
-        //col2d.enabled = true;
     }
 
 }
