@@ -35,7 +35,8 @@ public class PlatformMove: MonoBehaviour
             if (activate == true)            
                 Move();            
         }
-        else Move();
+        else
+            Move();
         
         
     }
@@ -67,8 +68,8 @@ public class PlatformMove: MonoBehaviour
         this.transform.position = originalPosition;
         nextWaypointIndex = 0;
         nextPoint = Vector2.zero;
-        moveVector = Vector2.zero;        
-        transform.position = waypoints[0].position;        
+        moveVector = Vector2.zero;
+        CalculateNextWaypoint();
         this.activate = false;
     }
 
