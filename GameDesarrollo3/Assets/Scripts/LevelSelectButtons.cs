@@ -8,9 +8,6 @@ public class LevelSelectButtons : MonoBehaviour
     [SerializeField] Button[] lvlButtons;
     [SerializeField] Image[] coinImage;
 
-    public GameObject lvl3star1;
-    public GameObject lvl3star2;
-    public GameObject lvl3star3;
     public bool level1Won;
     public bool level2Won;
     public bool level3Won;
@@ -54,6 +51,8 @@ public class LevelSelectButtons : MonoBehaviour
                 coinImage[(i - 2) + (2 * i)].enabled = true;
             if (level.stars[2])
                 coinImage[(i - 1) + (2 * i)].enabled = true;
+
+            Debug.Log(coinImage[(i - 3) + (2 * i)]);
         }
     }
 

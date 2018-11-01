@@ -9,7 +9,7 @@ public class StarsManager : MonoBehaviour
     [SerializeField]  public bool[] isStarTaken;
     private static StarsManager instance;
     public int levelNumb;
-    public List<GameObject> starsList = new List<GameObject>();
+    private List<GameObject> starsList = new List<GameObject>();
 
 
     public static StarsManager Instance

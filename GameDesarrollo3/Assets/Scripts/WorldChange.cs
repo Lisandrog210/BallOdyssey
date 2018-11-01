@@ -8,13 +8,11 @@ public class WorldChange : MonoBehaviour
 {
     public GameObject actualWorld;
     [SerializeField]
-    public GameObject[] otherWorlds;
-    public Button test;
+    public GameObject[] otherWorlds;    
 
 
     private void Awake()
-    {
-        test = GetComponent<Button>();
+    {       
         var btn = GetComponent<Button>();
         btn.onClick.AddListener(ChangeWorld);
     }

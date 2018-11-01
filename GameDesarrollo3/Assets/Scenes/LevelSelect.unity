@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Lvl3
+  nextLevel: 1.4
 --- !u!114 &32475544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 176233946}
   - component: {fileID: 176233947}
   m_Layer: 0
-  m_Name: Coin1 (2)
+  m_Name: Star 1.2.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,8 +489,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84.4, y: -40.425003}
-  m_SizeDelta: {x: 168.8, y: 80.850006}
+  m_AnchoredPosition: {x: 31.733332, y: -40.425003}
+  m_SizeDelta: {x: 63.466663, y: 80.850006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &176233946
 CanvasRenderer:
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 176233944}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 188282896}
   - component: {fileID: 188282895}
   m_Layer: 0
-  m_Name: Coin1 (2)
+  m_Name: Star 1.1.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 188282893}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 265416365}
   - component: {fileID: 265416364}
   m_Layer: 0
-  m_Name: Coin1
+  m_Name: Star 1.4.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1823,14 +1823,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlButtons:
-  - {fileID: 0}
+  - {fileID: 1510050246}
   - {fileID: 1197651337}
   - {fileID: 973663973}
   - {fileID: 32475544}
   coinImage:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 188282895}
+  - {fileID: 1420119458}
+  - {fileID: 1986328121}
   - {fileID: 176233947}
   - {fileID: 1326194386}
   - {fileID: 1340833880}
@@ -1840,9 +1840,6 @@ MonoBehaviour:
   - {fileID: 265416364}
   - {fileID: 1955416503}
   - {fileID: 1671918138}
-  lvl3star1: {fileID: 0}
-  lvl3star2: {fileID: 0}
-  lvl3star3: {fileID: 0}
   level1Won: 0
   level2Won: 0
   level3Won: 0
@@ -2007,7 +2004,7 @@ GameObject:
   - component: {fileID: 786264742}
   - component: {fileID: 786264743}
   m_Layer: 0
-  m_Name: Coin2 (1)
+  m_Name: Star 1.3.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2681,7 +2678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Lvl2
+  nextLevel: 1.3
 --- !u!114 &973663973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2782,7 +2779,7 @@ GameObject:
   - component: {fileID: 975656969}
   - component: {fileID: 975656970}
   m_Layer: 0
-  m_Name: Coin3 (1)
+  m_Name: Star 1.3.3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3226,7 +3223,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1113021109}
   m_OnClick:
     m_PersistentCalls:
@@ -3368,7 +3365,6 @@ MonoBehaviour:
   otherWorlds:
   - {fileID: 0}
   - {fileID: 0}
-  test: {fileID: 0}
 --- !u!114 &1118139964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3531,7 +3527,6 @@ MonoBehaviour:
   otherWorlds:
   - {fileID: 0}
   - {fileID: 583183696}
-  test: {fileID: 0}
 --- !u!114 &1131846668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3831,7 +3826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Lvl1
+  nextLevel: 1.3
 --- !u!114 &1197651337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4139,7 +4134,7 @@ GameObject:
   - component: {fileID: 1326194385}
   - component: {fileID: 1326194386}
   m_Layer: 0
-  m_Name: Coin2 (2)
+  m_Name: Star 1.2.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4160,8 +4155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 174.2, y: -40.425003}
-  m_SizeDelta: {x: 10.799998, y: 80.850006}
+  m_AnchoredPosition: {x: 95.2, y: -40.425003}
+  m_SizeDelta: {x: 63.466663, y: 80.850006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1326194385
 CanvasRenderer:
@@ -4208,7 +4203,7 @@ GameObject:
   - component: {fileID: 1340833879}
   - component: {fileID: 1340833880}
   m_Layer: 0
-  m_Name: Coin3 (2)
+  m_Name: Star 1.2.3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4229,8 +4224,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -40.425003}
-  m_SizeDelta: {x: 10.799998, y: 80.850006}
+  m_AnchoredPosition: {x: 158.66666, y: -40.425003}
+  m_SizeDelta: {x: 63.466663, y: 80.850006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1340833879
 CanvasRenderer:
@@ -4277,7 +4272,7 @@ GameObject:
   - component: {fileID: 1420119459}
   - component: {fileID: 1420119458}
   m_Layer: 0
-  m_Name: Coin2 (2)
+  m_Name: Star 1.1.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4307,7 +4302,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1420119456}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4604,7 +4599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Lvl1
+  nextLevel: 1.1
 --- !u!114 &1510050246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5080,7 +5075,7 @@ GameObject:
   - component: {fileID: 1671918139}
   - component: {fileID: 1671918138}
   m_Layer: 0
-  m_Name: Coin3
+  m_Name: Star 1.4.3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5613,7 +5608,7 @@ GameObject:
   - component: {fileID: 1955416504}
   - component: {fileID: 1955416503}
   m_Layer: 0
-  m_Name: Coin2
+  m_Name: Star 1.4.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5749,7 +5744,7 @@ GameObject:
   - component: {fileID: 1986328122}
   - component: {fileID: 1986328121}
   m_Layer: 0
-  m_Name: Coin3 (2)
+  m_Name: Star 1.1.3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5779,7 +5774,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1986328119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6015,7 +6010,6 @@ MonoBehaviour:
   otherWorlds:
   - {fileID: 583183696}
   - {fileID: 0}
-  test: {fileID: 0}
 --- !u!114 &2074047874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6063,7 +6057,7 @@ GameObject:
   - component: {fileID: 2127716613}
   - component: {fileID: 2127716614}
   m_Layer: 0
-  m_Name: Coin1 (1)
+  m_Name: Star 1.3.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
