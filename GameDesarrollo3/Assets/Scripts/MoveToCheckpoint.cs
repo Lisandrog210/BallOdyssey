@@ -42,6 +42,7 @@ public class MoveToCheckpoint : MonoBehaviour {
             {
                 cmClass.ResetCoins();
                 deathPanel.gameObject.SetActive(true);
+                Time.timeScale = 0;
             }
             else
                 GameOverScene();
@@ -62,7 +63,7 @@ public class MoveToCheckpoint : MonoBehaviour {
             {
                 pmClass[i].ResetPosition();
             }
-
+            Time.timeScale = 1;
             deathPanel.gameObject.SetActive(false);
             this.gameObject.SetActive(true);
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
