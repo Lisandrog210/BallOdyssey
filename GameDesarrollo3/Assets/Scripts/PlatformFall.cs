@@ -33,11 +33,10 @@ public class PlatformFall : MonoBehaviour
 
     public void ResetPosition()
     {
-        Debug.Log("RESET PLATFORM");
+        CancelInvoke();        
         this.gameObject.SetActive(true);
         rb2d.velocity = Vector2.zero;
         rb2d.bodyType = RigidbodyType2D.Kinematic;
-        this.transform.position = originalPosition;
-        //col2d.enabled = true;
+        this.transform.position = originalPosition;        
     }
 }
