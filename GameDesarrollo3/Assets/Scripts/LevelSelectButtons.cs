@@ -51,8 +51,6 @@ public class LevelSelectButtons : MonoBehaviour
                 coinImage[(i - 2) + (2 * i)].enabled = true;
             if (level.stars[2])
                 coinImage[(i - 1) + (2 * i)].enabled = true;
-
-            Debug.Log(coinImage[(i - 3) + (2 * i)]);
         }
     }
 
