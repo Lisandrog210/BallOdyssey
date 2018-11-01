@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 public class WorldChange : MonoBehaviour
 {
     public GameObject actualWorld;
-    public GameObject otherWorld1;
+    [SerializeField]
+    public GameObject[] otherWorlds;
+    public Button test;
 
 
     private void Awake()
     {
+        test = GetComponent<Button>();
         var btn = GetComponent<Button>();
         btn.onClick.AddListener(ChangeWorld);
     }
@@ -19,7 +22,8 @@ public class WorldChange : MonoBehaviour
     private void ChangeWorld()
     {
         actualWorld.SetActive(true);
-        otherWorld1.SetActive(false);
+        for (int i = 0; i < otherWorlds.Length; i++)        
+            otherWorlds[i].SetActive(false); 
     }
 }
 
