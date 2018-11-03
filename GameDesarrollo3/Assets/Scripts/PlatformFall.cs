@@ -21,14 +21,15 @@ public class PlatformFall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
             Invoke("Fall", fallDelay);
-        else            
-            this.gameObject.SetActive(false);        
+        //else            
+            //this.gameObject.SetActive(false);        
     }    
 
     void Fall()
     {
         rb2d.bodyType = RigidbodyType2D.Dynamic;
         this.transform.DetachChildren();
+        this.gameObject.SetActive(false);
     }
 
     public void ResetPosition()
