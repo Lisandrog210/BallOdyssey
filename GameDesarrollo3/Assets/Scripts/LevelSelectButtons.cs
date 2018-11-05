@@ -9,7 +9,7 @@ public class LevelSelectButtons : MonoBehaviour
     [SerializeField] Image[] coinImage;
     [SerializeField] GameObject[] worlds;
     //BURRADA PARA HACER FUNCIONAR EL JUEGO PARA PLAYTEST
-    private int noMeMateSergio = 0;
+   // private int noMeMateSergio = 0;
     //FIN DE BURRADA INTENCIONAL
 
     public bool level1Won;
@@ -32,6 +32,7 @@ public class LevelSelectButtons : MonoBehaviour
 
     private void Awake()
     {
+        lvlButtons[0].interactable = true;
         if (instance == null)
             instance = this;
         else
@@ -54,16 +55,16 @@ public class LevelSelectButtons : MonoBehaviour
     }
 
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
             lvlButtons[0].interactable = true;
         if (noMeMateSergio == 0)
         {
-            lvlButtons[0].interactable = true;
+           
             lvlButtons[3].interactable = true;
             lvlButtons[6].interactable = true;
             noMeMateSergio = 1;
         }
-    }
+    }*/
 }
