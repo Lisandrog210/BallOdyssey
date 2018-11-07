@@ -24,8 +24,9 @@ public class AddLife : MonoBehaviour {
     private void Add()
     {
         lm.GiveLives(1);
-        moreLivesPanel.SetActive(false);
-        player.GetComponent<MoveToCheckpoint>().Move();        
+        moreLivesPanel.SetActive(false);        
+        player.GetComponent<MoveToCheckpoint>().Move();
+        Time.timeScale = 1;
     }
 
 

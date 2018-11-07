@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ExaGames.Common.TimeBasedLifeSystem;
 
 public class MoveToCheckpoint : MonoBehaviour
 {
@@ -14,9 +15,15 @@ public class MoveToCheckpoint : MonoBehaviour
     GameObject[] fallingPlat;
     PlatformMove[] pmClass;
     GameObject[] movingPlatform;
+    GameObject player;
+    WinLoseCheck wlc;
+    LivesManager livesManager;
+    GameObject lm;
 
     private void Awake()
     {
+        lm = GameObject.FindGameObjectWithTag("LifeManager");
+        livesManager = lm.GetComponent<LivesManager>();
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         cmClass = cm.GetComponent<CheckpointManager>();
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
@@ -27,7 +34,8 @@ public class MoveToCheckpoint : MonoBehaviour
         pmClass = new PlatformMove[movingPlatform.Length];
         deathPanel.gameObject.SetActive(false);
         deathPanel2.gameObject.SetActive(false);
-
+        wlc = GameObject.FindGameObjectWithTag("Ball").GetComponent<WinLoseCheck>();
+        this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         for (int i = 0; i < fallingPlat.Length; i++)
         {
             pfClass[i] = fallingPlat[i].GetComponent<PlatformFall>();
@@ -43,16 +51,23 @@ public class MoveToCheckpoint : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "LoseCheck")
+        Debug.Log("CHOQUE");
+        if (collider.tag == "LoseCheck" && livesManager.Lives > 0)
         {
+            Debug.Log("CHOQUE2");
+
+            wlc.RemoveLife();
+
             if (cmClass.lastActivated)
             {
+                Debug.Log("OPEN DEATH PANEL");
                 cmClass.ResetCoins();
                 deathPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
             }
             else
             {
+                Debug.Log("OPEN DEATH PANEL 2");
                 deathPanel2.gameObject.SetActive(true);
                 Time.timeScale = 0;
             }

@@ -35,7 +35,7 @@ public class WinLoseCheck : MonoBehaviour {
 
         if (ComingSoonPanel.activeSelf)
             ComingSoonPanel.SetActive(false);
-        if (MoreLivesPanel)
+        if (MoreLivesPanel.activeSelf)
             MoreLivesPanel.SetActive(false);
     }
 
@@ -50,24 +50,32 @@ public class WinLoseCheck : MonoBehaviour {
         if (collider.tag == "WinCheck" )
         {
             if (level == 8)            
-                ComingSoonPanel.SetActive(true);            
+                ComingSoonPanel.SetActive(true);
 
+            Time.timeScale = 0;
             LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
             
             WinScene();
-        }        
+        }
 
-        if(collider.tag == "LoseCheck" && lives > 0) {
-            RemoveLife();            
+        if (collider.tag == "LoseCheck" && lives > 0)
+        {
+            //RemoveLife();
+            //Time.timeScale = 0;
             this.gameObject.SetActive(false);
         }
-        else if(collider.tag == "LoseCheck" && lives == 0 )
+        else if (collider.tag == "LoseCheck" && lives == 0)
+        {
+            Debug.Log("ACTIVATE MORELIVES");
             MoreLivesPanel.SetActive(true);
-            //GameOverScene();
+            this.gameObject.SetActive(false);
+            Time.timeScale = 0;
+        }
+        //GameOverScene();
     }
     
 
-    private void RemoveLife()
+    public void RemoveLife()
     {        
         lives--;
         canvas.GetComponent<UIManager>().ConsumeLife();

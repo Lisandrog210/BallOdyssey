@@ -9120,10 +9120,6 @@ Prefab:
       propertyPath: m_Name
       value: ComingSoonPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 1202228354561798, guid: e35c730b70ca4c648a507b9daba76b34, type: 2}
-      propertyPath: m_TagString
-      value: ComingSoonPanel
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e35c730b70ca4c648a507b9daba76b34, type: 2}
   m_IsPrefabAsset: 0
@@ -10185,11 +10181,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -20.94
+      value: -20.1
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.28
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.z

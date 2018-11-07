@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 222669870391894386}
   - component: {fileID: 114083915128741104}
   - component: {fileID: 114044353674570810}
-  - component: {fileID: 114505981428550944}
   - component: {fileID: 114080566126845454}
   m_Layer: 5
   m_Name: YesButton
@@ -203,7 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f76c00e22cee2c469efc9cce1a8edcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: 
 --- !u!114 &114083915128741104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,18 +289,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Refill lives?
---- !u!114 &114505981428550944
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1231453465144960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b195aa93acead104cb05220bc67a1e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevel: 3.3
 --- !u!114 &114561619428874716
 MonoBehaviour:
   m_ObjectHideFlags: 1
