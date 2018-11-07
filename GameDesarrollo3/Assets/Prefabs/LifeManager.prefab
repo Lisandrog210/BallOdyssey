@@ -193,11 +193,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseSettings:
     DefaultMaxLives: 5
-    MinutesToRecover: 0.2
+    MinutesToRecover: 15
   AdvancedSettings:
     Id: 
     CustomTexts:
-      FullLives: Full
+      FullLives: FULL
       Infinite: "\u221E"
     SimpleHourFormat: 0
     AllOrNothing: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
       ResetPlayerPrefsOnPlay: 0
       InspectorDebugging: 1
   LocalNotificationSettings:
-    AllowLocalNotifications: 1
+    AllowLocalNotifications: 0
     AlertAction: 
     AlertBody: All lives have been recovered!
     ConsoleDebugging: 1

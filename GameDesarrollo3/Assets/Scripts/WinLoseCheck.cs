@@ -18,17 +18,25 @@ public class WinLoseCheck : MonoBehaviour {
     GameObject canvas;
     UIManager uiman;
     GameObject deathPanel;
-    
+    GameObject ComingSoonPanel;
+    GameObject MoreLivesPanel;    
 
     private void Awake()
-    {        
+    {
+        MoreLivesPanel = GameObject.FindGameObjectWithTag("MoreLivesPanel");
+        ComingSoonPanel = GameObject.FindGameObjectWithTag("ComingSoonPanel");
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         lm = GameObject.FindGameObjectWithTag("LifeManager");
         canvas = GameObject.FindGameObjectWithTag("UI");
         uiman = canvas.GetComponent<UIManager>();
         cmClass = cm.GetComponent<CheckpointManager>();
-        livesManager = lm.GetComponent<LivesManager>();  
+        livesManager = lm.GetComponent<LivesManager>();
+
+        if (ComingSoonPanel.activeSelf)
+            ComingSoonPanel.SetActive(false);
+        if (MoreLivesPanel)
+            MoreLivesPanel.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -41,7 +49,11 @@ public class WinLoseCheck : MonoBehaviour {
 
         if (collider.tag == "WinCheck" )
         {
+            if (level == 8)            
+                ComingSoonPanel.SetActive(true);            
+
             LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
+            
             WinScene();
         }        
 
@@ -50,7 +62,8 @@ public class WinLoseCheck : MonoBehaviour {
             this.gameObject.SetActive(false);
         }
         else if(collider.tag == "LoseCheck" && lives == 0 )
-            GameOverScene();
+            MoreLivesPanel.SetActive(true);
+            //GameOverScene();
     }
     
 
