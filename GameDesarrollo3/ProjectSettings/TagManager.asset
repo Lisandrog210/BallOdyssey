@@ -22,6 +22,7 @@ TagManager:
   - SmallPlatform
   - ComingSoonPanel
   - MoreLivesPanel
+  - DeathPanel2
   layers:
   - Default
   - TransparentFX

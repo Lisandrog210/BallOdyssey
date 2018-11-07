@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MoveToCheckpoint : MonoBehaviour {
-    
+public class MoveToCheckpoint : MonoBehaviour
+{
+
     GameObject cm;
-    CheckpointManager cmClass;  
-    GameObject deathPanel;
+    CheckpointManager cmClass;
+    public GameObject deathPanel;
+    public GameObject deathPanel2;
     PlatformFall[] pfClass;
     GameObject[] fallingPlat;
     PlatformMove[] pmClass;
@@ -15,14 +17,16 @@ public class MoveToCheckpoint : MonoBehaviour {
 
     private void Awake()
     {
-        cm = GameObject.FindGameObjectWithTag("CheckpointManager");       
+        cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         cmClass = cm.GetComponent<CheckpointManager>();
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
+        deathPanel2 = GameObject.FindGameObjectWithTag("DeathPanel2");
         fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
         movingPlatform = GameObject.FindGameObjectsWithTag("MovingPlatform");
         pfClass = new PlatformFall[fallingPlat.Length];
         pmClass = new PlatformMove[movingPlatform.Length];
         deathPanel.gameObject.SetActive(false);
+        deathPanel2.gameObject.SetActive(false);
 
         for (int i = 0; i < fallingPlat.Length; i++)
         {
@@ -33,11 +37,14 @@ public class MoveToCheckpoint : MonoBehaviour {
         {
             pmClass[i] = movingPlatform[i].GetComponent<PlatformMove>();
         }
+
+        if (Time.timeScale == 0)
+            Time.timeScale = 1;
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == "LoseCheck")
-        {            
+        {
             if (cmClass.lastActivated)
             {
                 cmClass.ResetCoins();
@@ -45,13 +52,16 @@ public class MoveToCheckpoint : MonoBehaviour {
                 Time.timeScale = 0;
             }
             else
-                GameOverScene();
+            {
+                deathPanel2.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
 
     }
 
     public void Move()
-    {        
+    {
         if (cmClass.lastActivated)
         {
             for (int i = 0; i < pfClass.Length; i++)
@@ -70,14 +80,17 @@ public class MoveToCheckpoint : MonoBehaviour {
             this.transform.position = cmClass.lastActivated.transform.position;
         }
         else
-            GameOverScene();
-    }    
-    
+        {
+            deathPanel2.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
     public void GameOverScene()
     {
         SceneManager.LoadScene("GameOverMenu");
     }
 
-    
+
 
 }
