@@ -9,7 +9,9 @@ public class BallMove : MonoBehaviour {
     [SerializeField] private float moveSpeed = 19.0f;
     private bool isGrounded;
     public static BallMove instance;
-    private bool moving;    
+    private bool moving;
+    private float colAngle;
+    private float numberOfBounces;
 
     public static BallMove Instance
     {
@@ -27,6 +29,7 @@ public class BallMove : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody2D>();        
         instance = this;
+        numberOfBounces = 1;
     }
 
     void Update()
@@ -68,29 +71,50 @@ public class BallMove : MonoBehaviour {
         {
             isGrounded = true;
             this.transform.SetParent(collision.transform);
+            numberOfBounces = 1;
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
             isGrounded = true;
+            numberOfBounces = 1;
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
         {            
             rb.AddForce(Vector2.right * moveSpeed*1f, ForceMode2D.Impulse);
+            numberOfBounces = 1;
         }
         if (collision.collider.gameObject.tag == "FastPlatformx2")
         {            
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
+            numberOfBounces = 1;
         }
         if(collision.collider.gameObject.tag == "MovingPlatform")
         {
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
+            numberOfBounces = 1;
             rb2d.connectedBody = rb;
             collision.gameObject.GetComponent<PlatformMove>().activate = true;
         }
         if (collision.collider.gameObject.tag == "SmallPlatform")
         {
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
+            numberOfBounces = 1;
             rb2d.connectedBody = rb;            
+        }
+        
+        if (collision.gameObject.CompareTag("Spring"))
+        {
+            colAngle = Vector2.Angle(-collision.contacts[0].normal, new Vector2(collision.transform.up.x, collision.transform.up.y));
+            
+            Debug.Log("Collision Ball = " + -collision.contacts[0].normal);
+            Debug.Log("Ball = "+colAngle);
+            Debug.Log("Vector 2 Ball" + new Vector2(collision.transform.up.x, collision.transform.up.y));
+            if (colAngle > 120)
+            {
+                numberOfBounces += 0.1f;               
+                rb.AddForce((transform.up *30)*numberOfBounces, ForceMode2D.Impulse);                
+            }
+
         }
     }
 

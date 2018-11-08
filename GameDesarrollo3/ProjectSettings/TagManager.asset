@@ -23,6 +23,7 @@ TagManager:
   - ComingSoonPanel
   - MoreLivesPanel
   - DeathPanel2
+  - Spring
   layers:
   - Default
   - TransparentFX
