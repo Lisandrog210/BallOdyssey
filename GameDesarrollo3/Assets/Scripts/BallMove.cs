@@ -36,16 +36,8 @@ public class BallMove : MonoBehaviour {
     {        
 
         //SALTO--------------solo cuando esta en la plataf--------------------------------------------------------------- 
-        if (InputManager.Instance.GetJumpButton() == true && isGrounded==true)
-        {
-
+        if (InputManager.Instance.GetJumpButton() == true && isGrounded==true)       
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            //Debug.Log(isGrounded);
-        }
-
         
     }
 
@@ -78,7 +70,7 @@ public class BallMove : MonoBehaviour {
             isGrounded = true;
             numberOfBounces = 1;
         }
-        if (collision.collider.gameObject.tag == "FastPlatform")
+       /* if (collision.collider.gameObject.tag == "FastPlatform")
         {            
             rb.AddForce(Vector2.right * moveSpeed*1f, ForceMode2D.Impulse);
             numberOfBounces = 1;
@@ -87,7 +79,7 @@ public class BallMove : MonoBehaviour {
         {            
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
             numberOfBounces = 1;
-        }
+        }*/
         if(collision.collider.gameObject.tag == "MovingPlatform")
         {
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
@@ -105,10 +97,7 @@ public class BallMove : MonoBehaviour {
         if (collision.gameObject.CompareTag("Spring"))
         {
             colAngle = Vector2.Angle(-collision.contacts[0].normal, new Vector2(collision.transform.up.x, collision.transform.up.y));
-            
-            Debug.Log("Collision Ball = " + -collision.contacts[0].normal);
-            Debug.Log("Ball = "+colAngle);
-            Debug.Log("Vector 2 Ball" + new Vector2(collision.transform.up.x, collision.transform.up.y));
+                        
             if (colAngle > 120)
             {
                 numberOfBounces += 0.1f;               
