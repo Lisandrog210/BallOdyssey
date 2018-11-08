@@ -15,6 +15,7 @@ public class PlatformMove: MonoBehaviour
     private Vector3 nextPoint = Vector2.zero;
     private Vector3 moveVector = Vector2.zero;
     private int nextWaypointIndex = 0;
+    private bool ballCollide = false;
 
     void Awake()
     {
@@ -23,16 +24,17 @@ public class PlatformMove: MonoBehaviour
         if (waypoints.Length > 0)
         {
             transform.position = waypoints[0].position;
-
             CalculateNextWaypoint();
         }        
     }    
 
     void LateUpdate()
     {
+        Debug.Log("BALLCOLLIDE bool = " + ballCollide);
+
         if (moveWhenPlayer == true)
         {
-            if (activate == true)            
+            if (activate == true)             
                 Move();            
         }
         else
@@ -44,9 +46,10 @@ public class PlatformMove: MonoBehaviour
     private void CalculateNextWaypoint() {
 
         nextWaypointIndex++;
-        if(nextWaypointIndex == waypoints.Length)
+        if (nextWaypointIndex == waypoints.Length)        
             nextWaypointIndex = 0;
-
+           
+        
         nextPoint = waypoints[nextWaypointIndex].position;
 
         moveVector = nextPoint - transform.position;
@@ -54,7 +57,14 @@ public class PlatformMove: MonoBehaviour
     }
 
     private void Move()
-    {       
+    {
+        
+        if (Vector3.Distance(transform.position, waypoints[0].position)<0.5f && !ballCollide)
+        {            
+            transform.position = waypoints[0].position;
+            activate = false;
+        }
+
         transform.Translate(moveVector * speed * Time.deltaTime, Space.World);
 
         if(Vector3.Distance(transform.position,nextPoint)<0.5f)
@@ -71,6 +81,25 @@ public class PlatformMove: MonoBehaviour
         moveVector = Vector2.zero;
         CalculateNextWaypoint();
         this.activate = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {        
+        if(collision.gameObject.tag == "Ball")
+        {
+            Debug.Log("ACTIVATE");
+            ballCollide = true;
+        }
+       
+    }
+    
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            Debug.Log("DE-ACTIVATE");
+            ballCollide = false;
+        }
     }
 
 }
