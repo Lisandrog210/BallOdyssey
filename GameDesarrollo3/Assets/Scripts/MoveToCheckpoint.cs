@@ -36,6 +36,7 @@ public class MoveToCheckpoint : MonoBehaviour
         deathPanel2.gameObject.SetActive(false);
         wlc = GameObject.FindGameObjectWithTag("Ball").GetComponent<WinLoseCheck>();
         this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
         for (int i = 0; i < fallingPlat.Length; i++)
         {
             pfClass[i] = fallingPlat[i].GetComponent<PlatformFall>();
@@ -88,8 +89,8 @@ public class MoveToCheckpoint : MonoBehaviour
             {
                 pmClass[i].ResetPosition();
             }
-            Time.timeScale = 1;
             deathPanel.gameObject.SetActive(false);
+            Time.timeScale = 1;            
             this.gameObject.SetActive(true);
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             this.transform.position = cmClass.lastActivated.transform.position;

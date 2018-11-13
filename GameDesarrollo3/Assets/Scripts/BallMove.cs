@@ -70,7 +70,7 @@ public class BallMove : MonoBehaviour {
             isGrounded = true;
             numberOfBounces = 1;
         }
-       /* if (collision.collider.gameObject.tag == "FastPlatform")
+        if (collision.collider.gameObject.tag == "FastPlatform")
         {            
             rb.AddForce(Vector2.right * moveSpeed*1f, ForceMode2D.Impulse);
             numberOfBounces = 1;
@@ -79,7 +79,7 @@ public class BallMove : MonoBehaviour {
         {            
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
             numberOfBounces = 1;
-        }*/
+        }
         if(collision.collider.gameObject.tag == "MovingPlatform")
         {
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();

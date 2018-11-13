@@ -2024,6 +2024,12 @@ Prefab:
     - {fileID: 114596802921151180, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &565104672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114080735491400642, guid: 671189a2f6b14694fbb14f33219a9221,
+    type: 2}
+  m_PrefabInternal: {fileID: 565104671}
+  m_Script: {fileID: 11500000, guid: cde02c7905e754346994a0a9364241ae, type: 3}
 --- !u!1001 &567189882
 Prefab:
   m_ObjectHideFlags: 0
@@ -3752,6 +3758,16 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114868239495720372, guid: 19caf2810fd2c7146b3e5c20972bc0d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 565104672}
+    - target: {fileID: 114868239495720372, guid: 19caf2810fd2c7146b3e5c20972bc0d8,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Move
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19caf2810fd2c7146b3e5c20972bc0d8, type: 2}
@@ -5485,7 +5501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1575904646
 MonoBehaviour:
   m_ObjectHideFlags: 0
