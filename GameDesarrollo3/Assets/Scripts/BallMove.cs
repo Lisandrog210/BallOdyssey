@@ -33,8 +33,8 @@ public class BallMove : MonoBehaviour {
     }
 
     void Update()
-    {        
-
+    {
+        Debug.Log("TIMESCALE = "+Time.timeScale);
         //SALTO--------------solo cuando esta en la plataf--------------------------------------------------------------- 
         if (InputManager.Instance.GetJumpButton() == true && isGrounded==true)       
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);

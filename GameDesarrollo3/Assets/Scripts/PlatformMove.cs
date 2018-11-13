@@ -30,8 +30,8 @@ public class PlatformMove: MonoBehaviour
 
     void LateUpdate()
     {
-        Debug.Log("BALLCOLLIDE bool = " + ballCollide);
-
+        //Debug.Log("BALLCOLLIDE bool = " + ballCollide);
+        Debug.Log(this.name + " - nextwayp = " + nextWaypointIndex);
         if (moveWhenPlayer == true)
         {
             if (activate == true)             
@@ -58,19 +58,33 @@ public class PlatformMove: MonoBehaviour
 
     private void Move()
     {
-        
-        if (Vector3.Distance(transform.position, waypoints[0].position)<0.5f && !ballCollide)
+        //PLATAFORMAS
+        if (this.gameObject.layer==8)
+        {
+            if (Vector3.Distance(transform.position, waypoints[0].position) < 0.5f && !ballCollide)
+            {
+                transform.position = waypoints[0].position;
+                activate = false;
+            }
+
+            transform.Translate(moveVector * speed * Time.deltaTime, Space.World);
+
+            if (Vector3.Distance(transform.position, nextPoint) < 0.5f)
+            {
+                CalculateNextWaypoint();
+            }
+        }
+        //ENEMIGOS
+        if (this.gameObject.layer == 14)
         {            
-            transform.position = waypoints[0].position;
-            activate = false;
+            transform.Translate(moveVector * speed * Time.deltaTime, Space.World);
+            if (Vector3.Distance(transform.position, nextPoint) < 0.5f)
+            {
+                CalculateNextWaypoint();
+            }
         }
 
-        transform.Translate(moveVector * speed * Time.deltaTime, Space.World);
 
-        if(Vector3.Distance(transform.position,nextPoint)<0.5f)
-        {          
-            CalculateNextWaypoint();
-        }
     }
 
     public void ResetPosition()
