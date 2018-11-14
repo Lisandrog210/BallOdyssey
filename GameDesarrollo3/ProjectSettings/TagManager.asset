@@ -25,6 +25,7 @@ TagManager:
   - DeathPanel2
   - Spring
   - PausePanel
+  - YouWinPanel
   layers:
   - Default
   - TransparentFX

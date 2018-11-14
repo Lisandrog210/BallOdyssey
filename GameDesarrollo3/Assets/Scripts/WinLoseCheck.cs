@@ -19,13 +19,15 @@ public class WinLoseCheck : MonoBehaviour {
     UIManager uiman;
     GameObject deathPanel;
     GameObject ComingSoonPanel;
-    GameObject MoreLivesPanel;    
+    GameObject MoreLivesPanel;
+    GameObject YouWinPanel;
 
     private void Awake()
     {
         MoreLivesPanel = GameObject.FindGameObjectWithTag("MoreLivesPanel");
         ComingSoonPanel = GameObject.FindGameObjectWithTag("ComingSoonPanel");
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
+        YouWinPanel = GameObject.FindGameObjectWithTag("YouWinPanel");
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         lm = GameObject.FindGameObjectWithTag("LifeManager");
         canvas = GameObject.FindGameObjectWithTag("UI");
@@ -37,6 +39,8 @@ public class WinLoseCheck : MonoBehaviour {
             ComingSoonPanel.SetActive(false);
         if (MoreLivesPanel.activeSelf)
             MoreLivesPanel.SetActive(false);
+        if (YouWinPanel.activeSelf)
+            YouWinPanel.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
@@ -54,8 +58,9 @@ public class WinLoseCheck : MonoBehaviour {
 
             Time.timeScale = 0;
             LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
+            YouWinPanel.SetActive(true);
             
-            WinScene();
+            //WinScene();
         }
 
         if (collider.tag == "LoseCheck" && lives > 0)
