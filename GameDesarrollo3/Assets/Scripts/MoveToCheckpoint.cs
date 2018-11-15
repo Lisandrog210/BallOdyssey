@@ -32,8 +32,12 @@ public class MoveToCheckpoint : MonoBehaviour
         movingPlatform = GameObject.FindGameObjectsWithTag("MovingPlatform");
         pfClass = new PlatformFall[fallingPlat.Length];
         pmClass = new PlatformMove[movingPlatform.Length];
-        deathPanel.gameObject.SetActive(false);
-        deathPanel2.gameObject.SetActive(false);
+
+        if (deathPanel)
+            deathPanel.gameObject.SetActive(false);
+        if(deathPanel2)
+            deathPanel2.gameObject.SetActive(false);
+
         wlc = GameObject.FindGameObjectWithTag("Ball").GetComponent<WinLoseCheck>();
         this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 

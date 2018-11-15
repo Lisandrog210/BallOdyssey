@@ -61,10 +61,13 @@ public class PlatformMove: MonoBehaviour
         //PLATAFORMAS
         if (this.gameObject.layer==8)
         {
-            if (Vector3.Distance(transform.position, waypoints[0].position) < 0.5f && !ballCollide)
+            if (moveWhenPlayer == true)
             {
-                transform.position = waypoints[0].position;
-                activate = false;
+                if (Vector3.Distance(transform.position, waypoints[0].position) < 0.5f && !ballCollide)
+                {
+                    transform.position = waypoints[0].position;
+                    activate = false;
+                }
             }
 
             transform.Translate(moveVector * speed * Time.deltaTime, Space.World);
