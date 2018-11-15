@@ -35,7 +35,8 @@ public class WinLoseCheck : MonoBehaviour {
         cmClass = cm.GetComponent<CheckpointManager>();
         livesManager = lm.GetComponent<LivesManager>();
 
-        if (ComingSoonPanel.activeSelf)
+
+        if (ComingSoonPanel && ComingSoonPanel.activeSelf)
             ComingSoonPanel.SetActive(false);
         if (MoreLivesPanel.activeSelf)
             MoreLivesPanel.SetActive(false);
