@@ -8,9 +8,7 @@ public class LevelSelectButtons : MonoBehaviour
     [SerializeField] Button[] lvlButtons;
     [SerializeField] Image[] coinImage;
     [SerializeField] GameObject[] worlds;
-    //BURRADA PARA HACER FUNCIONAR EL JUEGO PARA PLAYTEST
-   // private int noMeMateSergio = 0;
-    //FIN DE BURRADA INTENCIONAL
+ 
 
     public bool level1Won;
     public bool level2Won;

@@ -39,10 +39,10 @@ public class StarsManager : MonoBehaviour
 
         if (instance == null)
             instance = this;
-        else
+       /* else
         {
             Destroy(this.gameObject);
-        }
+        }*/
     }
 
     public GameObject GetStarsArray(int _star)

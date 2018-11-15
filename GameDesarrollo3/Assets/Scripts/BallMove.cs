@@ -64,21 +64,25 @@ public class BallMove : MonoBehaviour {
             isGrounded = true;
             this.transform.SetParent(collision.transform);
             numberOfBounces = 1;
+            lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
             isGrounded = true;
             numberOfBounces = 1;
+            lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
         {            
             rb.AddForce(Vector2.right * moveSpeed*1f, ForceMode2D.Impulse);
             numberOfBounces = 1;
+            lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "FastPlatformx2")
         {            
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
             numberOfBounces = 1;
+            lastContactPos = collision.contacts[0].point;
         }
         if(collision.collider.gameObject.tag == "MovingPlatform")
         {
@@ -86,12 +90,14 @@ public class BallMove : MonoBehaviour {
             numberOfBounces = 1;
             rb2d.connectedBody = rb;
             collision.gameObject.GetComponent<PlatformMove>().activate = true;
+            lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "SmallPlatform")
         {
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
             numberOfBounces = 1;
-            rb2d.connectedBody = rb;            
+            rb2d.connectedBody = rb;
+            lastContactPos = collision.contacts[0].point;
         }
         
         if (collision.gameObject.CompareTag("Spring"))
@@ -115,7 +121,16 @@ public class BallMove : MonoBehaviour {
         {
             isGrounded = false;
             //Debug.Log(isGrounded+" -- " +collision.collider.name);
-            this.transform.SetParent(null);
+            Vector2 aux = new Vector2();
+            aux.x = this.transform.position.x;
+            aux.y = this.transform.position.y;            
+            //Debug.Log("herhe" + Vector2.Distance(aux, lastContactPos));
+            if (Vector2.Distance(aux, lastContactPos)>1.0f)
+            {
+                Debug.Log("Bola sale del padre, fue intencional?");
+                this.transform.SetParent(null);
+            }
+
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
@@ -133,7 +148,7 @@ public class BallMove : MonoBehaviour {
             rb2d.connectedBody = null;
         }
     }
-
+    Vector2 lastContactPos = new Vector2();
     void OnCollisionStay2D(Collision2D collision)
     {
 
@@ -142,6 +157,7 @@ public class BallMove : MonoBehaviour {
             isGrounded = true;
             //Debug.Log(isGrounded + " -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
+            lastContactPos = collision.contacts[0].point;
         }
         
     }
