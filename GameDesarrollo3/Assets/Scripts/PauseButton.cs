@@ -8,14 +8,19 @@ public class PauseButton : MonoBehaviour
 {
     GameObject pausePanel;
 
-
+    
     private void Awake()
     {
-        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
-        pausePanel.SetActive(false);
+        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");        
         var btn = GetComponent<Button>();
         btn.onClick.AddListener(OpenPausePanel);
     }
+
+    private void Start()
+    {
+        pausePanel.SetActive(false);
+    }
+    
 
     private void OpenPausePanel()
     {

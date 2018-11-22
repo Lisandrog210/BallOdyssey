@@ -15,7 +15,7 @@ public class CheckpointCoinReset : MonoBehaviour {
     {
        /* starManager = GameObject.FindGameObjectWithTag("StarManager");
         smClass = starManager.GetComponent<StarsManager>();*/
-        level = LevelManager.Instance.GetLevel(StarsManager.Instance.GetLevelNumber());
+        //level = LevelManager.Instance.GetLevel(StarsManager.Instance.GetLevelNumber());
         for (int i = 0; i < 3; i++)
         {
             stars.Add(StarsManager.Instance.GetStarsArray(i));

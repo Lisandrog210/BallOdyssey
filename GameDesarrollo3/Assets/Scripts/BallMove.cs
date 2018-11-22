@@ -15,6 +15,7 @@ public class BallMove : MonoBehaviour
     private float numberOfBounces;
     public bool jumpAvailable;
     Vector2 lastContactPos = new Vector2();
+    GameObject pausePanel;
 
     public static BallMove Instance
     {
@@ -33,7 +34,10 @@ public class BallMove : MonoBehaviour
         jumpAvailable = true;
         rb = GetComponent<Rigidbody2D>();
         instance = this;
-        numberOfBounces = 1;
+        numberOfBounces = 1;              
+        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
+        
+        
     }
 
     void Update()
@@ -48,6 +52,16 @@ public class BallMove : MonoBehaviour
         }
 
 
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            Debug.Log("On application pause");
+            pausePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     private void FixedUpdate()

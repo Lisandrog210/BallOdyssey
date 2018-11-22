@@ -3,7 +3,7 @@
 public class LevelManager
 {
     private Level[] levels;
-    private const int levelQtty = 8;
+    private const int levelQtty = 9;
 
     private static LevelManager instance;
 
@@ -56,9 +56,9 @@ public class LevelManager
     {
         if (level >= levels.Length)
         {
-
+            
         }
-
+        Debug.Log("error get level" + level);
         return levels[level];
-    }    
+    }  
 }
