@@ -13,6 +13,7 @@ public class BallMove : MonoBehaviour
     private bool moving;
     private float colAngle;
     private float numberOfBounces;
+    public bool jumpAvailable;
     Vector2 lastContactPos = new Vector2();
 
     public static BallMove Instance
@@ -29,6 +30,7 @@ public class BallMove : MonoBehaviour
 
     void Awake()
     {
+        jumpAvailable = true;
         rb = GetComponent<Rigidbody2D>();
         instance = this;
         numberOfBounces = 1;
@@ -37,10 +39,11 @@ public class BallMove : MonoBehaviour
     void Update()
     {
         if (InputManager.Instance.GetJumpButton() == true &&
-            isGrounded == true &&
+            /*isGrounded == true*/  jumpAvailable == true &&
             !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {           
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jumpAvailable = false;
             //this.transform.SetParent(null);
         }
 
@@ -67,27 +70,31 @@ public class BallMove : MonoBehaviour
     {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
-            isGrounded = true;
+            //isGrounded = true;
             this.transform.SetParent(collision.transform);
             numberOfBounces = 1;
+            jumpAvailable = true;
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
-            isGrounded = true;
+            //isGrounded = true;
             numberOfBounces = 1;
+            jumpAvailable = true;
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
         {
             rb.AddForce(Vector2.right * moveSpeed * 1f, ForceMode2D.Impulse);
             numberOfBounces = 1;
+            jumpAvailable = true;
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "FastPlatformx2")
         {
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
             numberOfBounces = 1;
+            jumpAvailable = true;
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "MovingPlatform")
@@ -96,6 +103,7 @@ public class BallMove : MonoBehaviour
             numberOfBounces = 1;
             rb2d.connectedBody = rb;
             collision.gameObject.GetComponent<PlatformMove>().activate = true;
+            jumpAvailable = true;
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "SmallPlatform")
@@ -103,19 +111,18 @@ public class BallMove : MonoBehaviour
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
             numberOfBounces = 1;
             rb2d.connectedBody = rb;
+            jumpAvailable = true;
             //lastContactPos = collision.contacts[0].point;
         }
 
         if (collision.gameObject.CompareTag("Spring"))
         {
             colAngle = Vector2.Angle(-collision.contacts[0].normal, new Vector2(collision.transform.up.x, collision.transform.up.y));
-
             if (colAngle > 120)
             {
                 numberOfBounces += 0.1f;
                 rb.AddForce((transform.up * 30) * numberOfBounces, ForceMode2D.Impulse);
             }
-
         }
     }
 
