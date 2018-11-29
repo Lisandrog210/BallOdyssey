@@ -51,18 +51,4 @@ public class LevelSelectButtons : MonoBehaviour
                 coinImage[(i - 1) + (2 * i)].enabled = true;
         }
     }
-
-
-    /*void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-            lvlButtons[0].interactable = true;
-        if (noMeMateSergio == 0)
-        {
-           
-            lvlButtons[3].interactable = true;
-            lvlButtons[6].interactable = true;
-            noMeMateSergio = 1;
-        }
-    }*/
 }

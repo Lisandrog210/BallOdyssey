@@ -26,7 +26,7 @@ public class LevelManager
 
         for (int i = 0; i < levels.Length; i++)
         {
-            levels[i].won = false;
+            levels[i].won = true;
             levels[i].stars = new bool[3] {false, false, false};
         }
     }
