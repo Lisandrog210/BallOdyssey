@@ -3635,6 +3635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallDelay: 2.2
   DisableColliderDelay: 3
+  _timeToReset: 0
 --- !u!50 &372995758
 Rigidbody2D:
   serializedVersion: 4
@@ -6461,6 +6462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallDelay: 2.2
   DisableColliderDelay: 3
+  _timeToReset: 0
 --- !u!50 &710320499
 Rigidbody2D:
   serializedVersion: 4
@@ -7140,6 +7142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallDelay: 2.2
   DisableColliderDelay: 3
+  _timeToReset: 0
 --- !u!50 &784869359
 Rigidbody2D:
   serializedVersion: 4
@@ -9872,11 +9875,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.72
+      value: -11.03
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 23.5
+      value: 24.72
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalPosition.z
