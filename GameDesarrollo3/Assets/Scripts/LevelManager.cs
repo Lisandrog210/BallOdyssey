@@ -3,7 +3,7 @@
 public class LevelManager
 {
     private Level[] levels;
-    private const int levelQtty = 9;
+    private const int levelQtty = 8;
 
     private static LevelManager instance;
 

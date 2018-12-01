@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class WorldChange : MonoBehaviour
 {
     public GameObject actualWorld;
+    public GameObject actualWorldImage;
     [SerializeField]
-    public GameObject[] otherWorlds;    
+    public GameObject[] otherWorlds;
+    public GameObject[] otherWorldsImages;
 
 
     private void Awake()
@@ -20,8 +22,11 @@ public class WorldChange : MonoBehaviour
     private void ChangeWorld()
     {
         actualWorld.SetActive(true);
+        actualWorldImage.SetActive(true);
         for (int i = 0; i < otherWorlds.Length; i++)        
-            otherWorlds[i].SetActive(false); 
+            otherWorlds[i].SetActive(false);
+        for (int i = 0; i < otherWorldsImages.Length; i++)
+            otherWorldsImages[i].SetActive(false);
     }
 }
 

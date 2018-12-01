@@ -5363,33 +5363,34 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 21300000, guid: c832a3365dc940b48b86ec2c491d9e6a,
+        type: 3}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 58051873047457546, guid: 671189a2f6b14694fbb14f33219a9221,
         type: 2}
       propertyPath: m_Offset.x
-      value: -0.0000726223
+      value: -0.07384968
       objectReference: {fileID: 0}
     - target: {fileID: 58051873047457546, guid: 671189a2f6b14694fbb14f33219a9221,
         type: 2}
       propertyPath: m_Radius
-      value: 0.09249296
+      value: 0.4913273
       objectReference: {fileID: 0}
     - target: {fileID: 58051873047457546, guid: 671189a2f6b14694fbb14f33219a9221,
         type: 2}
       propertyPath: m_Offset.y
-      value: -0.000653553
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
