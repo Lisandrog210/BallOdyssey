@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971127141713812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3689485, y: 11.149277, z: 0.8515625}
+  m_LocalPosition: {x: 4.68, y: 12.1, z: 0.8515625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallDelay: 2
   DisableColliderDelay: 3
+  _time: 3
 --- !u!212 &212718967419839266
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -174,6 +175,6 @@ FrictionJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -2.3689485, y: 11.149277}
+  m_ConnectedAnchor: {x: 4.68, y: 12.1}
   m_MaxForce: 2
   m_MaxTorque: 1

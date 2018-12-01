@@ -122,7 +122,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.10.1
+  bundleVersion: 0.11.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -158,8 +158,8 @@ PlayerSettings:
     Android: com.imagecampus.ballodyssey
     Standalone: com.imagecampus.ballodyssey
   buildNumber:
-    Standalone: 12
-  AndroidBundleVersionCode: 12
+    Standalone: 14
+  AndroidBundleVersionCode: 14
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
