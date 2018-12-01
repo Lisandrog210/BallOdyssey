@@ -102,7 +102,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 50
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseSettings:
     DefaultMaxLives: 5
-    MinutesToRecover: 15
+    MinutesToRecover: 1
   AdvancedSettings:
     Id: 
     CustomTexts:
@@ -291,17 +291,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019767628330664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.003301462, w: 0.99999464}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224773156825972166}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.077694766, y: 0.51821494}
-  m_AnchorMax: {x: 0.14826658, y: 0.7677851}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.37800002}
+  m_AnchorMin: {x: 0.097226016, y: 0.51821494}
+  m_AnchorMax: {x: 0.097226016, y: 0.7207435}
+  m_AnchoredPosition: {x: 2.1022425, y: 0.8398857}
+  m_SizeDelta: {x: 200, y: 3}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224773156825972166
 RectTransform:
