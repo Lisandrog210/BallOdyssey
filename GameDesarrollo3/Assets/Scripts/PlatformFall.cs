@@ -50,9 +50,7 @@ public class PlatformFall : MonoBehaviour
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-
         // Code to execute after the delay
-
         ResetPosition();
     }
 }
