@@ -3,7 +3,7 @@
 public class LevelManager
 {
     private Level[] levels;
-    private const int levelQtty = 8;
+    private const int levelQtty = 9;
 
     private static LevelManager instance;
 
@@ -26,7 +26,7 @@ public class LevelManager
 
         for (int i = 0; i < levels.Length; i++)
         {
-            levels[i].won = true;
+            //levels[i].won = true;
             levels[i].stars = new bool[3] {false, false, false};
         }
     }
@@ -61,4 +61,23 @@ public class LevelManager
         Debug.Log("error get level" + level);
         return levels[level];
     }  
+
+    public void SetLevelWon(int _levelNumber)
+    {
+        levels[_levelNumber].won = true;
+    }
+
+    public void SetLevelNotWon(int _levelNumber)
+    {
+        levels[_levelNumber].won = false;
+    }
+
+    public void SetStarTaken(int _lvlNumber, int _starNumber)
+    {
+        levels[_lvlNumber].stars[_starNumber] = true;
+    }
+    public void SetStarNotTaken(int _lvlNumber, int _starNumber)
+    {
+        levels[_lvlNumber].stars[_starNumber] = false;
+    }
 }

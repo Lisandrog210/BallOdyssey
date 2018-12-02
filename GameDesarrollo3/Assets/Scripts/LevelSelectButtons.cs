@@ -35,11 +35,98 @@ public class LevelSelectButtons : MonoBehaviour
             instance = this;
         else
             Destroy(this.gameObject);
+
+        if (PlayerPrefs.HasKey("Lvl1Won"))
+        {
+            if (PlayerPrefs.GetInt("Lvl1Won",0) == 1)
+                LevelManager.Instance.SetLevelWon(0);
+            if (PlayerPrefs.GetInt("Lvl2Won", 0) == 1)
+                LevelManager.Instance.SetLevelWon(1);
+            if (PlayerPrefs.GetInt("Lvl3Won", 0) == 1)
+                LevelManager.Instance.SetLevelWon(2);
+            if (PlayerPrefs.GetInt("Lvl4Won", 0) == 1)
+                LevelManager.Instance.SetLevelWon(3);
+            if (PlayerPrefs.GetInt("Lvl5Won", 0) == 1)
+                LevelManager.Instance.SetLevelWon(4);
+            if (PlayerPrefs.GetInt("Lvl6Won", 0) == 1)
+                LevelManager.Instance.SetLevelWon(5);
+            if (PlayerPrefs.GetInt("Lvl7Won", 0) == 1)
+                LevelManager.Instance.SetLevelWon(6);
+            if (PlayerPrefs.GetInt("Lvl8Won", 0) == 1)
+                LevelManager.Instance.SetLevelWon(7);
+            if (PlayerPrefs.GetInt("Lvl9Won", 0) == 1)
+                LevelManager.Instance.SetLevelWon(8);
+
+            if (PlayerPrefs.GetInt("Star1.1", 0) == 1)
+                LevelManager.Instance.SetStarTaken(0, 0);
+            if (PlayerPrefs.GetInt("Star1.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(0, 1);
+            if (PlayerPrefs.GetInt("Star1.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(0, 2);
+
+            if (PlayerPrefs.GetInt("Star2.1", 0) == 1)
+                LevelManager.Instance.SetStarTaken(1, 0);
+            if (PlayerPrefs.GetInt("Star2.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(1, 1);
+            if (PlayerPrefs.GetInt("Star2.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(1, 2);
+
+            if (PlayerPrefs.GetInt("Star3.1", 0) == 1)
+                LevelManager.Instance.SetStarTaken(2, 0);
+            if (PlayerPrefs.GetInt("Star3.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(2, 1);
+            if (PlayerPrefs.GetInt("Star3.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(2, 2);
+
+            if (PlayerPrefs.GetInt("Star4.1", 0) == 1)
+                LevelManager.Instance.SetStarTaken(3, 0);
+            if (PlayerPrefs.GetInt("Star4.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(3, 1);
+            if (PlayerPrefs.GetInt("Star4.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(3, 2);
+
+            if (PlayerPrefs.GetInt("Star5.1") == 1)
+                LevelManager.Instance.SetStarTaken(4, 0);
+            if (PlayerPrefs.GetInt("Star5.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(4, 1);
+            if (PlayerPrefs.GetInt("Star5.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(4, 2);
+
+            if (PlayerPrefs.GetInt("Star6.1", 0) == 1)
+                LevelManager.Instance.SetStarTaken(5, 0);
+            if (PlayerPrefs.GetInt("Star6.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(5, 1);
+            if (PlayerPrefs.GetInt("Star6.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(5, 2);
+
+            if (PlayerPrefs.GetInt("Star7.1", 0) == 1)
+                LevelManager.Instance.SetStarTaken(6, 0);
+            if (PlayerPrefs.GetInt("Star7.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(6, 1);
+            if (PlayerPrefs.GetInt("Star7.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(6, 2);
+
+            if (PlayerPrefs.GetInt("Star8.1", 0) == 1)
+                LevelManager.Instance.SetStarTaken(7, 0);
+            if (PlayerPrefs.GetInt("Star8.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(7, 1);
+            if (PlayerPrefs.GetInt("Star8.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(7, 2);
+
+            if (PlayerPrefs.GetInt("Star9.1", 0) == 1)
+                LevelManager.Instance.SetStarTaken(8, 0);
+            if (PlayerPrefs.GetInt("Star9.2", 0) == 1)
+                LevelManager.Instance.SetStarTaken(8, 1);
+            if (PlayerPrefs.GetInt("Star9.3", 0) == 1)
+                LevelManager.Instance.SetStarTaken(8, 2);
+        }
+        
     }
 
     void Start()
     {
-        for (int i = 1; i <= LevelManager.Instance.GetLevelQuantity(); i++)
+
+        for (int i = 1; i < LevelManager.Instance.GetLevelQuantity(); i++)
         {
             Level level = LevelManager.Instance.GetLevel(i - 1);
             lvlButtons[i].interactable = level.won;
@@ -50,5 +137,103 @@ public class LevelSelectButtons : MonoBehaviour
             if (level.stars[2])
                 coinImage[(i - 1) + (2 * i)].enabled = true;
         }
+    }
+
+    public void ResetPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        for (int i = 0; i < LevelManager.Instance.GetLevelQuantity(); i++)
+        {
+            LevelManager.Instance.SetLevelNotWon(i);
+            LevelManager.Instance.SetStarNotTaken(i, 0);
+            LevelManager.Instance.SetStarNotTaken(i, 1);
+            LevelManager.Instance.SetStarNotTaken(i, 2);
+
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (LevelManager.Instance.GetLevel(0).won)
+            PlayerPrefs.SetInt("Lvl1Won", 1);
+        if (LevelManager.Instance.GetLevel(1).won)
+            PlayerPrefs.SetInt("Lvl2Won", 1);
+        if (LevelManager.Instance.GetLevel(2).won)
+            PlayerPrefs.SetInt("Lvl3Won", 1);
+        if (LevelManager.Instance.GetLevel(3).won)
+            PlayerPrefs.SetInt("Lvl4Won", 1);
+        if (LevelManager.Instance.GetLevel(4).won)
+            PlayerPrefs.SetInt("Lvl5Won", 1);
+        if (LevelManager.Instance.GetLevel(5).won)
+            PlayerPrefs.SetInt("Lvl6Won", 1);
+        if (LevelManager.Instance.GetLevel(6).won)
+            PlayerPrefs.SetInt("Lvl7Won", 1);
+        if (LevelManager.Instance.GetLevel(7).won)
+            PlayerPrefs.SetInt("Lvl8Won", 1);
+        if (LevelManager.Instance.GetLevel(8).won)
+            PlayerPrefs.SetInt("Lvl9Won", 1);
+
+        if (LevelManager.Instance.GetLevel(0).stars[0])
+            PlayerPrefs.SetInt("Star1.1", 1);
+        if (LevelManager.Instance.GetLevel(0).stars[1])
+            PlayerPrefs.SetInt("Star1.2", 1);
+        if (LevelManager.Instance.GetLevel(0).stars[2])
+            PlayerPrefs.SetInt("Star1.3", 1);
+
+        if (LevelManager.Instance.GetLevel(1).stars[0])
+            PlayerPrefs.SetInt("Star2.1", 1);
+        if (LevelManager.Instance.GetLevel(1).stars[1])
+            PlayerPrefs.SetInt("Star2.2", 1);
+        if (LevelManager.Instance.GetLevel(1).stars[2])
+            PlayerPrefs.SetInt("Star2.3", 1);
+
+        if (LevelManager.Instance.GetLevel(2).stars[0])
+            PlayerPrefs.SetInt("Star3.1", 1);
+        if (LevelManager.Instance.GetLevel(2).stars[1])
+            PlayerPrefs.SetInt("Star3.2", 1);
+        if (LevelManager.Instance.GetLevel(2).stars[2])
+            PlayerPrefs.SetInt("Star3.3", 1);
+
+        if (LevelManager.Instance.GetLevel(3).stars[0])
+            PlayerPrefs.SetInt("Star4.1", 1);
+        if (LevelManager.Instance.GetLevel(3).stars[1])
+            PlayerPrefs.SetInt("Star4.2", 1);
+        if (LevelManager.Instance.GetLevel(3).stars[2])
+            PlayerPrefs.SetInt("Star4.3", 1);
+
+        if (LevelManager.Instance.GetLevel(4).stars[0])
+            PlayerPrefs.SetInt("Star5.1", 1);
+        if (LevelManager.Instance.GetLevel(4).stars[1])
+            PlayerPrefs.SetInt("Star5.2", 1);
+        if (LevelManager.Instance.GetLevel(4).stars[2])
+            PlayerPrefs.SetInt("Star5.3", 1);
+
+        if (LevelManager.Instance.GetLevel(5).stars[0])
+            PlayerPrefs.SetInt("Star6.1", 1);
+        if (LevelManager.Instance.GetLevel(5).stars[1])
+            PlayerPrefs.SetInt("Star6.2", 1);
+        if (LevelManager.Instance.GetLevel(5).stars[2])
+            PlayerPrefs.SetInt("Star6.3", 1);
+
+        if (LevelManager.Instance.GetLevel(6).stars[0])
+            PlayerPrefs.SetInt("Star7.1", 1);
+        if (LevelManager.Instance.GetLevel(6).stars[1])
+            PlayerPrefs.SetInt("Star7.2", 1);
+        if (LevelManager.Instance.GetLevel(6).stars[2])
+            PlayerPrefs.SetInt("Star7.3", 1);
+
+        if (LevelManager.Instance.GetLevel(7).stars[0])
+            PlayerPrefs.SetInt("Star8.1", 1);
+        if (LevelManager.Instance.GetLevel(7).stars[1])
+            PlayerPrefs.SetInt("Star8.2", 1);
+        if (LevelManager.Instance.GetLevel(7).stars[2])
+            PlayerPrefs.SetInt("Star8.3", 1);
+
+        if (LevelManager.Instance.GetLevel(8).stars[0])
+            PlayerPrefs.SetInt("Star9.1", 1);
+        if (LevelManager.Instance.GetLevel(8).stars[1])
+            PlayerPrefs.SetInt("Star9.2", 1);
+        if (LevelManager.Instance.GetLevel(8).stars[2])
+            PlayerPrefs.SetInt("Star9.3", 1);
     }
 }
