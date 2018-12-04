@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BallMove : MonoBehaviour
 {
-
     [SerializeField] private float jumpForce = 24.0f;
     private Rigidbody2D rb;
     [SerializeField] private float moveSpeed = 19.0f;
@@ -15,7 +14,7 @@ public class BallMove : MonoBehaviour
     private float numberOfBounces;
     public bool jumpAvailable;
     Vector2 lastContactPos = new Vector2();
-    GameObject pausePanel;
+    GameObject pausePanel;    
 
     public static BallMove Instance
     {
@@ -50,8 +49,6 @@ public class BallMove : MonoBehaviour
             jumpAvailable = false;
             //this.transform.SetParent(null);
         }
-
-
     }
 
     private void OnApplicationPause(bool pause)

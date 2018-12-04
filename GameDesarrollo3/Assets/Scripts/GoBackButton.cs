@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GoBackButton : MonoBehaviour {
 
     GameObject pausePanel;
 
-	void Awake ()
+    void Awake ()
     {
         pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
         var btn = GetComponent<Button>();
