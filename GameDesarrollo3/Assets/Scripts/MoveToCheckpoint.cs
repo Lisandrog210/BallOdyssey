@@ -56,11 +56,8 @@ public class MoveToCheckpoint : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("CHOQUE");
         if (collider.tag == "LoseCheck" && livesManager.Lives > 0)
-        {
-            Debug.Log("CHOQUE2");
-
+        { 
             wlc.RemoveLife();
 
             if (cmClass.lastActivated)

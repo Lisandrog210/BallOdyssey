@@ -31,7 +31,7 @@ public class PlatformMove: MonoBehaviour
     void LateUpdate()
     {
         //Debug.Log("BALLCOLLIDE bool = " + ballCollide);
-        Debug.Log(this.name + " - nextwayp = " + nextWaypointIndex);
+        //Debug.Log(this.name + " - nextwayp = " + nextWaypointIndex);
         if (moveWhenPlayer == true)
         {
             if (activate == true)             

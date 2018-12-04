@@ -18,6 +18,7 @@ public class WinLoseCheck : MonoBehaviour {
     GameObject canvas;
     UIManager uiman;
     GameObject deathPanel;
+    GameObject deathPanel2;
     GameObject ComingSoonPanel;
     GameObject MoreLivesPanel;
     GameObject YouWinPanel;
@@ -27,6 +28,7 @@ public class WinLoseCheck : MonoBehaviour {
         MoreLivesPanel = GameObject.FindGameObjectWithTag("MoreLivesPanel");
         ComingSoonPanel = GameObject.FindGameObjectWithTag("ComingSoonPanel");
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
+        deathPanel2 = GameObject.FindGameObjectWithTag("DeathPanel2");
         YouWinPanel = GameObject.FindGameObjectWithTag("YouWinPanel");
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         lm = GameObject.FindGameObjectWithTag("LifeManager");
@@ -70,7 +72,7 @@ public class WinLoseCheck : MonoBehaviour {
             //Time.timeScale = 0;
             this.gameObject.SetActive(false);
         }
-        else if (collider.tag == "LoseCheck" && lives == 0)
+        else if (collider.tag == "LoseCheck" && lives == 0 && Time.timeScale == 1)
         {
             Debug.Log("ACTIVATE MORELIVES");
             MoreLivesPanel.SetActive(true);
