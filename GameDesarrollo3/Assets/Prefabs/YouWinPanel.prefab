@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224952981161321694}
-  - component: {fileID: 114317072954910742}
+  - component: {fileID: 114161259135914630}
   m_Layer: 5
   m_Name: YouWinPanel
   m_TagString: YouWinPanel
@@ -254,6 +254,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114161259135914630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1561479590245546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a22b69099312984a95731fb4d287e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin:
+  - {fileID: 1728597652206858}
+  - {fileID: 1168776396682202}
+  - {fileID: 1048381678472680}
+  starTaken: {fileID: 21300000, guid: 9519e60f10587bd4fa72abe1654211bf, type: 3}
+  starNotTaken: {fileID: 21300000, guid: 7de6ecba50d108543920304b5044e4b1, type: 3}
 --- !u!114 &114275857060587348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,21 +298,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114317072954910742
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1561479590245546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 156c9012fc8b7594aa92ac5571742a8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinImage:
-  - {fileID: 114507890098870274}
-  - {fileID: 114492071355445416}
-  - {fileID: 114430270329626514}
 --- !u!114 &114371788882628876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,7 +372,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048381678472680}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -438,7 +440,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168776396682202}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -465,7 +467,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728597652206858}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
