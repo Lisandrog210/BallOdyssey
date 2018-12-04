@@ -8,7 +8,18 @@ public class LevelSelectButtons : MonoBehaviour
     [SerializeField] Button[] lvlButtons;
     [SerializeField] Image[] coinImage;
     [SerializeField] GameObject[] worlds;
- 
+    [SerializeField] public GameObject[] worldLevelButtons;
+    [SerializeField] public GameObject[] worldBackgrounds;
+    [SerializeField] public GameObject[] worldPosition;
+    [SerializeField] public GameObject[] worldButtons;
+    [SerializeField] public Sprite[] worldButtonsSprites;
+    private bool jungleCentered;
+    private bool fireCentered;
+    private bool iceCentered;
+    private Image jungleImage;
+    private Image iceImage;
+    private Image fireImage;
+
 
     public bool level1Won;
     public bool level2Won;
@@ -26,19 +37,24 @@ public class LevelSelectButtons : MonoBehaviour
         }
     }
 
-    
-
     private void Awake()
     {
-        lvlButtons[0].interactable = true;
+        lvlButtons[0].interactable = true;        
+
         if (instance == null)
             instance = this;
         else
             Destroy(this.gameObject);
 
+        jungleImage = worldButtons[0].GetComponent<Image>();
+        fireImage = worldButtons[1].GetComponent<Image>();
+        iceImage = worldButtons[2].GetComponent<Image>();
+
+      
+
         if (PlayerPrefs.HasKey("Lvl1Won"))
         {
-            if (PlayerPrefs.GetInt("Lvl1Won",0) == 1)
+            if (PlayerPrefs.GetInt("Lvl1Won", 0) == 1)
                 LevelManager.Instance.SetLevelWon(0);
             if (PlayerPrefs.GetInt("Lvl2Won", 0) == 1)
                 LevelManager.Instance.SetLevelWon(1);
@@ -120,7 +136,7 @@ public class LevelSelectButtons : MonoBehaviour
             if (PlayerPrefs.GetInt("Star9.3", 0) == 1)
                 LevelManager.Instance.SetStarTaken(8, 2);
         }
-        
+
     }
 
     void Start()
@@ -137,7 +153,99 @@ public class LevelSelectButtons : MonoBehaviour
             if (level.stars[2])
                 coinImage[(i - 1) + (2 * i)].enabled = true;
         }
+
+        worldButtons[1].transform.SetSiblingIndex(2);
+        worldButtons[0].transform.SetSiblingIndex(1);
+        worldButtons[2].transform.SetSiblingIndex(0);
+        jungleCentered = true;
+        iceCentered = false;
+        fireCentered = false;
+        worldBackgrounds[0].SetActive(true);
+        worldLevelButtons[0].SetActive(true);
+        worldBackgrounds[1].SetActive(false);
+        worldLevelButtons[1].SetActive(false);
+        worldBackgrounds[2].SetActive(false);
+        worldLevelButtons[2].SetActive(false);
+        jungleImage.sprite = worldButtonsSprites[0];
+        fireImage.sprite = worldButtonsSprites[4];
+        iceImage.sprite = worldButtonsSprites[5];
+
+
     }
+
+    public void SelectJungleWorld()
+    {
+        if (!jungleCentered)
+        {
+
+            worldButtons[1].transform.SetSiblingIndex(2);
+            worldButtons[0].transform.SetSiblingIndex(1);
+            worldButtons[2].transform.SetSiblingIndex(0);
+            worldBackgrounds[0].SetActive(true);
+            worldLevelButtons[0].SetActive(true);
+            worldBackgrounds[1].SetActive(false);
+            worldLevelButtons[1].SetActive(false);
+            worldBackgrounds[2].SetActive(false);
+            worldLevelButtons[2].SetActive(false);
+            jungleImage.sprite = worldButtonsSprites[0];
+            fireImage.sprite = worldButtonsSprites[4];
+            iceImage.sprite = worldButtonsSprites[5];
+            jungleCentered = true;
+            iceCentered = false;
+            fireCentered = false;
+        }
+
+
+    }
+
+    public void SelectFireWorld()
+    {
+        if (!fireCentered)
+        {
+
+            worldButtons[0].transform.SetSiblingIndex(2);
+            worldButtons[1].transform.SetSiblingIndex(1);            
+            worldButtons[2].transform.SetSiblingIndex(0);
+            worldBackgrounds[0].SetActive(false);
+            worldLevelButtons[0].SetActive(false);
+            worldBackgrounds[1].SetActive(true);
+            worldLevelButtons[1].SetActive(true);
+            worldBackgrounds[2].SetActive(false);
+            worldLevelButtons[2].SetActive(false);
+            jungleImage.sprite = worldButtonsSprites[3];
+            fireImage.sprite = worldButtonsSprites[1];
+            iceImage.sprite = worldButtonsSprites[5];
+            fireCentered = true;
+            iceCentered = false;
+            jungleCentered = false;
+        }
+
+    }
+
+    public void SelectIceWorld()
+    {
+        if (!iceCentered)
+        {
+            worldButtons[0].transform.SetSiblingIndex(0);
+            worldButtons[1].transform.SetSiblingIndex(2);
+            worldButtons[2].transform.SetSiblingIndex(1);
+            worldBackgrounds[0].SetActive(false);
+            worldLevelButtons[0].SetActive(false);
+            worldBackgrounds[1].SetActive(false);
+            worldLevelButtons[1].SetActive(false);
+            worldBackgrounds[2].SetActive(true);
+            worldLevelButtons[2].SetActive(true);
+            jungleImage.sprite = worldButtonsSprites[3];
+            fireImage.sprite = worldButtonsSprites[4];
+            iceImage.sprite = worldButtonsSprites[2];      
+            iceCentered = true;
+            fireCentered = false;
+            jungleCentered = false;
+        }
+
+    }
+
+
 
     public void ResetPrefs()
     {
@@ -236,4 +344,6 @@ public class LevelSelectButtons : MonoBehaviour
         if (LevelManager.Instance.GetLevel(8).stars[2])
             PlayerPrefs.SetInt("Star9.3", 1);
     }
+
+
 }
