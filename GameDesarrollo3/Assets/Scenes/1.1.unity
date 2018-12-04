@@ -5051,16 +5051,6 @@ Prefab:
       propertyPath: m_Name
       value: PlatFall (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 256149138546010350, guid: 76d163b86de43f34bb03fda0fb76a386,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.x
-      value: -10.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 256149138546010350, guid: 76d163b86de43f34bb03fda0fb76a386,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 2.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d163b86de43f34bb03fda0fb76a386, type: 2}
   m_IsPrefabAsset: 0
@@ -12441,6 +12431,16 @@ Prefab:
     - target: {fileID: 1971127141713812, guid: 76d163b86de43f34bb03fda0fb76a386, type: 2}
       propertyPath: m_Name
       value: PlatFall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 256149138546010350, guid: 76d163b86de43f34bb03fda0fb76a386,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.x
+      value: 4.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 256149138546010350, guid: 76d163b86de43f34bb03fda0fb76a386,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: 12.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d163b86de43f34bb03fda0fb76a386, type: 2}

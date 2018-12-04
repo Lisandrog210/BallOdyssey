@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ReloadScene : MonoBehaviour {
+
     Scene scene;
 
     private void Awake()
