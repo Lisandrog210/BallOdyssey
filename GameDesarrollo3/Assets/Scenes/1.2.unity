@@ -3636,6 +3636,7 @@ MonoBehaviour:
   fallDelay: 2.2
   DisableColliderDelay: 3
   _timeToReset: 0
+  crackSound: {fileID: 0}
 --- !u!50 &372995758
 Rigidbody2D:
   serializedVersion: 4
@@ -6463,6 +6464,7 @@ MonoBehaviour:
   fallDelay: 2.2
   DisableColliderDelay: 3
   _timeToReset: 0
+  crackSound: {fileID: 0}
 --- !u!50 &710320499
 Rigidbody2D:
   serializedVersion: 4
@@ -7185,6 +7187,7 @@ MonoBehaviour:
   fallDelay: 2.2
   DisableColliderDelay: 3
   _timeToReset: 0
+  crackSound: {fileID: 0}
 --- !u!50 &784869359
 Rigidbody2D:
   serializedVersion: 4
@@ -9994,7 +9997,8 @@ Prefab:
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114119050642641948, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1085440498 stripped
