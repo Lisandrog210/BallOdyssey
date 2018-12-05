@@ -63,7 +63,7 @@ public class MoveToCheckpoint : MonoBehaviour
             if (cmClass.lastActivated)
             {
                 Debug.Log("OPEN DEATH PANEL");
-                cmClass.ResetCoins();
+                cmClass.ResetCoins();               
                 deathPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
             }
