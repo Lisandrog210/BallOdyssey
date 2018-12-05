@@ -33,8 +33,8 @@ public class WinLoseCheck : MonoBehaviour {
     {
         MoreLivesPanel = GameObject.FindGameObjectWithTag("MoreLivesPanel");
         ComingSoonPanel = GameObject.FindGameObjectWithTag("ComingSoonPanel");
-        deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
-        deathPanel2 = GameObject.FindGameObjectWithTag("DeathPanel2");
+        //deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
+        //deathPanel2 = GameObject.FindGameObjectWithTag("DeathPanel2");
         YouWinPanel = GameObject.FindGameObjectWithTag("YouWinPanel");
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         lm = GameObject.FindGameObjectWithTag("LifeManager");
@@ -47,9 +47,9 @@ public class WinLoseCheck : MonoBehaviour {
 
         if (ComingSoonPanel && ComingSoonPanel.activeSelf)
             ComingSoonPanel.SetActive(false);
-        if (MoreLivesPanel.activeSelf)
+        if (MoreLivesPanel && MoreLivesPanel.activeSelf)
             MoreLivesPanel.SetActive(false);
-        if (YouWinPanel.activeSelf)
+        if (YouWinPanel && YouWinPanel.activeSelf)
             YouWinPanel.SetActive(false);
     }
 

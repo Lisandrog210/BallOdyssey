@@ -8,7 +8,7 @@ public class Rotator : MonoBehaviour {
 
 	void Update ()
     {
-        Debug.Log(rotationSpeed);
+        //Debug.Log(rotationSpeed);
        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime, Space.Self);
     }
 }

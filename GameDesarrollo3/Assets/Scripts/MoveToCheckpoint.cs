@@ -33,10 +33,16 @@ public class MoveToCheckpoint : MonoBehaviour
         pfClass = new PlatformFall[fallingPlat.Length];
         pmClass = new PlatformMove[movingPlatform.Length];
 
-        if (deathPanel)
+        if (deathPanel && deathPanel.activeSelf)
+        {
+            Debug.Log("DEACTIVATE 1");
             deathPanel.gameObject.SetActive(false);
-        if(deathPanel2)
+        }
+        if (deathPanel2 && deathPanel2.activeSelf)
+        {
+            Debug.Log("DEACTIVATE 2");
             deathPanel2.gameObject.SetActive(false);
+        }
 
         wlc = GameObject.FindGameObjectWithTag("Ball").GetComponent<WinLoseCheck>();
         this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -108,6 +114,11 @@ public class MoveToCheckpoint : MonoBehaviour
         SceneManager.LoadScene("GameOverMenu");
     }
 
+    private void Update()
+    {
+        Debug.Log("deathPanel 2 = " + deathPanel2.activeSelf);
+        Debug.Log("deathPanel 1 = " + deathPanel.activeSelf);
+    }
 
 
 }

@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114080735491400642}
   - component: {fileID: 114557626763081042}
   - component: {fileID: 82918087011510402}
-  - component: {fileID: 81465950774866480}
   m_Layer: 13
   m_Name: Ball1
   m_TagString: Ball
@@ -82,13 +81,6 @@ CircleCollider2D:
   m_Offset: {x: 0.00034109745, y: -0.00091677246}
   serializedVersion: 2
   m_Radius: 0.090213604
---- !u!81 &81465950774866480
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1031633852691626}
-  m_Enabled: 1
 --- !u!82 &82918087011510402
 AudioSource:
   m_ObjectHideFlags: 1
@@ -224,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f689f9cb589d19c42b2e409bb736bea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 28
+  jumpForce: 24
   moveSpeed: 40
   jumpAvailable: 0
   jumpSound: {fileID: 8300000, guid: dbf467af729ee1648ae15731958c7bd5, type: 3}
