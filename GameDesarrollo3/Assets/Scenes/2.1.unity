@@ -1987,6 +1987,11 @@ Prefab:
       propertyPath: m_Radius
       value: 0.4913273
       objectReference: {fileID: 0}
+    - target: {fileID: 114557626763081042, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: level
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114119050642641948, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
