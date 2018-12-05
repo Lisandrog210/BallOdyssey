@@ -10,24 +10,32 @@ public class PlatformFall : MonoBehaviour
     private Collider2D col2d;
     private Vector2 originalPosition;
     [SerializeField] float _timeToReset;
+    [SerializeField] AudioClip crackSound;
+
+    AudioSource audioS;
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
-        originalPosition = this.transform.position;        
+        originalPosition = this.transform.position;
+        audioS = GetComponent<AudioSource>();
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ball"))
+        {
+            audioS.PlayOneShot(crackSound, 1F);
             Invoke("Fall", fallDelay);
+        }
         //else            
             //this.gameObject.SetActive(false);        
     }    
 
     void Fall()
     {
+        
         rb2d.bodyType = RigidbodyType2D.Dynamic;
         this.transform.DetachChildren();
         //this.gameObject.SetActive(false);

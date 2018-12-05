@@ -23,6 +23,12 @@ public class WinLoseCheck : MonoBehaviour {
     GameObject MoreLivesPanel;
     GameObject YouWinPanel;
 
+    [SerializeField] AudioClip starSound;
+    [SerializeField] AudioClip winSound;
+    [SerializeField] AudioClip loseSound;
+
+    AudioSource audioS;
+
     private void Awake()
     {
         MoreLivesPanel = GameObject.FindGameObjectWithTag("MoreLivesPanel");
@@ -36,6 +42,7 @@ public class WinLoseCheck : MonoBehaviour {
         uiman = canvas.GetComponent<UIManager>();
         cmClass = cm.GetComponent<CheckpointManager>();
         livesManager = lm.GetComponent<LivesManager>();
+        audioS = GetComponent<AudioSource>();
 
 
         if (ComingSoonPanel && ComingSoonPanel.activeSelf)
@@ -49,6 +56,7 @@ public class WinLoseCheck : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == "Coin")
         {
+            audioS.PlayOneShot(starSound, 1f);
             StarsManager.Instance.SetStarsTaken(collider.gameObject);
             StarsManager.Instance.AddStarsToResetList(collider.gameObject);
             collider.gameObject.SetActive(false);
@@ -56,6 +64,8 @@ public class WinLoseCheck : MonoBehaviour {
 
         if (collider.tag == "WinCheck" )
         {
+            audioS.PlayOneShot(winSound, 1f);
+
             if (level == 8)            
                 ComingSoonPanel.SetActive(true);
 
@@ -70,11 +80,13 @@ public class WinLoseCheck : MonoBehaviour {
         {
             //RemoveLife();
             //Time.timeScale = 0;
+            audioS.PlayOneShot(loseSound, 1f);
             this.gameObject.SetActive(false);
         }
         else if (collider.tag == "LoseCheck" && lives == 0 && Time.timeScale == 1)
         {
             Debug.Log("ACTIVATE MORELIVES");
+            audioS.PlayOneShot(loseSound, 1f);
             MoreLivesPanel.SetActive(true);
             this.gameObject.SetActive(false);
             Time.timeScale = 0;

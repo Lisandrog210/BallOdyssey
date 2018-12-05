@@ -14,7 +14,14 @@ public class BallMove : MonoBehaviour
     private float numberOfBounces;
     public bool jumpAvailable;
     Vector2 lastContactPos = new Vector2();
-    GameObject pausePanel;    
+    GameObject pausePanel;
+
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip groundSound;
+    [SerializeField] AudioClip impulseSound;
+    [SerializeField] AudioClip springSound;
+
+    AudioSource audioS;
 
     public static BallMove Instance
     {
@@ -35,7 +42,7 @@ public class BallMove : MonoBehaviour
         instance = this;
         numberOfBounces = 1;              
         pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
-        
+        audioS = GetComponent<AudioSource>();
         
     }
 
@@ -47,6 +54,7 @@ public class BallMove : MonoBehaviour
         {           
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
+            audioS.PlayOneShot(jumpSound, 1F);
             //this.transform.SetParent(null);
         }
     }
@@ -85,6 +93,7 @@ public class BallMove : MonoBehaviour
             this.transform.SetParent(collision.transform);
             numberOfBounces = 1;
             jumpAvailable = true;
+            audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
@@ -92,6 +101,7 @@ public class BallMove : MonoBehaviour
             //isGrounded = true;
             numberOfBounces = 1;
             jumpAvailable = true;
+            audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
@@ -99,6 +109,7 @@ public class BallMove : MonoBehaviour
             rb.AddForce(Vector2.right * moveSpeed * 1f, ForceMode2D.Impulse);
             numberOfBounces = 1;
             jumpAvailable = true;
+            audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "FastPlatformx2")
@@ -106,6 +117,7 @@ public class BallMove : MonoBehaviour
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
             numberOfBounces = 1;
             jumpAvailable = true;
+            audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "MovingPlatform")
@@ -115,6 +127,7 @@ public class BallMove : MonoBehaviour
             rb2d.connectedBody = rb;
             collision.gameObject.GetComponent<PlatformMove>().activate = true;
             jumpAvailable = true;
+            audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
         if (collision.collider.gameObject.tag == "SmallPlatform")
@@ -123,11 +136,13 @@ public class BallMove : MonoBehaviour
             numberOfBounces = 1;
             rb2d.connectedBody = rb;
             jumpAvailable = true;
+            audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
 
         if (collision.gameObject.CompareTag("Spring"))
         {
+            audioS.PlayOneShot(springSound, 1F);
             colAngle = Vector2.Angle(-collision.contacts[0].normal, new Vector2(collision.transform.up.x, collision.transform.up.y));
             if (colAngle > 120)
             {
