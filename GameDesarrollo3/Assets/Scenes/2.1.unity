@@ -809,7 +809,7 @@ SpriteRenderer:
   m_Size: {x: 80.130005, y: 226.26001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!222 &212847286
@@ -2096,6 +2096,11 @@ Prefab:
         type: 2}
       propertyPath: level
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114692006456073804, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114119050642641948, guid: 671189a2f6b14694fbb14f33219a9221, type: 2}
