@@ -193,15 +193,14 @@ public class BallMove : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || 
+            collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
             isGrounded = true;
             //Debug.Log(isGrounded + " -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
             //lastContactPos = collision.contacts[0].point;
         }
-
     }
 }
 
