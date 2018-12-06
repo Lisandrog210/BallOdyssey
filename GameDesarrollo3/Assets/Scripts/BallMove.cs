@@ -87,6 +87,7 @@ public class BallMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
             //isGrounded = true;
@@ -158,7 +159,7 @@ public class BallMove : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") /*|| 
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms")*/)
         {
-            isGrounded = false;
+            jumpAvailable = false;
             //Debug.Log(isGrounded+" -- " +collision.collider.name);            
             this.transform.SetParent(null);
             /*Vector2 aux = new Vector2();
@@ -192,7 +193,7 @@ public class BallMove : MonoBehaviour
     }
 
     void OnCollisionStay2D(Collision2D collision)
-    {
+    {        
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || 
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
