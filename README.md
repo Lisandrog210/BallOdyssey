@@ -35,4 +35,4 @@ This game was also possible thanks to the support of these professors:
 
 ## Links
 
-Download it from itch.io: https://alberto210.itch.io/ball-oddyssey
+Download it from itch.io: https://alberto210.itch.io/ball-odyssey
