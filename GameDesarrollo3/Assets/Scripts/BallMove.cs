@@ -6,12 +6,13 @@ public class BallMove : MonoBehaviour
 {
     [SerializeField] private float jumpForce = 24.0f;
     private Rigidbody2D rb;
-    [SerializeField] private float moveSpeed = 19.0f;
+    [SerializeField] private float moveSpeed = 0.038f;
     private bool isGrounded;
     public static BallMove instance;
     private bool moving;
     private float colAngle;
     private float numberOfBounces;
+    private float hAxis = 0.0f;
     public bool jumpAvailable;
     Vector2 lastContactPos = new Vector2();
     GameObject pausePanel;
@@ -48,6 +49,8 @@ public class BallMove : MonoBehaviour
 
     void Update()
     {
+        hAxis = InputManager.Instance.GetHorizontalAxis();
+
         if (InputManager.Instance.GetJumpButton() == true &&
             /*isGrounded == true*/  jumpAvailable == true &&
             !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
@@ -76,17 +79,18 @@ public class BallMove : MonoBehaviour
 
         if (isGrounded == true)
         {
-            rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * hAxis * moveSpeed, ForceMode2D.Impulse);
         }
         else
         {
-            rb.AddForce(Vector2.right * InputManager.Instance.GetHorizontalAxis() * moveSpeed / 4 * Time.deltaTime, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * hAxis * moveSpeed  * 0.1f, ForceMode2D.Impulse);
         }
     }
 
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
             //isGrounded = true;
@@ -158,7 +162,7 @@ public class BallMove : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") /*|| 
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms")*/)
         {
-            isGrounded = false;
+            jumpAvailable = false;
             //Debug.Log(isGrounded+" -- " +collision.collider.name);            
             this.transform.SetParent(null);
             /*Vector2 aux = new Vector2();
@@ -169,8 +173,7 @@ public class BallMove : MonoBehaviour
             {
                 Debug.Log("herhe" + Vector2.Distance(aux, lastContactPos));
                 Debug.Log("Bola sale del padre, fue intencional?");
-                //this.transform.SetParent(null);
-                
+                //this.transform.SetParent(null);                
             }*/
 
         }
@@ -192,16 +195,15 @@ public class BallMove : MonoBehaviour
     }
 
     void OnCollisionStay2D(Collision2D collision)
-    {
-
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
+    {        
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || 
+            collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
             isGrounded = true;
             //Debug.Log(isGrounded + " -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
             //lastContactPos = collision.contacts[0].point;
         }
-
     }
 }
 
