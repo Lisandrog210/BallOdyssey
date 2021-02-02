@@ -18,6 +18,7 @@ public class ButtonResetPlayerprefs : MonoBehaviour
     public void resetYes()
     {
         PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetInt("AudioOnOff", 1);
         SceneManager.LoadScene("Main Menu");
     }
 
