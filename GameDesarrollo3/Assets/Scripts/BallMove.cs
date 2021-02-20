@@ -54,6 +54,7 @@ public class BallMove : MonoBehaviour
         
         hAxis = InputManager.Instance.GetHorizontalAxis();
 
+        //----------------------------------------------- SALTO -------------------------------------------------------------------------------
         if (InputManager.Instance.GetJumpButton() == true &&
             /*isGrounded == true*/  jumpAvailable == true &&
             !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
