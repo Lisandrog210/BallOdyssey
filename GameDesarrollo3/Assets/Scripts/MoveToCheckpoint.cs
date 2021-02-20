@@ -35,12 +35,12 @@ public class MoveToCheckpoint : MonoBehaviour
 
         if (deathPanel && deathPanel.activeSelf)
         {
-            Debug.Log("DEACTIVATE 1");
+            //Debug.Log("DEACTIVATE 1");
             deathPanel.gameObject.SetActive(false);
         }
         if (deathPanel2 && deathPanel2.activeSelf)
         {
-            Debug.Log("DEACTIVATE 2");
+            //Debug.Log("DEACTIVATE 2");
             deathPanel2.gameObject.SetActive(false);
         }
 
@@ -68,14 +68,14 @@ public class MoveToCheckpoint : MonoBehaviour
 
             if (cmClass.lastActivated)
             {
-                Debug.Log("OPEN DEATH PANEL");
+                //Debug.Log("OPEN DEATH PANEL");
                 cmClass.ResetCoins();               
                 deathPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
             }
             else
             {
-                Debug.Log("OPEN DEATH PANEL 2");
+                //Debug.Log("OPEN DEATH PANEL 2");
                 deathPanel2.gameObject.SetActive(true);
                 Time.timeScale = 0;
             }
@@ -116,8 +116,8 @@ public class MoveToCheckpoint : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("deathPanel 2 = " + deathPanel2.activeSelf);
-        Debug.Log("deathPanel 1 = " + deathPanel.activeSelf);
+        //Debug.Log("deathPanel 2 = " + deathPanel2.activeSelf);
+        //Debug.Log("deathPanel 1 = " + deathPanel.activeSelf);
     }
 
 

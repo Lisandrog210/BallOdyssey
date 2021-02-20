@@ -13,6 +13,8 @@ public class BallMove : MonoBehaviour
     private float colAngle;
     private float numberOfBounces;
     private float hAxis = 0.0f;
+    private float maxSpeedGround = 20;
+    private float maxSpeedAir = 20;
     public bool jumpAvailable;
     Vector2 lastContactPos = new Vector2();
     GameObject pausePanel;
@@ -49,6 +51,7 @@ public class BallMove : MonoBehaviour
 
     void Update()
     {
+        
         hAxis = InputManager.Instance.GetHorizontalAxis();
 
         if (InputManager.Instance.GetJumpButton() == true &&
@@ -76,15 +79,27 @@ public class BallMove : MonoBehaviour
     {
         //MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
         this.transform.rotation = Quaternion.identity;
-
+        Debug.Log("IS GROUNDED? - " + isGrounded);
+        //Debug.Log("Velocity = " + rb.velocity);
+        //Debug.Log("IS GROUNDED = " + isGrounded);
         if (isGrounded == true)
         {
             rb.AddForce(Vector2.right * hAxis * moveSpeed, ForceMode2D.Impulse);
         }
         else
         {
-            rb.AddForce(Vector2.right * hAxis * moveSpeed  * 0.1f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * hAxis * moveSpeed  * .2f, ForceMode2D.Impulse);            
         }
+        Vector3 vel = rb.velocity;
+        if (vel.magnitude > maxSpeedAir && !isGrounded)
+        {
+            rb.velocity = vel.normalized * maxSpeedAir;
+        }
+        else if (vel.magnitude > maxSpeedGround && isGrounded)
+        {
+            rb.velocity = vel.normalized * maxSpeedGround;
+        }
+
     }
 
 
@@ -158,11 +173,12 @@ public class BallMove : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-
+        //Debug.Log(isGrounded + " -- " + collision.collider.name);
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") /*|| 
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms")*/)
         {
             jumpAvailable = false;
+            isGrounded = false;
             //Debug.Log(isGrounded+" -- " +collision.collider.name);            
             this.transform.SetParent(null);
             /*Vector2 aux = new Vector2();
@@ -200,7 +216,7 @@ public class BallMove : MonoBehaviour
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
             isGrounded = true;
-            //Debug.Log(isGrounded + " -- " + collision.collider.name);
+           //Debug.Log(isGrounded + " -- " + collision.collider.name);
             this.transform.SetParent(collision.transform);
             //lastContactPos = collision.contacts[0].point;
         }
