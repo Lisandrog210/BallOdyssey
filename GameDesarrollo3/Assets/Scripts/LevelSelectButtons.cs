@@ -50,6 +50,9 @@ public class LevelSelectButtons : MonoBehaviour
         fireImage = worldButtons[1].GetComponent<Image>();
         iceImage = worldButtons[2].GetComponent<Image>();
 
+        
+
+
       
 
         if (PlayerPrefs.HasKey("Lvl1Won"))
@@ -154,21 +157,67 @@ public class LevelSelectButtons : MonoBehaviour
                 coinImage[(i - 1) + (2 * i)].enabled = true;
         }
 
-        worldButtons[1].transform.SetSiblingIndex(2);
-        worldButtons[0].transform.SetSiblingIndex(1);
-        worldButtons[2].transform.SetSiblingIndex(0);
-        jungleCentered = true;
-        iceCentered = false;
-        fireCentered = false;
-        worldBackgrounds[0].SetActive(true);
-        worldLevelButtons[0].SetActive(true);
-        worldBackgrounds[1].SetActive(false);
-        worldLevelButtons[1].SetActive(false);
-        worldBackgrounds[2].SetActive(false);
-        worldLevelButtons[2].SetActive(false);
-        jungleImage.sprite = worldButtonsSprites[0];
-        fireImage.sprite = worldButtonsSprites[4];
-        iceImage.sprite = worldButtonsSprites[5];
+        /* worldButtons[1].transform.SetSiblingIndex(2);
+         worldButtons[0].transform.SetSiblingIndex(1);
+         worldButtons[2].transform.SetSiblingIndex(0);        
+         if (PlayerPrefs.GetInt("LastWorld", 0) == 1)
+         {
+             jungleCentered = true;
+             iceCentered = false;
+             fireCentered = false;
+             worldBackgrounds[0].SetActive(true);
+             worldLevelButtons[0].SetActive(true);
+             worldBackgrounds[1].SetActive(false);
+             worldLevelButtons[1].SetActive(false);
+             worldBackgrounds[2].SetActive(false);
+             worldLevelButtons[2].SetActive(false);
+         }
+         if (PlayerPrefs.GetInt("LastWorld", 0) == 2)
+         {
+             jungleCentered = false;
+             iceCentered = true;
+             fireCentered = false;
+             worldBackgrounds[0].SetActive(false);
+             worldLevelButtons[0].SetActive(false);
+             worldBackgrounds[1].SetActive(true);
+             worldLevelButtons[1].SetActive(true);
+             worldBackgrounds[2].SetActive(false);
+             worldLevelButtons[2].SetActive(false);
+         }
+         if (PlayerPrefs.GetInt("LastWorld", 0) == 3)
+         {
+             jungleCentered = false;
+             iceCentered = false;
+             fireCentered = true;
+             worldBackgrounds[0].SetActive(false);
+             worldLevelButtons[0].SetActive(false);
+             worldBackgrounds[1].SetActive(false);
+             worldLevelButtons[1].SetActive(false);
+             worldBackgrounds[2].SetActive(true);
+             worldLevelButtons[2].SetActive(true);
+         }
+
+
+
+
+         jungleImage.sprite = worldButtonsSprites[0];
+         fireImage.sprite = worldButtonsSprites[4];
+         iceImage.sprite = worldButtonsSprites[5];*/
+
+
+        if (PlayerPrefs.GetInt("LastWorld", 0) == 1)
+        {
+            SelectJungleWorld();
+        }
+        if (PlayerPrefs.GetInt("LastWorld", 0) == 2)
+        {
+            SelectFireWorld();
+
+        }
+        if (PlayerPrefs.GetInt("LastWorld", 0) == 3)
+        {
+            SelectIceWorld();
+        }
 
 
     }
@@ -177,7 +226,7 @@ public class LevelSelectButtons : MonoBehaviour
     {
         if (!jungleCentered)
         {
-
+            PlayerPrefs.SetInt("LastWorld", 1);
             worldButtons[1].transform.SetSiblingIndex(2);
             worldButtons[0].transform.SetSiblingIndex(1);
             worldButtons[2].transform.SetSiblingIndex(0);
@@ -202,7 +251,7 @@ public class LevelSelectButtons : MonoBehaviour
     {
         if (!fireCentered)
         {
-
+            PlayerPrefs.SetInt("LastWorld", 2);
             worldButtons[0].transform.SetSiblingIndex(2);
             worldButtons[1].transform.SetSiblingIndex(1);            
             worldButtons[2].transform.SetSiblingIndex(0);
@@ -226,6 +275,7 @@ public class LevelSelectButtons : MonoBehaviour
     {
         if (!iceCentered)
         {
+            PlayerPrefs.SetInt("LastWorld", 3);
             worldButtons[0].transform.SetSiblingIndex(0);
             worldButtons[1].transform.SetSiblingIndex(2);
             worldButtons[2].transform.SetSiblingIndex(1);
