@@ -24,7 +24,12 @@ public class InputManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        instance = this;
+        instance = this;        
+        if (PlayerPrefs.GetInt("AudioOnOff") == 0)
+            AudioListener.volume = 0;        
+        else
+            AudioListener.volume = 1;
+        
 
 
 
