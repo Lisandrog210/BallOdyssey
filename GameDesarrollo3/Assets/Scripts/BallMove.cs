@@ -78,9 +78,12 @@ public class BallMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log("max speed ground = " + maxSpeedGround);
+        Debug.Log("max speed air = " + maxSpeedAir);
+
         //MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
         this.transform.rotation = Quaternion.identity;
-        Debug.Log("IS GROUNDED? - " + isGrounded);
+        //Debug.Log("IS GROUNDED? - " + isGrounded);
         //Debug.Log("Velocity = " + rb.velocity);
         //Debug.Log("IS GROUNDED = " + isGrounded);
         if (isGrounded == true)
@@ -91,6 +94,7 @@ public class BallMove : MonoBehaviour
         {
             rb.AddForce(Vector2.right * hAxis * moveSpeed  * .2f, ForceMode2D.Impulse);            
         }
+        
         Vector3 vel = rb.velocity;
         if (vel.magnitude > maxSpeedAir && !isGrounded)
         {
@@ -126,7 +130,9 @@ public class BallMove : MonoBehaviour
         }
         if (collision.collider.gameObject.tag == "FastPlatform")
         {
-            rb.AddForce(Vector2.right * moveSpeed * 1f, ForceMode2D.Impulse);
+            maxSpeedAir = 100;
+            maxSpeedGround = 100;
+            rb.AddForce(Vector2.right * moveSpeed * 50f, ForceMode2D.Impulse);
             numberOfBounces = 1;
             jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
@@ -175,13 +181,16 @@ public class BallMove : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         //Debug.Log(isGrounded + " -- " + collision.collider.name);
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") /*|| 
-            collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms")*/)
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || 
+            collision.collider.gameObject.layer == LayerMask.NameToLayer("FastPlatforms"))
         {
+            maxSpeedAir = 20;
+            maxSpeedGround = 20;
             jumpAvailable = false;
             isGrounded = false;
-            //Debug.Log(isGrounded+" -- " +collision.collider.name);            
-            this.transform.SetParent(null);
+            //Debug.Log(isGrounded+" -- " +collision.collider.name);
+            if(this.gameObject.activeSelf)
+                this.transform.SetParent(null);
             /*Vector2 aux = new Vector2();
             aux.x = this.transform.position.x;
             aux.y = this.transform.position.y;            
@@ -218,7 +227,7 @@ public class BallMove : MonoBehaviour
         {
             isGrounded = true;
            //Debug.Log(isGrounded + " -- " + collision.collider.name);
-            this.transform.SetParent(collision.transform);
+            //this.transform.SetParent(collision.transform); ---- esto esta repetido en collision enter por eso lo comento
             //lastContactPos = collision.contacts[0].point;
         }
     }

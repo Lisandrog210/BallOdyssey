@@ -7270,11 +7270,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1750411551620478, guid: 58409ede865336543bdb2186feca7b55, type: 3}
       propertyPath: m_Name
-      value: PlatStandard (2)
+      value: FastPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 1750411551620478, guid: 58409ede865336543bdb2186feca7b55, type: 3}
       propertyPath: m_TagString
       value: FastPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750411551620478, guid: 58409ede865336543bdb2186feca7b55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4439142244772632, guid: 58409ede865336543bdb2186feca7b55, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10271,6 +10275,10 @@ PrefabInstance:
     - target: {fileID: 1750411551620478, guid: 58409ede865336543bdb2186feca7b55, type: 3}
       propertyPath: m_TagString
       value: FastPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750411551620478, guid: 58409ede865336543bdb2186feca7b55, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4439142244772632, guid: 58409ede865336543bdb2186feca7b55, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15843,7 +15851,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1915333470}
   - component: {fileID: 1915333471}
-  - component: {fileID: 1915333472}
   m_Layer: 0
   m_Name: Asset 36 (4)
   m_TagString: Untagged
@@ -15916,18 +15923,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1915333472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915333469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85967126290f73641b10adf4ee4acf8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1920527772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4439142244772632, guid: 58409ede865336543bdb2186feca7b55,
@@ -16112,7 +16107,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1983580739}
   - component: {fileID: 1983580740}
-  - component: {fileID: 1983580741}
   m_Layer: 0
   m_Name: Asset 36 (5)
   m_TagString: Untagged
@@ -16185,18 +16179,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1983580741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983580738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85967126290f73641b10adf4ee4acf8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1995023071
 GameObject:
   m_ObjectHideFlags: 0

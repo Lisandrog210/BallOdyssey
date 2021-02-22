@@ -104,7 +104,7 @@ public class PlatformMove: MonoBehaviour
     {        
         if(collision.gameObject.tag == "Ball")
         {
-            Debug.Log("ACTIVATE");
+            //Debug.Log("ACTIVATE");
             ballCollide = true;
         }
        
@@ -114,7 +114,7 @@ public class PlatformMove: MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            Debug.Log("DE-ACTIVATE");
+            //Debug.Log("DE-ACTIVATE");
             ballCollide = false;
         }
     }
