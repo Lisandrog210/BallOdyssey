@@ -45,8 +45,7 @@ public class BallMove : MonoBehaviour
         instance = this;
         numberOfBounces = 1;              
         pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
-        audioS = GetComponent<AudioSource>();
-        
+        audioS = GetComponent<AudioSource>();        
     }
 
     void Update()
@@ -78,13 +77,13 @@ public class BallMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("max speed ground = " + maxSpeedGround);
-        Debug.Log("max speed air = " + maxSpeedAir);
+        //Debug.Log("max speed ground = " + maxSpeedGround);
+        //Debug.Log("max speed air = " + maxSpeedAir);
 
         //MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
         this.transform.rotation = Quaternion.identity;
         //Debug.Log("IS GROUNDED? - " + isGrounded);
-        //Debug.Log("Velocity = " + rb.velocity);
+        Debug.Log("Velocity = " + rb.velocity);
         //Debug.Log("IS GROUNDED = " + isGrounded);
         if (isGrounded == true)
         {
@@ -104,13 +103,10 @@ public class BallMove : MonoBehaviour
         {
             rb.velocity = vel.normalized * maxSpeedGround;
         }
-
     }
 
-
     void OnCollisionEnter2D(Collision2D collision)
-    {
-        
+    {        
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
             //isGrounded = true;
@@ -165,15 +161,15 @@ public class BallMove : MonoBehaviour
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
-
         if (collision.gameObject.CompareTag("Spring"))
         {
+
             audioS.PlayOneShot(springSound, 1F);
             colAngle = Vector2.Angle(-collision.contacts[0].normal, new Vector2(collision.transform.up.x, collision.transform.up.y));
             if (colAngle > 120)
             {
                 numberOfBounces += 0.1f;
-                rb.AddForce((transform.up * 30) * numberOfBounces, ForceMode2D.Impulse);
+                rb.AddForce((transform.up * 35) * numberOfBounces, ForceMode2D.Impulse);
             }
         }
     }
@@ -185,7 +181,7 @@ public class BallMove : MonoBehaviour
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FastPlatforms"))
         {
             maxSpeedAir = 20;
-            maxSpeedGround = 20;
+            maxSpeedGround = 13;
             jumpAvailable = false;
             isGrounded = false;
             //Debug.Log(isGrounded+" -- " +collision.collider.name);
@@ -218,6 +214,12 @@ public class BallMove : MonoBehaviour
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
             rb2d.connectedBody = null;
         }
+        if (collision.collider.gameObject.tag == "Spring")
+        {
+            isGrounded = false;
+            maxSpeedAir = 40;
+            maxSpeedGround = 40;
+        }
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -225,6 +227,8 @@ public class BallMove : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || 
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
+            maxSpeedAir = 20;
+            maxSpeedGround = 13;
             isGrounded = true;
            //Debug.Log(isGrounded + " -- " + collision.collider.name);
             //this.transform.SetParent(collision.transform); ---- esto esta repetido en collision enter por eso lo comento
