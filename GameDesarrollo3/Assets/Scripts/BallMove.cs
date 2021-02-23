@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BallMove : MonoBehaviour
 {
@@ -56,12 +57,14 @@ public class BallMove : MonoBehaviour
         //----------------------------------------------- SALTO -------------------------------------------------------------------------------
         if (InputManager.Instance.GetJumpButton() == true &&
             /*isGrounded == true*/  jumpAvailable == true &&
-            !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            !EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
+            && !EventSystem.current.currentSelectedGameObject.CompareTag("UI"))
         {           
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
             audioS.PlayOneShot(jumpSound, 1F);
             //this.transform.SetParent(null);
+
         }
     }
 
