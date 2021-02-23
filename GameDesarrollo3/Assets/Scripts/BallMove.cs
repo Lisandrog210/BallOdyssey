@@ -13,7 +13,7 @@ public class BallMove : MonoBehaviour
     private float colAngle;
     private float numberOfBounces;
     private float hAxis = 0.0f;
-    private float maxSpeedGround = 20;
+    private float maxSpeedGround = 12;
     private float maxSpeedAir = 20;
     public bool jumpAvailable;
     Vector2 lastContactPos = new Vector2();
@@ -93,8 +93,15 @@ public class BallMove : MonoBehaviour
         {
             rb.AddForce(Vector2.right * hAxis * moveSpeed  * .2f, ForceMode2D.Impulse);            
         }
-        
-        Vector3 vel = rb.velocity;
+
+        //---------esto deberia limitar la velocidad solamente en x para no joder al salto-----
+        Vector3 v = rb.velocity;
+        v.x = Mathf.Clamp(v.x, -maxSpeedGround, maxSpeedGround);
+        rb.velocity = v;
+
+
+        //-----------otra forma de limitar la velocidad en x y en y al mismo tiempo-------------
+        /*Vector3 vel = rb.velocity;
         if (vel.magnitude > maxSpeedAir && !isGrounded)
         {
             rb.velocity = vel.normalized * maxSpeedAir;
@@ -102,7 +109,7 @@ public class BallMove : MonoBehaviour
         else if (vel.magnitude > maxSpeedGround && isGrounded)
         {
             rb.velocity = vel.normalized * maxSpeedGround;
-        }
+        }*/
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -181,7 +188,7 @@ public class BallMove : MonoBehaviour
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FastPlatforms"))
         {
             maxSpeedAir = 20;
-            maxSpeedGround = 13;
+            maxSpeedGround = 14;
             jumpAvailable = false;
             isGrounded = false;
             //Debug.Log(isGrounded+" -- " +collision.collider.name);
