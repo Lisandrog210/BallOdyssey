@@ -55,20 +55,26 @@ public class BallMove : MonoBehaviour
 
     void Update()
     {
-        
         hAxis = InputManager.Instance.GetHorizontalAxis();
 
+        Debug.Log("Is P. over GameObject = " + EventSystem.current.IsPointerOverGameObject());
+        if (EventSystem.current.currentSelectedGameObject != null)
+        {
+            Debug.Log("current selected gobject" + EventSystem.current.currentSelectedGameObject.name);
+            Debug.Log("tag contained? = " + NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag));
+        }
+        
         //----------------------------------------------- SALTO -------------------------------------------------------------------------------
-        if (InputManager.Instance.GetJumpButton() == true &&
-            /*isGrounded == true*/  jumpAvailable == true &&
-            !EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
-            && !NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag))
+        hAxis = InputManager.Instance.GetHorizontalAxis();
+
+        if (InputManager.Instance.GetJumpButton() == true && jumpAvailable == true &&
+            !EventSystem.current.IsPointerOverGameObject() && !pausePanel.activeSelf/*&& EventSystem.current.currentSelectedGameObject != null 
+            && NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag) == false*/)
         {           
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
             audioS.PlayOneShot(jumpSound, 1F);
-            //this.transform.SetParent(null);
-
+            
         }
     }
 
@@ -84,14 +90,14 @@ public class BallMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         //Debug.Log("max speed ground = " + maxSpeedGround);
         //Debug.Log("max speed air = " + maxSpeedAir);
 
         //MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
         this.transform.rotation = Quaternion.identity;
         //Debug.Log("IS GROUNDED? - " + isGrounded);
-        Debug.Log("Velocity = " + rb.velocity);
-        //Debug.Log("IS GROUNDED = " + isGrounded);
+        //Debug.Log("Velocity = " + rb.velocity);       
         if (isGrounded == true)
         {
             rb.AddForce(Vector2.right * hAxis * moveSpeed, ForceMode2D.Impulse);

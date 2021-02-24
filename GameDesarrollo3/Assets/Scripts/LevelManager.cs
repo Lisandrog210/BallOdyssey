@@ -58,7 +58,7 @@ public class LevelManager
         {
             
         }
-        Debug.Log("error get level" + level);
+        //Debug.Log("error get level" + level);
         return levels[level];
     }  
 
