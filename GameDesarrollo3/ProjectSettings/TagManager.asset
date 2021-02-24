@@ -26,6 +26,9 @@ TagManager:
   - Spring
   - PausePanel
   - YouWinPanel
+  - InstructionsPanel
+  - PauseButton
+  - NotObject
   layers:
   - Default
   - TransparentFX

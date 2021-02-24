@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class BallMove : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class BallMove : MonoBehaviour
     [SerializeField] AudioClip springSound;
 
     AudioSource audioS;
+
+    public string[] NotObjectTags = { "Main Camera", "WinCheck","LoseCheck","UI","DeathPanel","ComingSoonPanel","MoreLivesPanel","DeathPanel2","PausePanel",
+        "YouWinPanel","PauseButton","InstructionsPanel","NoObject"};
 
     public static BallMove Instance
     {
@@ -58,7 +62,7 @@ public class BallMove : MonoBehaviour
         if (InputManager.Instance.GetJumpButton() == true &&
             /*isGrounded == true*/  jumpAvailable == true &&
             !EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
-            && !EventSystem.current.currentSelectedGameObject.CompareTag("UI"))
+            && !NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag))
         {           
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;

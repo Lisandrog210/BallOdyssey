@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114891063675805392}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 114381542374594576}
   m_Layer: 5
   m_Name: lvlSelectButton
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 114540624878747040}
   m_Layer: 5
   m_Name: RestarLevelButton
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 114658409818810012}
   m_Layer: 5
   m_Name: gobackButton
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 222027426438130354}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 5171890939803094527}
   m_Layer: 0
   m_Name: Toggle
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 7408772636906258642}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 6870556126755036658}
   m_Layer: 0
   m_Name: Checkmark
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 824881700215463800}
   m_Layer: 0
   m_Name: Label
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

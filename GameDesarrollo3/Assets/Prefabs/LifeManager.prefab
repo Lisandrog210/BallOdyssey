@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 114088571993159098}
   m_Layer: 5
   m_Name: Lives
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 114646880061929200}
   m_Layer: 5
   m_Name: TimeToNextLife
-  m_TagString: Untagged
+  m_TagString: NotObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
