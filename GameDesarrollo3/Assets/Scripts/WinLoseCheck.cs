@@ -81,14 +81,14 @@ public class WinLoseCheck : MonoBehaviour {
             //RemoveLife();
             //Time.timeScale = 0;
             audioS.PlayOneShot(loseSound, 1f);
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
         }
         else if (collider.tag == "LoseCheck" && lives == 0 && Time.timeScale == 1)
         {
             Debug.Log("ACTIVATE MORELIVES");
             audioS.PlayOneShot(loseSound, 1f);
-            MoreLivesPanel.SetActive(true);
-            this.gameObject.SetActive(false);
+            //MoreLivesPanel.SetActive(true);
+            //this.gameObject.SetActive(false);
             Time.timeScale = 0;
         }
         //GameOverScene();

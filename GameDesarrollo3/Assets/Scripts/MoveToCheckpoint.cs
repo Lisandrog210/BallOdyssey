@@ -18,7 +18,7 @@ public class MoveToCheckpoint : MonoBehaviour
     GameObject player;
     WinLoseCheck wlc;
     LivesManager livesManager;
-    GameObject lm;
+    GameObject lm;   
 
     private void Awake()
     {
@@ -64,7 +64,7 @@ public class MoveToCheckpoint : MonoBehaviour
     {
         if (collider.tag == "LoseCheck" && livesManager.Lives > 0)
         { 
-            wlc.RemoveLife();
+            //wlc.RemoveLife();
 
             if (cmClass.lastActivated)
             {

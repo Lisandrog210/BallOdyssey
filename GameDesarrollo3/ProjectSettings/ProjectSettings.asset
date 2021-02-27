@@ -742,7 +742,13 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Analytics: 1
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
     UNet: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -755,10 +761,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 2bc48e2e-994d-4c77-a3c6-01a557d9f995
+  cloudProjectId: cff7faee-15a7-468b-b1da-6c7473337cd6
   framebufferDepthMemorylessMode: 0
-  projectName: GameDesarrollo3
-  organizationId: lisandroguevara210
+  projectName: Ball Odyssey
+  organizationId: odrimail
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

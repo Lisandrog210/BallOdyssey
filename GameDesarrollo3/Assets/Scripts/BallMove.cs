@@ -76,6 +76,12 @@ public class BallMove : MonoBehaviour
             audioS.PlayOneShot(jumpSound, 1F);
             
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jumpAvailable = false;
+            audioS.PlayOneShot(jumpSound, 1F);
+        }
     }
 
     private void OnApplicationPause(bool pause)
