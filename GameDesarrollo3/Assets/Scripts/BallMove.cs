@@ -10,6 +10,7 @@ public class BallMove : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private float moveSpeed = 0.038f;
     private bool isGrounded;
+    private bool isPaused = false;
     public static BallMove instance;
     private bool moving;
     private float colAngle;
@@ -55,26 +56,23 @@ public class BallMove : MonoBehaviour
 
     void Update()
     {
-        hAxis = InputManager.Instance.GetHorizontalAxis();
-
-        Debug.Log("Is P. over GameObject = " + EventSystem.current.IsPointerOverGameObject());
+        /*Debug.Log("Is P. over GameObject = " + EventSystem.current.IsPointerOverGameObject());
         if (EventSystem.current.currentSelectedGameObject != null)
         {
             Debug.Log("current selected gobject" + EventSystem.current.currentSelectedGameObject.name);
             Debug.Log("tag contained? = " + NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag));
-        }
+        }*/
         
         //----------------------------------------------- SALTO -------------------------------------------------------------------------------
         hAxis = InputManager.Instance.GetHorizontalAxis();
 
-        if (InputManager.Instance.GetJumpButton() == true && jumpAvailable == true &&
-            !EventSystem.current.IsPointerOverGameObject() && !pausePanel.activeSelf/*&& EventSystem.current.currentSelectedGameObject != null 
-            && NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag) == false*/)
+        if (InputManager.Instance.GetJumpButton() == true && jumpAvailable == true //&&
+            //!EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
+            /*&& NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag) == false*/)
         {           
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
-            audioS.PlayOneShot(jumpSound, 1F);
-            
+            audioS.PlayOneShot(jumpSound, 1F);            
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -91,19 +89,16 @@ public class BallMove : MonoBehaviour
             Debug.Log("On application pause");
             pausePanel.SetActive(true);
             Time.timeScale = 0;
+            //jumpAvailable = false;
         }
+        
     }
 
     private void FixedUpdate()
     {
-
-        //Debug.Log("max speed ground = " + maxSpeedGround);
-        //Debug.Log("max speed air = " + maxSpeedAir);
-
         //MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
         this.transform.rotation = Quaternion.identity;
-        //Debug.Log("IS GROUNDED? - " + isGrounded);
-        //Debug.Log("Velocity = " + rb.velocity);       
+               
         if (isGrounded == true)
         {
             rb.AddForce(Vector2.right * hAxis * moveSpeed, ForceMode2D.Impulse);
@@ -150,11 +145,32 @@ public class BallMove : MonoBehaviour
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
+        if (collision.collider.gameObject.tag == "FastPlatL")
+        {
+            maxSpeedAir = 500;
+            maxSpeedGround = 500;
+            rb.AddForce(Vector2.left * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
+            numberOfBounces = 1;
+            jumpAvailable = true;
+            audioS.PlayOneShot(impulseSound, 1F);
+            //lastContactPos = collision.contacts[0].point;
+        }
+        if (collision.collider.gameObject.tag == "FastPlatR")
+        {
+            maxSpeedAir = 500;
+            maxSpeedGround = 5100;
+            rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
+            numberOfBounces = 1;
+            jumpAvailable = true;
+            audioS.PlayOneShot(impulseSound, 1F);
+            //lastContactPos = collision.contacts[0].point;
+        }
+
         if (collision.collider.gameObject.tag == "FastPlatform")
         {
             maxSpeedAir = 100;
             maxSpeedGround = 100;
-            rb.AddForce(Vector2.right * moveSpeed * 50f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * hAxis * moveSpeed * 50f, ForceMode2D.Impulse);
             numberOfBounces = 1;
             jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
@@ -203,8 +219,8 @@ public class BallMove : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         //Debug.Log(isGrounded + " -- " + collision.collider.name);
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || 
-            collision.collider.gameObject.layer == LayerMask.NameToLayer("FastPlatforms"))
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") /*|| 
+            collision.collider.gameObject.layer == LayerMask.NameToLayer("FastPlatforms")*/)
         {
             maxSpeedAir = 20;
             maxSpeedGround = 14;
@@ -213,16 +229,7 @@ public class BallMove : MonoBehaviour
             //Debug.Log(isGrounded+" -- " +collision.collider.name);
             if(this.gameObject.activeSelf)
                 this.transform.SetParent(null);
-            /*Vector2 aux = new Vector2();
-            aux.x = this.transform.position.x;
-            aux.y = this.transform.position.y;            
-            Debug.Log("herhe" + Vector2.Distance(aux, lastContactPos));
-            if (Vector2.Distance(aux, lastContactPos) > 1.25f)
-            {
-                Debug.Log("herhe" + Vector2.Distance(aux, lastContactPos));
-                Debug.Log("Bola sale del padre, fue intencional?");
-                //this.transform.SetParent(null);                
-            }*/
+
 
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
@@ -260,6 +267,7 @@ public class BallMove : MonoBehaviour
             //this.transform.SetParent(collision.transform); ---- esto esta repetido en collision enter por eso lo comento
             //lastContactPos = collision.contacts[0].point;
         }
+
     }
 }
 

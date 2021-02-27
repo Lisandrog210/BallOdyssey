@@ -29,6 +29,8 @@ TagManager:
   - InstructionsPanel
   - PauseButton
   - NotObject
+  - FastPlatR
+  - FastPlatL
   layers:
   - Default
   - TransparentFX
