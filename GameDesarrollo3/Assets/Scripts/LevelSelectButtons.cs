@@ -20,7 +20,6 @@ public class LevelSelectButtons : MonoBehaviour
     private Image iceImage;
     private Image fireImage;
 
-
     public bool level1Won;
     public bool level2Won;
     public bool level3Won;
@@ -39,7 +38,8 @@ public class LevelSelectButtons : MonoBehaviour
 
     private void Awake()
     {
-        lvlButtons[0].interactable = true;        
+        lvlButtons[0].interactable = true;
+       
 
         if (instance == null)
             instance = this;
@@ -48,7 +48,9 @@ public class LevelSelectButtons : MonoBehaviour
 
         jungleImage = worldButtons[0].GetComponent<Image>();
         fireImage = worldButtons[1].GetComponent<Image>();
-        iceImage = worldButtons[2].GetComponent<Image>();      
+        iceImage = worldButtons[2].GetComponent<Image>();
+
+        
 
         if (PlayerPrefs.HasKey("Lvl1Won"))
         {
@@ -133,6 +135,7 @@ public class LevelSelectButtons : MonoBehaviour
                 LevelManager.Instance.SetStarTaken(8, 1);
             if (PlayerPrefs.GetInt("Star9.3", 0) == 1)
                 LevelManager.Instance.SetStarTaken(8, 2);
+
         }
 
     }

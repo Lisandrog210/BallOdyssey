@@ -4,7 +4,7 @@ public class LevelManager
 {
     private Level[] levels;
     private const int levelQtty = 9;
-
+    private int starCounter;
     private static LevelManager instance;
 
     public static LevelManager Instance
@@ -42,9 +42,22 @@ public class LevelManager
         // agregar chequeo de bounds array
 
         levels[level].won = true;
-        levels[level].stars[0] = star1;
+        if (star1)
+            starCounter++;
+        if (star2)
+            starCounter++;
+        if (star3)
+            starCounter++;
+        for (int i = 0; i < starCounter; i++)
+        {
+            levels[level].stars[i] = true;
+            
+        }
+        starCounter = 0;
+
+        /*levels[level].stars[0] = star1;
         levels[level].stars[1] = star2;
-        levels[level].stars[2] = star3;
+        levels[level].stars[2] = star3;*/
     }
        
     public bool ReturnStars(int aux,int aux2)
