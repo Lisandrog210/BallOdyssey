@@ -48,12 +48,7 @@ public class LevelSelectButtons : MonoBehaviour
 
         jungleImage = worldButtons[0].GetComponent<Image>();
         fireImage = worldButtons[1].GetComponent<Image>();
-        iceImage = worldButtons[2].GetComponent<Image>();
-
-        
-
-
-      
+        iceImage = worldButtons[2].GetComponent<Image>();      
 
         if (PlayerPrefs.HasKey("Lvl1Won"))
         {
@@ -212,7 +207,6 @@ public class LevelSelectButtons : MonoBehaviour
         if (PlayerPrefs.GetInt("LastWorld", 0) == 2)
         {
             SelectFireWorld();
-
         }
         if (PlayerPrefs.GetInt("LastWorld", 0) == 3)
         {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using ExaGames.Common.TimeBasedLifeSystem;
 
 public class MoveToCheckpoint : MonoBehaviour
 {
@@ -16,14 +15,11 @@ public class MoveToCheckpoint : MonoBehaviour
     PlatformMove[] pmClass;
     GameObject[] movingPlatform;
     GameObject player;
-    WinLoseCheck wlc;
-    LivesManager livesManager;
-    GameObject lm;   
+    WinLoseCheck wlc;    
 
     private void Awake()
     {
-        lm = GameObject.FindGameObjectWithTag("LifeManager");
-        livesManager = lm.GetComponent<LivesManager>();
+       
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");
         cmClass = cm.GetComponent<CheckpointManager>();
         deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
@@ -62,9 +58,8 @@ public class MoveToCheckpoint : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "LoseCheck" && livesManager.Lives > 0)
-        { 
-            //wlc.RemoveLife();
+        if (collider.tag == "LoseCheck")
+        {            
 
             if (cmClass.lastActivated)
             {
