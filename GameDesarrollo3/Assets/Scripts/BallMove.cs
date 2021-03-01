@@ -71,17 +71,19 @@ public class BallMove : MonoBehaviour
                                                                                    //!EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
             /*&& NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag) == false*/)
         {
-           /* rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            /* rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+             audioS.PlayOneShot(jumpSound, 1F);*/
             jumpAvailable = false;
-            audioS.PlayOneShot(jumpSound, 1F);*/
             Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
             rb.velocity = rb.velocity + jumpvelocity;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpAvailable == true)
         {
             /*rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
             audioS.PlayOneShot(jumpSound, 1F);*/
+            jumpAvailable = false;
             Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
             rb.velocity = rb.velocity + jumpvelocity;
         }
