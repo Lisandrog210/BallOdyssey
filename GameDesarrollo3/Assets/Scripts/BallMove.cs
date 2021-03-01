@@ -29,7 +29,7 @@ public class BallMove : MonoBehaviour
 
     AudioSource audioS;
 
-    public string[] NotObjectTags = { "Main Camera", "WinCheck","LoseCheck","UI","DeathPanel","ComingSoonPanel","MoreLivesPanel","DeathPanel2","PausePanel",
+    public string[] NotObjectTags = {"Main Camera", "WinCheck","LoseCheck","UI","DeathPanel","ComingSoonPanel","MoreLivesPanel","DeathPanel2","PausePanel",
         "YouWinPanel","PauseButton","InstructionsPanel","NoObject"};
 
     public static BallMove Instance
@@ -149,7 +149,9 @@ public class BallMove : MonoBehaviour
         {
             maxSpeedAir = 500;
             maxSpeedGround = 500;
-            rb.AddForce(Vector2.left * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
+            //rb.AddForce(Vector2.left * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
+            Vector3 dir = Quaternion.AngleAxis(collision.transform.localEulerAngles.z, Vector3.forward) * Vector3.left;
+            rb.AddForce(dir * moveSpeed * 10f, ForceMode2D.Impulse);
             numberOfBounces = 1;
             jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
