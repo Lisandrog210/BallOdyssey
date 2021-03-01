@@ -62,24 +62,30 @@ public class BallMove : MonoBehaviour
             Debug.Log("current selected gobject" + EventSystem.current.currentSelectedGameObject.name);
             Debug.Log("tag contained? = " + NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag));
         }*/
-        
+
         //----------------------------------------------- SALTO -------------------------------------------------------------------------------
+
         hAxis = InputManager.Instance.GetHorizontalAxis();
 
         if (InputManager.Instance.GetJumpButton() == true && jumpAvailable == true //&&
-            //!EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
+                                                                                   //!EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
             /*&& NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag) == false*/)
-        {           
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        {
+           /* rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
-            audioS.PlayOneShot(jumpSound, 1F);            
+            audioS.PlayOneShot(jumpSound, 1F);*/
+            Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
+            rb.velocity = rb.velocity + jumpvelocity;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            /*rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
-            audioS.PlayOneShot(jumpSound, 1F);
+            audioS.PlayOneShot(jumpSound, 1F);*/
+            Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
+            rb.velocity = rb.velocity + jumpvelocity;
         }
+
     }
 
     private void OnApplicationPause(bool pause)
@@ -96,16 +102,17 @@ public class BallMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+       
         //MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
         this.transform.rotation = Quaternion.identity;
                
         if (isGrounded == true)
         {
-            rb.AddForce(Vector2.right * hAxis * moveSpeed, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * hAxis * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
         }
         else
         {
-            rb.AddForce(Vector2.right * hAxis * moveSpeed  * .2f, ForceMode2D.Impulse);            
+            rb.AddForce(Vector2.right * hAxis * moveSpeed * Time.deltaTime * .2f, ForceMode2D.Impulse);            
         }
 
         //---------esto deberia limitar la velocidad solamente en x para no joder al salto-----

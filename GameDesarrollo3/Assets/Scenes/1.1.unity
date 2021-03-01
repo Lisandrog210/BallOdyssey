@@ -5490,6 +5490,16 @@ PrefabInstance:
       propertyPath: level
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114692006456073804, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 3}
+      propertyPath: jumpForce
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114692006456073804, guid: 671189a2f6b14694fbb14f33219a9221,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 212794174780875188, guid: 671189a2f6b14694fbb14f33219a9221,
         type: 3}
       propertyPath: m_Enabled
@@ -5983,7 +5993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4a85fbd0a6f84091024ef1fad2781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesManager: {fileID: 0}
 --- !u!114 &1169869689
 MonoBehaviour:
   m_ObjectHideFlags: 0
