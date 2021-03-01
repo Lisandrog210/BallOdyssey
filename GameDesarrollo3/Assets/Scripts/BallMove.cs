@@ -6,7 +6,7 @@ using System.Linq;
 
 public class BallMove : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 24.0f;
+    [SerializeField] private float jumpForce = 14.0f;
     private Rigidbody2D rb;
     [SerializeField] private float moveSpeed = 0.038f;
     private bool isGrounded;
@@ -172,11 +172,11 @@ public class BallMove : MonoBehaviour
         }
         if (collision.collider.gameObject.tag == "FastPlatL")
         {
-            maxSpeedAir = 500;
-            maxSpeedGround = 500;
+            maxSpeedAir = 20;
+            maxSpeedGround = 16;
             //rb.AddForce(Vector2.left * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
             Vector3 dir = Quaternion.AngleAxis(collision.transform.localEulerAngles.z, Vector3.forward) * Vector3.left;
-            rb.AddForce(dir * moveSpeed * 10f, ForceMode2D.Impulse);
+            rb.AddForce(dir * moveSpeed * 1.1f, ForceMode2D.Impulse);
             numberOfBounces = 1;
            // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
@@ -184,8 +184,8 @@ public class BallMove : MonoBehaviour
         }
         if (collision.collider.gameObject.tag == "FastPlatR")
         {
-            maxSpeedAir = 500;
-            maxSpeedGround = 5100;
+            maxSpeedAir = 100;
+            maxSpeedGround = 100;
             rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
             numberOfBounces = 1;
            // jumpAvailable = true;
