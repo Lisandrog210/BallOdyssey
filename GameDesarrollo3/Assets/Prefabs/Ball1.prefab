@@ -137,13 +137,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f689f9cb589d19c42b2e409bb736bea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 24
-  moveSpeed: 2
+  jumpForce: 10
+  moveSpeed: 150
   jumpAvailable: 0
   jumpSound: {fileID: 8300000, guid: dbf467af729ee1648ae15731958c7bd5, type: 3}
   groundSound: {fileID: 8300000, guid: 6576f03c4feaf6848bb68377c5190364, type: 3}
   impulseSound: {fileID: 8300000, guid: 4491ab25a2d7f7148b75aa46d3c81d36, type: 3}
   springSound: {fileID: 8300000, guid: 0d764a90d8c202f408d69091dc0c00cf, type: 3}
+  NotObjectTags:
+  - Main Camera
+  - WinCheck
+  - LoseCheck
+  - UI
+  - DeathPanel
+  - ComingSoonPanel
+  - MoreLivesPanel
+  - DeathPanel2
+  - PausePanel
+  - YouWinPanel
+  - PauseButton
+  - InstructionsPanel
+  - NoObject
 --- !u!114 &114080735491400642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  lives: 3
   starSound: {fileID: 8300000, guid: d01962f88db31734484e5e11434292f7, type: 3}
   winSound: {fileID: 8300000, guid: 12bc738685ebe254ab939de6266501e5, type: 3}
   loseSound: {fileID: 8300000, guid: ee136544939c67544b8e8de9a4e0415b, type: 3}

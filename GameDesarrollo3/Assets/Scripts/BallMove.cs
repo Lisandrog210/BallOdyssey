@@ -74,7 +74,7 @@ public class BallMove : MonoBehaviour
             /* rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
              audioS.PlayOneShot(jumpSound, 1F);*/
-            jumpAvailable = false;
+           // jumpAvailable = false;
             Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
             rb.velocity = rb.velocity + jumpvelocity;
         }
@@ -83,10 +83,26 @@ public class BallMove : MonoBehaviour
             /*rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
             audioS.PlayOneShot(jumpSound, 1F);*/
-            jumpAvailable = false;
+           // jumpAvailable = false;
             Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
             rb.velocity = rb.velocity + jumpvelocity;
         }
+        Vector3 aux = this.transform.position - new Vector3(0, 0.5f, 0.0f);
+        Debug.DrawRay(aux, Vector3.down, Color.blue);
+        if (Physics2D.Raycast(aux, Vector3.down, 0.5f))
+        {
+           isGrounded = true;
+            jumpAvailable = true;
+            print("isgrounded");
+        }
+        else
+        {
+            isGrounded = false;
+            jumpAvailable = false;
+            print("notgrounded");
+        }
+
+       // print(this.transform.position - Vector3.down);
 
     }
 
@@ -142,7 +158,7 @@ public class BallMove : MonoBehaviour
             //isGrounded = true;
             this.transform.SetParent(collision.transform);
             numberOfBounces = 1;
-            jumpAvailable = true;
+            //jumpAvailable = true;
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -150,7 +166,7 @@ public class BallMove : MonoBehaviour
         {
             //isGrounded = true;
             numberOfBounces = 1;
-            jumpAvailable = true;
+            //jumpAvailable = true;
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -162,7 +178,7 @@ public class BallMove : MonoBehaviour
             Vector3 dir = Quaternion.AngleAxis(collision.transform.localEulerAngles.z, Vector3.forward) * Vector3.left;
             rb.AddForce(dir * moveSpeed * 10f, ForceMode2D.Impulse);
             numberOfBounces = 1;
-            jumpAvailable = true;
+           // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -172,7 +188,7 @@ public class BallMove : MonoBehaviour
             maxSpeedGround = 5100;
             rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
             numberOfBounces = 1;
-            jumpAvailable = true;
+           // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -183,7 +199,7 @@ public class BallMove : MonoBehaviour
             maxSpeedGround = 100;
             rb.AddForce(Vector2.right * hAxis * moveSpeed * 50f, ForceMode2D.Impulse);
             numberOfBounces = 1;
-            jumpAvailable = true;
+           // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -191,7 +207,7 @@ public class BallMove : MonoBehaviour
         {
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
             numberOfBounces = 1;
-            jumpAvailable = true;
+           // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -201,7 +217,7 @@ public class BallMove : MonoBehaviour
             numberOfBounces = 1;
             rb2d.connectedBody = rb;
             collision.gameObject.GetComponent<PlatformMove>().activate = true;
-            jumpAvailable = true;
+          //  jumpAvailable = true;
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -210,7 +226,7 @@ public class BallMove : MonoBehaviour
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
             numberOfBounces = 1;
             rb2d.connectedBody = rb;
-            jumpAvailable = true;
+           // jumpAvailable = true;
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -235,8 +251,8 @@ public class BallMove : MonoBehaviour
         {
             maxSpeedAir = 20;
             maxSpeedGround = 14;
-            jumpAvailable = false;
-            isGrounded = false;
+           // jumpAvailable = false;
+           // isGrounded = false;
             //Debug.Log(isGrounded+" -- " +collision.collider.name);
             if(this.gameObject.activeSelf)
                 this.transform.SetParent(null);
@@ -245,7 +261,7 @@ public class BallMove : MonoBehaviour
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
-            isGrounded = false;
+          //  isGrounded = false;
         }
         if (collision.collider.gameObject.tag == "MovingPlatform")
         {
@@ -260,7 +276,7 @@ public class BallMove : MonoBehaviour
         }
         if (collision.collider.gameObject.tag == "Spring")
         {
-            isGrounded = false;
+           // isGrounded = false;
             maxSpeedAir = 40;
             maxSpeedGround = 40;
         }
@@ -273,7 +289,7 @@ public class BallMove : MonoBehaviour
         {
             maxSpeedAir = 20;
             maxSpeedGround = 13;
-            isGrounded = true;
+           // isGrounded = true;
            //Debug.Log(isGrounded + " -- " + collision.collider.name);
             //this.transform.SetParent(collision.transform); ---- esto esta repetido en collision enter por eso lo comento
             //lastContactPos = collision.contacts[0].point;
