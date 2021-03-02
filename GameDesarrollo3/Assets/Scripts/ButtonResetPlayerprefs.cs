@@ -17,8 +17,9 @@ public class ButtonResetPlayerprefs : MonoBehaviour
 
     public void ResetYes()
     {
-        LevelSelectButtons.instance.ResetPrefs();
-        //PlayerPrefs.DeleteAll();
+      
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("HasBeenReseted", 1);
         PlayerPrefs.SetInt("AudioOnOff", 1);        
         SceneManager.LoadScene("Main Menu");
     }
