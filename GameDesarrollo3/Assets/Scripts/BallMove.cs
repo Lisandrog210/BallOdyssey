@@ -16,8 +16,8 @@ public class BallMove : MonoBehaviour
     private float colAngle;
     private float numberOfBounces;
     private float hAxis = 0.0f;
-    private float maxSpeedGround = 12;
-    private float maxSpeedAir = 20;
+    private float maxSpeedGround = 14;
+    private float maxSpeedAir = 14;
     public bool jumpAvailable;
     Vector2 lastContactPos = new Vector2();
     GameObject pausePanel;
@@ -249,7 +249,7 @@ public class BallMove : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") /*|| 
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FastPlatforms")*/)
         {
-            maxSpeedAir = 20;
+            maxSpeedAir = 14;
             maxSpeedGround = 14;
            // jumpAvailable = false;
            // isGrounded = false;
@@ -277,8 +277,8 @@ public class BallMove : MonoBehaviour
         if (collision.collider.gameObject.tag == "Spring")
         {
            // isGrounded = false;
-            maxSpeedAir = 40;
-            maxSpeedGround = 40;
+            maxSpeedAir = 14;
+            maxSpeedGround = 14;
         }
     }
 
@@ -287,8 +287,8 @@ public class BallMove : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || 
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
-            maxSpeedAir = 20;
-            maxSpeedGround = 13;
+            maxSpeedAir = 14;
+            maxSpeedGround = 14;
            // isGrounded = true;
            //Debug.Log(isGrounded + " -- " + collision.collider.name);
             //this.transform.SetParent(collision.transform); ---- esto esta repetido en collision enter por eso lo comento
