@@ -7,11 +7,11 @@ using System.Linq;
 public class BallMove : MonoBehaviour
 {
     [SerializeField]
-    private float jumpForce = 14.0f;
+    private float jumpForce = 8;
     private Rigidbody2D rb;
     [SerializeField]
-    private float moveSpeed = 0.038f;
-    private bool isGrounded;
+    private float moveSpeed = 60;
+    public bool isGrounded;
     private bool isPaused = false;
     public static BallMove instance;
     private bool moving;
@@ -93,9 +93,9 @@ public class BallMove : MonoBehaviour
             Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
             rb.velocity = rb.velocity + jumpvelocity;
         }
-        Vector3 aux = this.transform.position - new Vector3(0, 0.5f, 0.0f);
+        Vector3 aux = this.transform.position - new Vector3(0, 0.6f, 0.0f);
         Debug.DrawRay(aux, Vector3.down, Color.blue);
-        if (Physics2D.Raycast(aux, Vector3.down, 0.5f))
+        if (Physics2D.Raycast(aux, Vector3.down, 0.6f))
         {
             isGrounded = true;
             jumpAvailable = true;
@@ -123,6 +123,7 @@ public class BallMove : MonoBehaviour
         }
 
     }
+
     private bool IsPointerOverUIObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
@@ -131,6 +132,7 @@ public class BallMove : MonoBehaviour
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;
     }
+
     private void FixedUpdate()
     {
 
@@ -277,7 +279,7 @@ public class BallMove : MonoBehaviour
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
-            //  isGrounded = false;
+            //isGrounded = false;
         }
         if (collision.collider.gameObject.tag == "MovingPlatform")
         {

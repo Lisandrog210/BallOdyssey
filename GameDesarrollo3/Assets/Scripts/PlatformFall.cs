@@ -11,6 +11,7 @@ public class PlatformFall : MonoBehaviour
     private Vector2 originalPosition;
     [SerializeField] float _timeToReset;
     [SerializeField] AudioClip crackSound;
+    GameObject ball;
 
     AudioSource audioS;
 
@@ -35,11 +36,14 @@ public class PlatformFall : MonoBehaviour
 
     void Fall()
     {
-        
+        if(ball)
+            ball.transform.parent = null;
+
         rb2d.bodyType = RigidbodyType2D.Dynamic;
-        this.transform.DetachChildren();
+        //this.transform.DetachChildren();
         //this.gameObject.SetActive(false);
         this.gameObject.GetComponent<Collider2D>().enabled = false;
+        this.transform.Find("FallChild").gameObject.GetComponent<Collider2D>().enabled = false;       
         this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         StartCoroutine(ExecuteAfterTime(_timeToReset));
     }
@@ -49,7 +53,8 @@ public class PlatformFall : MonoBehaviour
         CancelInvoke();
         //this.gameObject.SetActive(true);
         this.gameObject.GetComponent<Collider2D>().enabled = true;
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        this.transform.Find("FallChild").gameObject.GetComponent<Collider2D>().enabled = true;
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;               
         rb2d.velocity = Vector2.zero;
         rb2d.bodyType = RigidbodyType2D.Kinematic;
         this.transform.position = originalPosition;        
