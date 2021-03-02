@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5941185005823705524}
   - component: {fileID: 5941185005823705527}
   - component: {fileID: 5941185005823705526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ExtraSmallPlatForest
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 5941185005823705521}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e1bcd65a2f34a7f42920c30cd50c867b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

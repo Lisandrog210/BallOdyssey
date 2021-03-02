@@ -197,7 +197,7 @@ public class BallMove : MonoBehaviour
         {
             maxSpeedAir = 100;
             maxSpeedGround = 100;
-            rb.AddForce(Vector2.right * hAxis * moveSpeed * 50f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
             numberOfBounces = 1;
            // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
