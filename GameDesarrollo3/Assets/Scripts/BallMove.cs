@@ -170,13 +170,13 @@ public class BallMove : MonoBehaviour
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
-        if (collision.collider.gameObject.tag == "FastPlatL")
+        /*if (collision.collider.gameObject.tag == "FastPlatL")
         {
             maxSpeedAir = 20;
             maxSpeedGround = 16;
             //rb.AddForce(Vector2.left * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
             Vector3 dir = Quaternion.AngleAxis(collision.transform.localEulerAngles.z, Vector3.forward) * Vector3.left;
-            rb.AddForce(dir * moveSpeed * 1.1f, ForceMode2D.Impulse);
+            rb.AddForce(dir * moveSpeed * 1.1f, ForceMode2D.Force);
             numberOfBounces = 1;
            // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
@@ -186,12 +186,12 @@ public class BallMove : MonoBehaviour
         {
             maxSpeedAir = 100;
             maxSpeedGround = 100;
-            rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Force);
             numberOfBounces = 1;
            // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
-        }
+        }*/
 
         if (collision.collider.gameObject.tag == "FastPlatform")
         {
@@ -292,6 +292,28 @@ public class BallMove : MonoBehaviour
            // isGrounded = true;
            //Debug.Log(isGrounded + " -- " + collision.collider.name);
             //this.transform.SetParent(collision.transform); ---- esto esta repetido en collision enter por eso lo comento
+            //lastContactPos = collision.contacts[0].point;
+        }
+        if (collision.collider.gameObject.tag == "FastPlatL")
+        {
+            maxSpeedAir = 20;
+            maxSpeedGround = 16;
+            //rb.AddForce(Vector2.left * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
+            Vector3 dir = Quaternion.AngleAxis(collision.transform.localEulerAngles.z, Vector3.forward) * Vector3.left;
+            rb.AddForce(dir * moveSpeed * 1.1f, ForceMode2D.Force);
+            numberOfBounces = 1;
+            // jumpAvailable = true;
+            audioS.PlayOneShot(impulseSound, 1F);
+            //lastContactPos = collision.contacts[0].point;
+        }
+        if (collision.collider.gameObject.tag == "FastPlatR")
+        {
+            maxSpeedAir = 20;
+            maxSpeedGround = 16;
+            rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Force);
+            numberOfBounces = 1;
+            // jumpAvailable = true;
+            audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
 
