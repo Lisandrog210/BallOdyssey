@@ -6,20 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class PauseButton : MonoBehaviour
 {
-    GameObject pausePanel;
-    
+    GameObject pausePanel;    
 
     private void Awake()
     {
-        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");        
+        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");               
         var btn = GetComponent<Button>();
         btn.onClick.AddListener(OpenPausePanel);
         if(pausePanel)
             pausePanel.SetActive(false);
     }    
     
-    private void OpenPausePanel()
-    {        
+    public void OpenPausePanel()
+    {
+        GameObject.FindGameObjectWithTag("PauseButton").SetActive(false);
         pausePanel.SetActive(true);        
         Time.timeScale = 0;
     }

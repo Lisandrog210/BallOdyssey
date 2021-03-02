@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
     static InputManager instance = null;
+    Scene activeScene;
+    string aSceneName;
 
     IInput input;
 
@@ -24,20 +27,40 @@ public class InputManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        activeScene = SceneManager.GetActiveScene();
+        aSceneName = activeScene.name;
+
         instance = this;        
         if (PlayerPrefs.GetInt("AudioOnOff") == 0)
             AudioListener.volume = 0;        
         else
             AudioListener.volume = 1;
-        
 
+        #if UNITY_ANDROID || UNITY_IOS
+                input = new InputMobile();
+        #else
+                input = new InputPC();
+        #endif
+    }
 
+    void Update()
+    {
+        if (aSceneName == "Main Menu")
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                SceneManager.LoadScene("Settings");//esta de prueba, deberia abrir panel de Quit -----
 
-#if UNITY_ANDROID || UNITY_IOS
-        input = new InputMobile();
-#else
-        input = new InputPC();
-#endif
+        }
+        else if (aSceneName == "LevelSelect")
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                SceneManager.LoadScene("Main Menu");
+        }
+        else if (aSceneName != "Settings") //Si la escena activa es algun nivel, abrir menu pausa ------
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+                GameObject.FindGameObjectWithTag("UI").transform.Find("PauseButton").GetComponent<PauseButton>().OpenPausePanel();
+        }        
     }
 
     public float GetHorizontalAxis()

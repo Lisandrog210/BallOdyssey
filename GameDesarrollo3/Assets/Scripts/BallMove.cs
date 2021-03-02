@@ -6,9 +6,11 @@ using System.Linq;
 
 public class BallMove : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 14.0f;
+    [SerializeField]
+    private float jumpForce = 14.0f;
     private Rigidbody2D rb;
-    [SerializeField] private float moveSpeed = 0.038f;
+    [SerializeField]
+    private float moveSpeed = 0.038f;
     private bool isGrounded;
     private bool isPaused = false;
     public static BallMove instance;
@@ -22,15 +24,19 @@ public class BallMove : MonoBehaviour
     Vector2 lastContactPos = new Vector2();
     GameObject pausePanel;
 
-    [SerializeField] AudioClip jumpSound;
-    [SerializeField] AudioClip groundSound;
-    [SerializeField] AudioClip impulseSound;
-    [SerializeField] AudioClip springSound;
+    [SerializeField]
+    AudioClip jumpSound;
+    [SerializeField]
+    AudioClip groundSound;
+    [SerializeField]
+    AudioClip impulseSound;
+    [SerializeField]
+    AudioClip springSound;
 
     AudioSource audioS;
 
-    public string[] NotObjectTags = {"Main Camera", "WinCheck","LoseCheck","UI","DeathPanel","ComingSoonPanel","MoreLivesPanel","DeathPanel2","PausePanel",
-        "YouWinPanel","PauseButton","InstructionsPanel","NoObject"};
+    /*public string[] NotObjectTags = {"Main Camera", "WinCheck","LoseCheck","UI","DeathPanel","ComingSoonPanel","MoreLivesPanel","DeathPanel2","PausePanel",
+        "YouWinPanel","PauseButton","InstructionsPanel","NoObject"};*/
 
     public static BallMove Instance
     {
@@ -49,9 +55,9 @@ public class BallMove : MonoBehaviour
         jumpAvailable = true;
         rb = GetComponent<Rigidbody2D>();
         instance = this;
-        numberOfBounces = 1;              
+        numberOfBounces = 1;
         pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
-        audioS = GetComponent<AudioSource>();        
+        audioS = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -67,14 +73,14 @@ public class BallMove : MonoBehaviour
 
         hAxis = InputManager.Instance.GetHorizontalAxis();
 
-        if (InputManager.Instance.GetJumpButton() == true && jumpAvailable == true //&&
-                                                                                   //!EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
-            /*&& NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag) == false*/)
+        if (InputManager.Instance.GetJumpButton() == true && jumpAvailable == true && !IsPointerOverUIObject()//&&
+                                                                                  //!EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null 
+                                                                                  /*&& NotObjectTags.Contains(EventSystem.current.currentSelectedGameObject.tag) == false*/)
         {
             /* rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
              audioS.PlayOneShot(jumpSound, 1F);*/
-           // jumpAvailable = false;
+            // jumpAvailable = false;
             Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
             rb.velocity = rb.velocity + jumpvelocity;
         }
@@ -83,7 +89,7 @@ public class BallMove : MonoBehaviour
             /*rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpAvailable = false;
             audioS.PlayOneShot(jumpSound, 1F);*/
-           // jumpAvailable = false;
+            // jumpAvailable = false;
             Vector2 jumpvelocity = new Vector3(0.0f, jumpForce);
             rb.velocity = rb.velocity + jumpvelocity;
         }
@@ -91,7 +97,7 @@ public class BallMove : MonoBehaviour
         Debug.DrawRay(aux, Vector3.down, Color.blue);
         if (Physics2D.Raycast(aux, Vector3.down, 0.5f))
         {
-           isGrounded = true;
+            isGrounded = true;
             jumpAvailable = true;
             print("isgrounded");
         }
@@ -102,7 +108,7 @@ public class BallMove : MonoBehaviour
             print("notgrounded");
         }
 
-       // print(this.transform.position - Vector3.down);
+        // print(this.transform.position - Vector3.down);
 
     }
 
@@ -115,22 +121,29 @@ public class BallMove : MonoBehaviour
             Time.timeScale = 0;
             //jumpAvailable = false;
         }
-        
-    }
 
+    }
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
     private void FixedUpdate()
     {
-       
+
         //MOVIMIENTO izq-derecha// Si esta en el aire el movimiento es ínfimo----------------------
         this.transform.rotation = Quaternion.identity;
-               
+
         if (isGrounded == true)
         {
             rb.AddForce(Vector2.right * hAxis * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
         }
         else
         {
-            rb.AddForce(Vector2.right * hAxis * moveSpeed * Time.deltaTime * .2f, ForceMode2D.Impulse);            
+            rb.AddForce(Vector2.right * hAxis * moveSpeed * Time.deltaTime * .2f, ForceMode2D.Impulse);
         }
 
         //---------esto deberia limitar la velocidad solamente en x para no joder al salto-----
@@ -151,8 +164,11 @@ public class BallMove : MonoBehaviour
         }*/
     }
 
+
+
+
     void OnCollisionEnter2D(Collision2D collision)
-    {        
+    {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
             //isGrounded = true;
@@ -178,7 +194,7 @@ public class BallMove : MonoBehaviour
             Vector3 dir = Quaternion.AngleAxis(collision.transform.localEulerAngles.z, Vector3.forward) * Vector3.left;
             rb.AddForce(dir * moveSpeed * 1.1f, ForceMode2D.Force);
             numberOfBounces = 1;
-           // jumpAvailable = true;
+            // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -188,7 +204,7 @@ public class BallMove : MonoBehaviour
             maxSpeedGround = 100;
             rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Force);
             numberOfBounces = 1;
-           // jumpAvailable = true;
+            // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }*/
@@ -199,7 +215,7 @@ public class BallMove : MonoBehaviour
             maxSpeedGround = 100;
             rb.AddForce(Vector2.right * hAxis * moveSpeed * 10f, ForceMode2D.Impulse);
             numberOfBounces = 1;
-           // jumpAvailable = true;
+            // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -207,7 +223,7 @@ public class BallMove : MonoBehaviour
         {
             rb.AddForce(Vector2.right * moveSpeed * 8f, ForceMode2D.Impulse);
             numberOfBounces = 1;
-           // jumpAvailable = true;
+            // jumpAvailable = true;
             audioS.PlayOneShot(impulseSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -217,7 +233,7 @@ public class BallMove : MonoBehaviour
             numberOfBounces = 1;
             rb2d.connectedBody = rb;
             collision.gameObject.GetComponent<PlatformMove>().activate = true;
-          //  jumpAvailable = true;
+            //  jumpAvailable = true;
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -226,7 +242,7 @@ public class BallMove : MonoBehaviour
             FrictionJoint2D rb2d = collision.gameObject.GetComponent<FrictionJoint2D>();
             numberOfBounces = 1;
             rb2d.connectedBody = rb;
-           // jumpAvailable = true;
+            // jumpAvailable = true;
             audioS.PlayOneShot(groundSound, 1F);
             //lastContactPos = collision.contacts[0].point;
         }
@@ -247,21 +263,21 @@ public class BallMove : MonoBehaviour
     {
         //Debug.Log(isGrounded + " -- " + collision.collider.name);
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") /*|| 
-            collision.collider.gameObject.layer == LayerMask.NameToLayer("FastPlatforms")*/)
+        collision.collider.gameObject.layer == LayerMask.NameToLayer("FastPlatforms")*/)
         {
             maxSpeedAir = 14;
             maxSpeedGround = 14;
-           // jumpAvailable = false;
-           // isGrounded = false;
+            // jumpAvailable = false;
+            // isGrounded = false;
             //Debug.Log(isGrounded+" -- " +collision.collider.name);
-            if(this.gameObject.activeSelf)
+            if (this.gameObject.activeSelf)
                 this.transform.SetParent(null);
 
 
         }
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
-          //  isGrounded = false;
+            //  isGrounded = false;
         }
         if (collision.collider.gameObject.tag == "MovingPlatform")
         {
@@ -276,21 +292,21 @@ public class BallMove : MonoBehaviour
         }
         if (collision.collider.gameObject.tag == "Spring")
         {
-           // isGrounded = false;
+            // isGrounded = false;
             maxSpeedAir = 14;
             maxSpeedGround = 14;
         }
     }
 
     void OnCollisionStay2D(Collision2D collision)
-    {        
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") || 
+    {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms") ||
             collision.collider.gameObject.layer == LayerMask.NameToLayer("FallingPlatforms"))
         {
             maxSpeedAir = 14;
             maxSpeedGround = 14;
-           // isGrounded = true;
-           //Debug.Log(isGrounded + " -- " + collision.collider.name);
+            // isGrounded = true;
+            //Debug.Log(isGrounded + " -- " + collision.collider.name);
             //this.transform.SetParent(collision.transform); ---- esto esta repetido en collision enter por eso lo comento
             //lastContactPos = collision.contacts[0].point;
         }
@@ -319,5 +335,8 @@ public class BallMove : MonoBehaviour
 
     }
 }
+
+
+
 
 
