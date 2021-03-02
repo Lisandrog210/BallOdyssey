@@ -15,14 +15,15 @@ public class ButtonResetPlayerprefs : MonoBehaviour
         ConfirmationGo.SetActive(true);
     }
 
-    public void resetYes()
+    public void ResetYes()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("AudioOnOff", 1);
+        LevelSelectButtons.instance.ResetPrefs();
+        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("AudioOnOff", 1);        
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void resetNo()
+    public void ResetNo()
     {
         ConfirmationGo.SetActive(false);
         MenuGo.SetActive(true);

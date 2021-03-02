@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
-
-    private void Start()
-    {
-        DontDestroyOnLoad(this);
-    }
+    
     private void OnApplicationQuit()
     {
         if (LevelManager.Instance.GetLevel(0).won)
