@@ -52,8 +52,7 @@ public class LevelSelectButtons : MonoBehaviour
 
         
 
-        if (PlayerPrefs.HasKey("Lvl1Won"))
-        {
+       
             if (PlayerPrefs.GetInt("Lvl1Won", 0) == 1)
                 LevelManager.Instance.SetLevelWon(0);
             if (PlayerPrefs.GetInt("Lvl2Won", 0) == 1)
@@ -136,7 +135,7 @@ public class LevelSelectButtons : MonoBehaviour
             if (PlayerPrefs.GetInt("Star9.3", 0) == 1)
                 LevelManager.Instance.SetStarTaken(8, 2);
 
-        }
+        
 
     }
 
