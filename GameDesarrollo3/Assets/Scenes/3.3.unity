@@ -8559,6 +8559,21 @@ PrefabInstance:
       propertyPath: levelNumb
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114597848650826746, guid: 3b65ece80c2db344cb673397c2f0f0e8,
+        type: 3}
+      propertyPath: isStarTaken.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114597848650826746, guid: 3b65ece80c2db344cb673397c2f0f0e8,
+        type: 3}
+      propertyPath: isStarTaken.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114597848650826746, guid: 3b65ece80c2db344cb673397c2f0f0e8,
+        type: 3}
+      propertyPath: isStarTaken.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b65ece80c2db344cb673397c2f0f0e8, type: 3}
 --- !u!1 &921629465

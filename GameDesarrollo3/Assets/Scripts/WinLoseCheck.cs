@@ -58,8 +58,8 @@ public class WinLoseCheck : MonoBehaviour {
         {
             audioS.PlayOneShot(winSound, 1f);
 
-            if (level == 8)            
-                ComingSoonPanel.SetActive(true);
+           /* if (level == 8)            
+                ComingSoonPanel.SetActive(true);*/
 
             Time.timeScale = 0;
             LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));

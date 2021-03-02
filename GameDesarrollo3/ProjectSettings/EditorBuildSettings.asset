@@ -12,27 +12,36 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelect.unity
     guid: de5bae87249b7f243aa14e1a206e742a
   - enabled: 1
+    path: Assets/Scenes/1.0.unity
+    guid: e1ed003c6e908044ca47feafe4b884fb
+  - enabled: 1
     path: Assets/Scenes/1.1.unity
     guid: 58be7220c961c334ba2dec2b83fd36fc
   - enabled: 1
     path: Assets/Scenes/1.2.unity
     guid: 35773d5bae23a4b42ace8d7afe295056
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/1.3.unity
     guid: 4f479cad466a6c94d8b8af2d11809a30
   - enabled: 1
     path: Assets/Scenes/2.1.unity
     guid: bc0bcfc9e807ee94ca76734682baa0ca
   - enabled: 1
+    path: Assets/Scenes/2.0.unity
+    guid: 42f03bfaacdb1354c802eb9daf87985c
+  - enabled: 1
     path: Assets/Scenes/2.2.unity
     guid: 31f15e9ea2dd54a47a7dbd3fda5e9ad0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2.3.unity
     guid: d90c73b47b22d9946adfe35638879ae7
   - enabled: 1
+    path: Assets/Scenes/3.0.unity
+    guid: dfcb33db6f32d454582de9defb634a0d
+  - enabled: 1
     path: Assets/Scenes/3.1.unity
     guid: 7b3c459c242ec1f42bc101bff917d533
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/3.2.unity
     guid: 5eca547e08c78814e8edf4e02daa9d8c
   - enabled: 1
