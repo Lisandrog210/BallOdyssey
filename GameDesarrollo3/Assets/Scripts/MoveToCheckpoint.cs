@@ -10,6 +10,7 @@ public class MoveToCheckpoint : MonoBehaviour
     CheckpointManager cmClass;
     public GameObject deathPanel;
     public GameObject deathPanel2;
+    public GameObject buttonPause;
     PlatformFall[] pfClass;
     GameObject[] fallingPlat;
     PlatformMove[] pmClass;
@@ -26,6 +27,7 @@ public class MoveToCheckpoint : MonoBehaviour
         deathPanel2 = GameObject.FindGameObjectWithTag("DeathPanel2");
         fallingPlat = GameObject.FindGameObjectsWithTag("FallingPlatform");
         movingPlatform = GameObject.FindGameObjectsWithTag("MovingPlatform");
+        buttonPause = GameObject.FindGameObjectWithTag("PauseButton");
         pfClass = new PlatformFall[fallingPlat.Length];
         pmClass = new PlatformMove[movingPlatform.Length];
 
@@ -61,11 +63,13 @@ public class MoveToCheckpoint : MonoBehaviour
             {               
                 cmClass.ResetCoins();               
                 deathPanel.gameObject.SetActive(true);
+                buttonPause.SetActive(false);
                 Time.timeScale = 0;
             }
             else
             {                
                 deathPanel2.gameObject.SetActive(true);
+                buttonPause.SetActive(false);
                 Time.timeScale = 0;
             }
         }
