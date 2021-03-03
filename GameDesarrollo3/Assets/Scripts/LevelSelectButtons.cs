@@ -157,14 +157,6 @@ public class LevelSelectButtons : MonoBehaviour
                 coinImage[(i - 1) + (2 * i)].enabled = true;
         }
         lvlButtons[0].interactable = true;
-        //Prueba
-        lvlButtons[1].interactable = true;
-        lvlButtons[2].interactable = true;
-        lvlButtons[4].interactable = true;
-        lvlButtons[5].interactable = true;
-        lvlButtons[7].interactable = true;
-        lvlButtons[8].interactable = true;
-        //Prueba
         lvlButtons[3].interactable = true;
         lvlButtons[6].interactable = true;
         for (int i = 0; i < LevelManager.Instance.GetLevelQuantity(); i++)

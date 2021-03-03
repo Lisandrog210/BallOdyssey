@@ -5443,7 +5443,7 @@ FrictionJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -9.36, y: -6.75}
+  m_ConnectedAnchor: {x: -9.92, y: -7.8}
   m_MaxForce: 1
   m_MaxTorque: 1
 --- !u!50 &568383573
@@ -9765,11 +9765,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -11.8
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.2
+      value: 25.2
       objectReference: {fileID: 0}
     - target: {fileID: 4553125642165022, guid: 671189a2f6b14694fbb14f33219a9221, type: 3}
       propertyPath: m_LocalPosition.z
