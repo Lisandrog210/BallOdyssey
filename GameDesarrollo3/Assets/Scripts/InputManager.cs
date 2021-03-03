@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     static InputManager instance = null;
     Scene activeScene;
     string aSceneName;
+    public GameObject backPanel;
 
     IInput input;
 
@@ -29,6 +30,11 @@ public class InputManager : MonoBehaviour
     {
         activeScene = SceneManager.GetActiveScene();
         aSceneName = activeScene.name;
+        if (aSceneName == "Main Menu")
+        {
+            backPanel = GameObject.FindGameObjectWithTag("BackPanel");
+            backPanel.SetActive(false);
+        }
 
         instance = this;        
         if (PlayerPrefs.GetInt("AudioOnOff") == 0)
@@ -47,9 +53,11 @@ public class InputManager : MonoBehaviour
     {
         if (aSceneName == "Main Menu")
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                SceneManager.LoadScene("Settings");//esta de prueba, deberia abrir panel de Quit -----
+            if (Input.GetKeyDown(KeyCode.Escape) && backPanel.activeSelf)
+                backPanel.SetActive(false);
 
+            else if (Input.GetKeyDown(KeyCode.Escape) && !backPanel.activeSelf)
+                backPanel.SetActive(true);
         }
         else if (aSceneName == "LevelSelect")
         {
