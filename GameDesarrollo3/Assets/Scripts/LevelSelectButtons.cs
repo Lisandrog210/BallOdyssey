@@ -43,8 +43,9 @@ public class LevelSelectButtons : MonoBehaviour
             ResetPrefs();
             PlayerPrefs.SetInt("HasBeenReseted", 0);
         }
-       
-
+        /* lvlButtons[0].interactable = true;
+         lvlButtons[3].interactable = true;
+         lvlButtons[6].interactable = true;*/
 
 
 
@@ -159,6 +160,15 @@ public class LevelSelectButtons : MonoBehaviour
                 coinImage[(i - 2) + (2 * i)].enabled = true;
             if (level.stars[2])
                 coinImage[(i - 1) + (2 * i)].enabled = true;
+        }
+        lvlButtons[0].interactable = true;
+        lvlButtons[3].interactable = true;
+        lvlButtons[6].interactable = true;
+        for (int i = 0; i < LevelManager.Instance.GetLevelQuantity(); i++)
+        {
+            if (LevelManager.Instance.GetLevel(i).won)            
+                if (i+1< LevelManager.Instance.GetLevelQuantity())                
+                    lvlButtons[i+ 1].interactable = true;
         }
 
         if (PlayerPrefs.GetInt("LastWorld", 0) == 1)

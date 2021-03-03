@@ -53,6 +53,7 @@ public class WinLoseCheck : MonoBehaviour {
             StarsManager.Instance.AddStarsToResetList(collider.gameObject);
             collider.gameObject.SetActive(false);
         }
+       
 
         if (collider.tag == "WinCheck" )
         {
