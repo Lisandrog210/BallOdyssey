@@ -15513,9 +15513,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1085440499}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Move
+      - m_Target: {fileID: -5156019555216934341, guid: 5e3985b297a1840419246894d12dc1ab,
+          type: 3}
+        m_TargetAssemblyTypeName: AdRewardedVideo, Assembly-CSharp
+        m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

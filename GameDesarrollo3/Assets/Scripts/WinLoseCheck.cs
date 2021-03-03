@@ -16,8 +16,7 @@ public class WinLoseCheck : MonoBehaviour {
     GameObject canvas;    
     GameObject deathPanel;
     GameObject deathPanel2;
-    GameObject ComingSoonPanel;
-   
+       
     GameObject YouWinPanel;
 
     [SerializeField] AudioClip starSound;
@@ -27,20 +26,13 @@ public class WinLoseCheck : MonoBehaviour {
     AudioSource audioS;
 
     private void Awake()
-    {
-       
-        ComingSoonPanel = GameObject.FindGameObjectWithTag("ComingSoonPanel");
-        //deathPanel = GameObject.FindGameObjectWithTag("DeathPanel");
-        //deathPanel2 = GameObject.FindGameObjectWithTag("DeathPanel2");
+    {  
         YouWinPanel = GameObject.FindGameObjectWithTag("YouWinPanel");
         cm = GameObject.FindGameObjectWithTag("CheckpointManager");      
         canvas = GameObject.FindGameObjectWithTag("UI");       
         cmClass = cm.GetComponent<CheckpointManager>();       
         audioS = GetComponent<AudioSource>();
-
-
-        if (ComingSoonPanel && ComingSoonPanel.activeSelf)
-            ComingSoonPanel.SetActive(false);       
+           
         if (YouWinPanel && YouWinPanel.activeSelf)
             YouWinPanel.SetActive(false);
     }
@@ -59,24 +51,13 @@ public class WinLoseCheck : MonoBehaviour {
         {
             audioS.PlayOneShot(winSound, 1f);
 
-           /* if (level == 8)            
-                ComingSoonPanel.SetActive(true);*/
-
             Time.timeScale = 0;
             LevelManager.Instance.SetLevelWon(level, StarsManager.Instance.GetStarsTaken(0), StarsManager.Instance.GetStarsTaken(1), StarsManager.Instance.GetStarsTaken(2));
             YouWinPanel.SetActive(true);
-            
-            //WinScene();
         }
 
-        if (collider.tag == "LoseCheck")
-        {            
-            //Time.timeScale = 0;
+        if (collider.tag == "LoseCheck")      
             audioS.PlayOneShot(loseSound, 1f);
-            //this.gameObject.SetActive(false);
-        }
-       
-        //GameOverScene();
     } 
 
     public void WinScene() {
