@@ -21,15 +21,8 @@ public class AudioToggle : MonoBehaviour
         {
             myToggle.isOn = true;
             AudioListener.volume = 1;
-        }
-               /* if (AudioListener.volume == 0)
-         {
-             myToggle.isOn = false;
-         }*/
+        }              
     }
-
-
-
 
     public void ToggleAudioOnValueChange(bool audioIn)
     {

@@ -29,18 +29,14 @@ public class PlatformMove: MonoBehaviour
     }    
 
     void LateUpdate()
-    {
-        //Debug.Log("BALLCOLLIDE bool = " + ballCollide);
-        //Debug.Log(this.name + " - nextwayp = " + nextWaypointIndex);
+    {       
         if (moveWhenPlayer == true)
         {
             if (activate == true)             
-                Move();            
+                Move();  
         }
         else
             Move();
-        
-        
     }
 
     private void CalculateNextWaypoint() {
@@ -102,21 +98,16 @@ public class PlatformMove: MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {        
-        if(collision.gameObject.tag == "Ball")
-        {
-            //Debug.Log("ACTIVATE");
+        if(collision.gameObject.tag == "Ball")      
             ballCollide = true;
-        }
+        
        
     }
     
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ball")
-        {
-            //Debug.Log("DE-ACTIVATE");
-            ballCollide = false;
-        }
+        if (collision.gameObject.tag == "Ball")      
+            ballCollide = false;        
     }
 
 }

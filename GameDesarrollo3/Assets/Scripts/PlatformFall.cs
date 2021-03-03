@@ -30,8 +30,7 @@ public class PlatformFall : MonoBehaviour
             audioS.PlayOneShot(crackSound, 1F);
             Invoke("Fall", fallDelay);
         }
-        //else            
-            //this.gameObject.SetActive(false);        
+      
     }    
 
     void Fall()
@@ -39,9 +38,7 @@ public class PlatformFall : MonoBehaviour
         if(ball)
             ball.transform.parent = null;
 
-        rb2d.bodyType = RigidbodyType2D.Dynamic;
-        //this.transform.DetachChildren();
-        //this.gameObject.SetActive(false);
+        rb2d.bodyType = RigidbodyType2D.Dynamic;      
         this.gameObject.GetComponent<Collider2D>().enabled = false;
         this.transform.Find("FallChild").gameObject.GetComponent<Collider2D>().enabled = false;       
         this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -50,8 +47,7 @@ public class PlatformFall : MonoBehaviour
 
     public void ResetPosition()
     {
-        CancelInvoke();
-        //this.gameObject.SetActive(true);
+        CancelInvoke();      
         this.gameObject.GetComponent<Collider2D>().enabled = true;
         this.transform.Find("FallChild").gameObject.GetComponent<Collider2D>().enabled = true;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;               

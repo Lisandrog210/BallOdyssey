@@ -43,11 +43,6 @@ public class LevelSelectButtons : MonoBehaviour
             ResetPrefs();
             PlayerPrefs.SetInt("HasBeenReseted", 0);
         }
-        /* lvlButtons[0].interactable = true;
-         lvlButtons[3].interactable = true;
-         lvlButtons[6].interactable = true;*/
-
-
 
         if (instance == null)
             instance = this;
@@ -263,15 +258,13 @@ public class LevelSelectButtons : MonoBehaviour
 
 
     public void ResetPrefs()
-    {
-        //PlayerPrefs.DeleteAll();
+    {        
         for (int i = 0; i < LevelManager.Instance.GetLevelQuantity(); i++)
         {
             LevelManager.Instance.SetLevelNotWon(i);
             LevelManager.Instance.SetStarNotTaken(i, 0);
             LevelManager.Instance.SetStarNotTaken(i, 1);
             LevelManager.Instance.SetStarNotTaken(i, 2);
-
         }
     }
 

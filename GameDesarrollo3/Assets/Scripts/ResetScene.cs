@@ -15,8 +15,7 @@ public class ResetScene : MonoBehaviour
     }
 
     private void Reset()
-    {
-        //SceneManager.LoadScene(nextLevel);
+    {       
         Debug.Log("changing level");
     }
 }

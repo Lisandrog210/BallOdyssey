@@ -38,11 +38,7 @@ public class StarsManager : MonoBehaviour
             star[2].gameObject.SetActive(false);
 
         if (instance == null)
-            instance = this;
-       /* else
-        {
-            Destroy(this.gameObject);
-        }*/
+            instance = this;   
     }
 
     public GameObject GetStarsArray(int _star)

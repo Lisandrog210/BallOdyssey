@@ -38,9 +38,7 @@ public class LevelManager
     }
 
     public void SetLevelWon(int level, bool star1, bool star2, bool star3)
-    {
-        // agregar chequeo de bounds array
-
+    {        
         levels[level].won = true;
         if (star1)
             starCounter++;
@@ -48,16 +46,10 @@ public class LevelManager
             starCounter++;
         if (star3)
             starCounter++;
-        for (int i = 0; i < starCounter; i++)
-        {
+        for (int i = 0; i < starCounter; i++)       
             levels[level].stars[i] = true;
-            
-        }
+        
         starCounter = 0;
-
-        /*levels[level].stars[0] = star1;
-        levels[level].stars[1] = star2;
-        levels[level].stars[2] = star3;*/
     }
        
     public bool ReturnStars(int aux,int aux2)
@@ -66,12 +58,7 @@ public class LevelManager
     }
 
     public Level GetLevel(int level)
-    {
-        if (level >= levels.Length)
-        {
-            
-        }
-        //Debug.Log("error get level" + level);
+    {      
         return levels[level];
     }  
 
