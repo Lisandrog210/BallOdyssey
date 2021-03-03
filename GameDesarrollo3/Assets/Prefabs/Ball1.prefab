@@ -137,8 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f689f9cb589d19c42b2e409bb736bea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 8
+  jumpForce: 16
   moveSpeed: 60
+  isGrounded: 0
   jumpAvailable: 0
   jumpSound: {fileID: 8300000, guid: dbf467af729ee1648ae15731958c7bd5, type: 3}
   groundSound: {fileID: 8300000, guid: 6576f03c4feaf6848bb68377c5190364, type: 3}

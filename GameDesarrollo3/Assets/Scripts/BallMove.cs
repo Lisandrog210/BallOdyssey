@@ -7,7 +7,7 @@ using System.Linq;
 public class BallMove : MonoBehaviour
 {
     [SerializeField]
-    private float jumpForce = 8;
+    private float jumpForce = 16;
     private Rigidbody2D rb;
     [SerializeField]
     private float moveSpeed = 60;
@@ -223,8 +223,11 @@ public class BallMove : MonoBehaviour
        
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
-            maxSpeedAir = 14;
-            maxSpeedGround = 14;        
+            maxSpeedAir = 20;
+            maxSpeedGround = 20;
+            // jumpAvailable = false;
+            // isGrounded = false;
+            //Debug.Log(isGrounded+" -- " +collision.collider.name);
             if (this.gameObject.activeSelf)
                 this.transform.SetParent(null);
 
@@ -241,9 +244,10 @@ public class BallMove : MonoBehaviour
             rb2d.connectedBody = null;
         }
         if (collision.collider.gameObject.tag == "Spring")
-        {            
-            maxSpeedAir = 14;
-            maxSpeedGround = 14;
+        {
+            // isGrounded = false;
+            maxSpeedAir = 20;
+            maxSpeedGround = 20;
         }
     }
 

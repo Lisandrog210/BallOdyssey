@@ -8,13 +8,16 @@ using UnityEngine.UI;
 public class GoBackButton : MonoBehaviour {
 
     GameObject pausePanel;
+    GameObject backPanel;
     [SerializeField] GameObject pauseButton;
 
     void Awake ()
     {
-        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");        
+        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
+        backPanel = GameObject.FindGameObjectWithTag("BackPanel");
         var btn = GetComponent<Button>();
         btn.onClick.AddListener(UnPause);
+        
     }
 
     void Update()
@@ -24,9 +27,9 @@ public class GoBackButton : MonoBehaviour {
     }
 
     private void UnPause()
-    {
+    {        
         GameObject.FindGameObjectWithTag("UI").transform.Find("PauseButton").gameObject.SetActive(true);
         pausePanel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1;      
     }
 }

@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseButton : MonoBehaviour
 {
-    GameObject pausePanel;    
+    GameObject pausePanel;
+    GameObject pauseButton;    
 
     private void Awake()
     {
-        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");               
+        pausePanel = GameObject.FindGameObjectWithTag("PausePanel");
+        pauseButton = GameObject.FindGameObjectWithTag("PauseButton");
         var btn = GetComponent<Button>();
         btn.onClick.AddListener(OpenPausePanel);
         if(pausePanel)
@@ -19,7 +21,8 @@ public class PauseButton : MonoBehaviour
     
     public void OpenPausePanel()
     {
-        GameObject.FindGameObjectWithTag("PauseButton").SetActive(false);
+        if(pauseButton)
+            pauseButton.SetActive(false);
         pausePanel.SetActive(true);        
         Time.timeScale = 0;
     }
