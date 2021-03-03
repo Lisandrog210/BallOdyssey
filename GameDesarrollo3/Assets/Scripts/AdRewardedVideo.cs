@@ -18,11 +18,13 @@ public class AdRewardedVideo : MonoBehaviour, IUnityAdsListener
 
     public void ShowAd()
     {
+        AudioListener.volume = 0;
         Advertisement.Show("rewardedVideo");
     }
   
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
+        AudioListener.volume = 1;
         if (showResult == ShowResult.Finished)        
             FindObjectOfType<MoveToCheckpoint>().Move();
         else if (showResult == ShowResult.Failed)
